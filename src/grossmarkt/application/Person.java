@@ -20,10 +20,6 @@ public abstract class Person {
     return id;
   }
 
-  public void setId(double id) {
-    this.id = id;
-  }
-
   public String getVorname() {
     return vorname;
   }
