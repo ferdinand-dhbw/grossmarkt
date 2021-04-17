@@ -15,5 +15,5 @@ Setting the style in IntelliJ: https://medium.com/swlh/configuring-google-style-
 1. Clone Project
 2. Add new Configuration (upper right corner) \
    2.1 Modify Options -> Add VM-option `--module-path C:\Users\koenigf\Documents\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib --add-modules=javafx.controls,javafx.fxml` (openjdk-path will vary) \
-   2.2 Select Main function
+   2.2 Select grossmarkt.Main function
 3. Open Project Structure -> Project Settings -> Libraries: select lib folder of jdk
