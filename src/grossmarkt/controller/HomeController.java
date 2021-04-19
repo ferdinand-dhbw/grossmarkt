@@ -13,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -65,7 +66,7 @@ public class HomeController {
   }
 
   private void switchScene(@NotNull Views view) {
-    System.out.println("Switching to "+view.filename);
+    System.out.println("Switching to " + view.filename);
     FXMLLoader loader = new FXMLLoader(getClass().getResource("../"+view.filename));
     Parent root = null;
     try {
@@ -73,7 +74,8 @@ public class HomeController {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    nav_kunde.getScene().setRoot(root);
+    Scene currentScene = nav_kunde.getScene();
+    currentScene.setRoot(root);
   }
 
 
