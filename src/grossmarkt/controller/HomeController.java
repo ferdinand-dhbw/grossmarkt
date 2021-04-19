@@ -1,6 +1,7 @@
 package grossmarkt.controller;
 
 import grossmarkt.maps.MapReference;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javafx.animation.Animation;
@@ -9,6 +10,8 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -19,22 +22,52 @@ public class HomeController {
 
   private MapReference mapReference;
 
+  public enum Views {
+    LAGER("Lager.fxml"),
+    HOME("Home.fxml");
+
+    public final String filename;
+
+    Views(String filename) {
+      this.filename = filename;
+    }
+  }
+
   @FXML
   private Text timestamp;
   @FXML
   private Button nav_kunde;
+  @FXML
+  private Button nav_lager;
   @FXML
   private Button home_aufträge;
 
   public void initializeUI() {
     initClock();
     initEvents();
+
   }
 
   private void initEvents() {
     EventHandler<ActionEvent> featureAlert = event -> featureAlert();
     nav_kunde.setOnAction(featureAlert);
     home_aufträge.setOnAction(featureAlert);
+
+    EventHandler<ActionEvent> switchScene = event -> switchScene(Views.LAGER);
+    nav_lager.setOnAction(switchScene);
+
+  }
+
+  private void switchScene(Views view) {
+    System.out.println("Switching to "+view.filename);
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("../"+view.filename));
+    Parent root = null;
+    try {
+      root = loader.load();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    nav_kunde.getScene().setRoot(root);
   }
 
 
