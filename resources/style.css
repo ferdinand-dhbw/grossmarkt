@@ -32,3 +32,11 @@
     -fx-text-base-color: white;
     -fx-body-color: black;
 }
+
+.search-bar {
+    -fx-background-color:  #282c34;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-style: hidden hidden solid hidden;
+}
