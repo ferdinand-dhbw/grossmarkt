@@ -1,5 +1,6 @@
 package grossmarkt.controller;
 
+import grossmarkt.application.Lieferant;
 import grossmarkt.maps.MapReference;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import org.jetbrains.annotations.NotNull;
 
 public class HomeController {
 
@@ -24,7 +26,8 @@ public class HomeController {
 
   public enum Views {
     LAGER("Lager.fxml"),
-    HOME("Home.fxml");
+    HOME("Home.fxml"),
+    LIEFERANT("Lieferant.fxml");
 
     public final String filename;
 
@@ -41,6 +44,8 @@ public class HomeController {
   private Button nav_lager;
   @FXML
   private Button home_aufträge;
+  @FXML
+  private Button nav_lieferant;
 
   public void initializeUI() {
     initClock();
@@ -56,9 +61,10 @@ public class HomeController {
     EventHandler<ActionEvent> switchScene = event -> switchScene(Views.LAGER);
     nav_lager.setOnAction(switchScene);
 
+    nav_lieferant.setOnAction(event -> switchScene(Views.LIEFERANT));
   }
 
-  private void switchScene(Views view) {
+  private void switchScene(@NotNull Views view) {
     System.out.println("Switching to "+view.filename);
     FXMLLoader loader = new FXMLLoader(getClass().getResource("../"+view.filename));
     Parent root = null;
