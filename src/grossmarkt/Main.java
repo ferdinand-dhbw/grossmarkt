@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 public class Main extends Application {
 
@@ -29,6 +30,7 @@ public class Main extends Application {
     homeStage.setMinHeight(576);
     homeStage.setMinWidth(1024);
     homeStage.setScene(new Scene(root, homeStage.getMinWidth(), homeStage.getMinHeight()));
+    homeStage.getIcons().add(new Image("https://img.icons8.com/cotton/344/vegetables-box--v1.png"));
     homeStage.show();
   }
 

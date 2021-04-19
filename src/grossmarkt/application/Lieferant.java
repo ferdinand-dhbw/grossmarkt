@@ -5,4 +5,5 @@ public class Lieferant extends Person{
       String strasse, String hausNr, int plz) {
     super(vorname, nachname, land, stadt, strasse, hausNr, plz);
   }
+
 }

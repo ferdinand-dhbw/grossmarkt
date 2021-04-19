@@ -1,6 +1,7 @@
 package grossmarkt.maps;
 
 import grossmarkt.application.Lieferant;
+import grossmarkt.application.Produzent;
 import java.util.Collections;
 import java.util.HashMap;
 
