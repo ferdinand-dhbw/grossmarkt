@@ -1,3 +1,7 @@
+.body {
+    -fx-background-color:  #282c34;
+}
+
 .nav_btn {
     -fx-background-color: white;
 }

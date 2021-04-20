@@ -81,7 +81,7 @@ public class LieferantController implements Controller{
       lieferantHinzufügenController = loader.getController();
       lieferantHinzufügenController.init(reference);
       Stage addStage = new Stage();
-      addStage.setScene(new Scene(root, 660, 490));
+      addStage.setScene(new Scene(root, 660, 350));
       addStage.setResizable(false);
       addStage.initModality(Modality.APPLICATION_MODAL);
       addStage.showAndWait();
