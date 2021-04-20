@@ -22,7 +22,9 @@ public class LieferantController implements Controller{
 
   public void setMapReference(MapReference reference){ this.reference = reference; }
 
-  public void initialize() {
+  public void init(MapReference reference) {
+    setMapReference(reference);
+
     TableColumn<Lieferant, String> lNummer = new TableColumn<>("Lieferantennummer"),
         lVorname = new TableColumn<>("Vorname"),
         lNachname = new TableColumn<>("Nachname"),

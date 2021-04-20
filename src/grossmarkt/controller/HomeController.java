@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class HomeController implements Controller{
 
-  private MapReference mapReference;
+  private MapReference mapReference = new MapReference();
 
   public enum Views {
     LAGER("Lager.fxml"),
@@ -48,10 +48,10 @@ public class HomeController implements Controller{
   @FXML
   private Button nav_lieferant;
 
-  public void initialize() {
+  public void init(MapReference reference) {
+    setMapReference(reference);
     initClock();
     initEvents();
-
   }
 
   private void initEvents() {
@@ -71,7 +71,7 @@ public class HomeController implements Controller{
     Parent root = null;
     try {
       root = loader.load();
-      ((Controller) loader.getController()).setMapReference(mapReference);
+      ((Controller) loader.getController()).init(mapReference);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -89,7 +89,6 @@ public class HomeController implements Controller{
     clock.play();
   }
 
-  @Override
   public void setMapReference(MapReference mapReference) {
     this.mapReference = mapReference;
   }

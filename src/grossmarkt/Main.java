@@ -21,7 +21,7 @@ public class Main extends Application {
     Parent root = loader.load();
 
     HomeController homeController = loader.getController();
-    homeController.setMapReference(MAP_REFERENCE);
+    homeController.init(MAP_REFERENCE);
     MAP_REFERENCE.getLieferantMap().populateWithDemodata(); //TODO remove
 
     homeStage.setTitle("Obst & Gemüse Meier oHG Verwaltung");
