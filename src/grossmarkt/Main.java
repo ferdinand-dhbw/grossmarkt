@@ -6,8 +6,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
@@ -23,8 +21,7 @@ public class Main extends Application {
     Parent root = loader.load();
 
     HomeController homeController = loader.getController();
-    homeController.setListReference(MAP_REFERENCE);
-    homeController.initializeUI();
+    homeController.setMapReference(MAP_REFERENCE);
 
     homeStage.setTitle("Obst & Gemüse Meier oHG Verwaltung");
     homeStage.setMinHeight(576);

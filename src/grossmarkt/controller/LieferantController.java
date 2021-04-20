@@ -2,6 +2,7 @@ package grossmarkt.controller;
 
 import grossmarkt.application.Lieferant;
 import grossmarkt.maps.LieferantMap;
+import grossmarkt.maps.MapReference;
 import java.util.HashMap;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -13,10 +14,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseButton;
 
 
-public class LieferantController{
+public class LieferantController implements Controller{
   @FXML
   private TableView<Lieferant> lieferantenTableView;
 
+  private MapReference reference;
+
+
+  public void setMapReference(MapReference reference){ this.reference = reference; }
 
   public void initialize() {
     TableColumn<Lieferant, String> lNummer = new TableColumn<>("Lieferantennummer"),

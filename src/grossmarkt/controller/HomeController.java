@@ -21,7 +21,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.jetbrains.annotations.NotNull;
 
-public class HomeController {
+public class HomeController implements Controller{
 
   private MapReference mapReference;
 
@@ -48,7 +48,7 @@ public class HomeController {
   @FXML
   private Button nav_lieferant;
 
-  public void initializeUI() {
+  public void initialize() {
     initClock();
     initEvents();
 
@@ -71,6 +71,7 @@ public class HomeController {
     Parent root = null;
     try {
       root = loader.load();
+      ((Controller) loader.getController()).setMapReference(mapReference);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -88,7 +89,8 @@ public class HomeController {
     clock.play();
   }
 
-  public void setListReference(MapReference mapReference) {
+  @Override
+  public void setMapReference(MapReference mapReference) {
     this.mapReference = mapReference;
   }
 
