@@ -13,8 +13,8 @@ public class LieferantMap {
   }
 
   public void addLieferant(Lieferant lieferant){
-    int nextFreeKey = lieferantHashMap.isEmpty() ? 0 : Collections.max(lieferantHashMap.keySet()) +1;
-    lieferantHashMap.put(nextFreeKey, lieferant);
+    int nextFreeKey = lieferantHashMap.isEmpty() ? 1 : Collections.max(lieferantHashMap.keySet()) +1;
+    lieferantHashMap.put(nextFreeKey, lieferant); // TODO nextFreeKey auf ID
   }
 
   public void populateWithDemodata(){
