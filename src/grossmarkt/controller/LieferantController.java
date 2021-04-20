@@ -20,7 +20,6 @@ public class LieferantController implements Controller{
 
   private MapReference reference;
 
-
   public void setMapReference(MapReference reference){ this.reference = reference; }
 
   public void initialize() {
@@ -42,12 +41,11 @@ public class LieferantController implements Controller{
     lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse);
 
     ObservableList<Lieferant> observableLieferantenList = FXCollections.observableArrayList();
-    LieferantMap demo = new LieferantMap();
 
     lieferantenTableView.getItems().add(new Lieferant("Ann", "Geber", "DE", "Stuttgart", "Schulstrasse", "3a", 70174));
     //demo.populateWithDemodata();
     //demo.getLieferantHashMap().forEach((key, lieferant) -> observableLieferantenList.add(lieferant));
-    //demo.getLieferantHashMap().forEach((key, lieferant) -> lieferantenTableView.getItems().add(lieferant)); //TODO FIX BUG
+    reference.getLieferantMap(); //.getLieferantHashMap().forEach((key, lieferant) -> lieferantenTableView.getItems().add(lieferant)); //TODO FIX BUG
 
     lieferantenTableView.setRowFactory(tv -> {
       TableRow<Lieferant> row = new TableRow<>();

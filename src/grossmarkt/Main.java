@@ -22,6 +22,7 @@ public class Main extends Application {
 
     HomeController homeController = loader.getController();
     homeController.setMapReference(MAP_REFERENCE);
+    MAP_REFERENCE.getLieferantMap().populateWithDemodata(); //TODO remove
 
     homeStage.setTitle("Obst & Gemüse Meier oHG Verwaltung");
     homeStage.setMinHeight(576);
