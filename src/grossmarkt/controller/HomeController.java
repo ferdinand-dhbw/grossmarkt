@@ -1,6 +1,5 @@
 package grossmarkt.controller;
 
-import grossmarkt.application.Lieferant;
 import grossmarkt.maps.MapReference;
 import java.io.IOException;
 import java.time.LocalDateTime;

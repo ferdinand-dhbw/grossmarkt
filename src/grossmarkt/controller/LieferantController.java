@@ -1,22 +1,24 @@
 package grossmarkt.controller;
 
 import grossmarkt.application.Lieferant;
-import grossmarkt.maps.LieferantMap;
 import grossmarkt.maps.MapReference;
-import java.util.HashMap;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 
 
 public class LieferantController implements Controller{
   @FXML
   private TableView<Lieferant> lieferantenTableView;
+  @FXML
+  private TextField lieferantSearchTxtfield;
 
   private MapReference reference;
 
@@ -44,11 +46,7 @@ public class LieferantController implements Controller{
 
     ObservableList<Lieferant> observableLieferantenList = FXCollections.observableArrayList();
 
-    //lieferantenTableView.getItems().add(new Lieferant("Ann", "Geber", "DE", "Stuttgart", "Schulstrasse", "3a", 70174));
-    //demo.populateWithDemodata();
-    //demo.getLieferantHashMap().forEach((key, lieferant) -> observableLieferantenList.add(lieferant));
-    reference.getLieferantMap().getLieferantHashMap()
-        .forEach((key, lieferant) -> lieferantenTableView.getItems().add(lieferant));
+    lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
 
     lieferantenTableView.setRowFactory(tv -> {
       TableRow<Lieferant> row = new TableRow<>();
@@ -68,4 +66,27 @@ public class LieferantController implements Controller{
     System.out.println("clicked " + lieferant.getNachname());
   }
 
+  private FilteredList<Lieferant> filterLieferantenAndSetUpSearch() {
+    ObservableList<Lieferant> observableLieferantList = FXCollections.observableArrayList();
+    observableLieferantList.addAll(reference.getLieferantMap().getLieferantHashMap().values());
+    FilteredList<Lieferant> filteredLieferanten = new FilteredList<>(observableLieferantList, p -> true);
+
+    lieferantSearchTxtfield.textProperty()
+        .addListener((observable, oldValue, newValue) -> {
+          setPredicate(filteredLieferanten, newValue);
+          lieferantenTableView.setItems(filteredLieferanten);
+        });
+
+    return filteredLieferanten;
+  }
+
+  private void setPredicate(FilteredList<Lieferant> filteredLieferanten, String newValue) {
+    filteredLieferanten.setPredicate(lieferant -> {
+      if (newValue == null || newValue.isEmpty())
+        return true;
+      if (lieferant.getVorname().toLowerCase().contains(newValue.toLowerCase()) || lieferant.getNachname().toLowerCase().contains(newValue.toLowerCase()))
+        return true;
+      return Integer.toString(lieferant.getId()).contains(newValue);
+    });
+  }
 }
