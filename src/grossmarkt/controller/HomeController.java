@@ -19,7 +19,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import org.jetbrains.annotations.NotNull;
 
 public class HomeController implements Controller{
 
@@ -65,7 +64,7 @@ public class HomeController implements Controller{
     nav_lieferant.setOnAction(event -> switchScene(Views.LIEFERANT));
   }
 
-  private void switchScene(@NotNull Views view) {
+  private void switchScene(Views view) {
     System.out.println("Switching to " + view.filename);
     FXMLLoader loader = new FXMLLoader(getClass().getResource("../"+view.filename));
     Parent root = null;
