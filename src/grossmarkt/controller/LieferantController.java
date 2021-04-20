@@ -3,12 +3,18 @@ package grossmarkt.controller;
 import grossmarkt.application.Lieferant;
 import grossmarkt.maps.MapReference;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -102,7 +108,25 @@ public class LieferantController implements Controller{
   }
 
   private void deleteLieferanten(ArrayList<Lieferant> lieferants){
-    lieferants.forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
-    lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
+    if(lieferants.size() == 0) return;
+
+    Alert alert = new Alert(AlertType.NONE);
+    alert.setTitle("Möchten Sie die Lieferanten unwiderruflich löschen?");
+    AtomicReference<String> content = new AtomicReference<>("Lieferantennummern");
+    lieferants.forEach(lieferant -> content
+        .set(content.get().concat("\n").concat(Integer.toString(lieferant.getId()))));
+    alert.setContentText(content.get());
+
+    alert.setHeaderText(null);
+    ButtonType buttonTypeCancel = new ButtonType("Nein", ButtonData.CANCEL_CLOSE);
+    ButtonType buttonTypeAgree = new ButtonType("Ja", ButtonData.NEXT_FORWARD);
+
+    alert.getButtonTypes().setAll(buttonTypeCancel, buttonTypeAgree);
+
+    if(alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
+      lieferants
+          .forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
+      lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
+    }
   }
 }
