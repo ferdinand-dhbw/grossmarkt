@@ -3,15 +3,23 @@ package grossmarkt.controller;
 import grossmarkt.application.Lieferant;
 import grossmarkt.maps.LieferantMap;
 import grossmarkt.maps.MapReference;
+import java.io.IOException;
 import java.util.HashMap;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Control;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 
 public class LieferantController implements Controller{
@@ -65,6 +73,21 @@ public class LieferantController implements Controller{
 
   public void showLieferant(Lieferant lieferant){
     System.out.println("clicked " + lieferant.getNachname());
+    Parent root;
+    LieferantHinzufügenController lieferantHinzufügenController;
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("../LieferantHinzufügen.fxml"));
+      root = loader.load();
+      lieferantHinzufügenController = loader.getController();
+      lieferantHinzufügenController.init(reference);
+      Stage addStage = new Stage();
+      addStage.setScene(new Scene(root, 660, 490));
+      addStage.setResizable(false);
+      addStage.initModality(Modality.APPLICATION_MODAL);
+      addStage.showAndWait();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
 }
