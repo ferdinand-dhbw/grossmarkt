@@ -2,11 +2,14 @@ package grossmarkt.controller;
 
 import grossmarkt.application.Lieferant;
 import grossmarkt.maps.MapReference;
+import java.util.ArrayList;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -19,6 +22,8 @@ public class LieferantController implements Controller{
   private TableView<Lieferant> lieferantenTableView;
   @FXML
   private TextField lieferantSearchTxtfield;
+  @FXML
+  private Button delBtn;
 
   private MapReference reference;
 
@@ -42,9 +47,11 @@ public class LieferantController implements Controller{
         .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
     //lProduzent.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().get));
     //lPreisliste.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getId())); // TODO implement that
-    lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse);
 
-    ObservableList<Lieferant> observableLieferantenList = FXCollections.observableArrayList();
+    lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse);
+    lieferantenTableView.getSelectionModel().setSelectionMode(
+        SelectionMode.MULTIPLE
+    );
 
     lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
 
@@ -60,6 +67,10 @@ public class LieferantController implements Controller{
       });
       return row;
     });
+
+    delBtn.setOnAction(event ->
+      deleteLieferanten(
+          new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
   }
 
   public void showLieferant(Lieferant lieferant){
@@ -88,5 +99,10 @@ public class LieferantController implements Controller{
         return true;
       return Integer.toString(lieferant.getId()).contains(newValue);
     });
+  }
+
+  private void deleteLieferanten(ArrayList<Lieferant> lieferants){
+    lieferants.forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
+    lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
   }
 }

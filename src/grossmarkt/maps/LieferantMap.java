@@ -24,4 +24,8 @@ public class LieferantMap {
     addLieferant("Jo", "Ghurt", "GB", "London", "Mainstreet", "420", 424242);
     addLieferant("Knut", "Schfleck", "DE", "Muenchen", "Wilde Maus", "0", 80331);
   }
+
+  public void deleteLieferant(int key){
+    lieferantHashMap.remove(key);
+  }
 }
