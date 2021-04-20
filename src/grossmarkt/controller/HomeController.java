@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class HomeController implements Controller{
 
-  private MapReference mapReference = new MapReference();
+  private MapReference mapReference;
 
   public enum Views {
     LAGER("Lager.fxml"),
