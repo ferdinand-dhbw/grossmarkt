@@ -12,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.SelectionMode;
@@ -43,7 +42,7 @@ public class LieferantController implements Controller{
         lNachname = new TableColumn<>("Nachname"),
         lAdresse = new TableColumn<>("Geschäftsadresse"),
         lProduzent = new TableColumn<>(
-            "Produzent"), //TODO implement this relationship (maybe as String)
+            "Produzent"),
         lPreisliste = new TableColumn<>("Preisliste");
     lNummer.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getId()));
     lVorname.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getVorname()));
@@ -51,10 +50,10 @@ public class LieferantController implements Controller{
         .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getNachname()));
     lAdresse
         .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
-    //lProduzent.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().get));
-    //lPreisliste.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getId())); // TODO implement that
+    lProduzent.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduzenten()));
+    lPreisliste.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
 
-    lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse);
+    lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse, lProduzent, lPreisliste);
     lieferantenTableView.getSelectionModel().setSelectionMode(
         SelectionMode.MULTIPLE
     );
