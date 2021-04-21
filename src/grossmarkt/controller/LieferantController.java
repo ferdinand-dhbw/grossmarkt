@@ -73,9 +73,9 @@ public class LieferantController implements Controller{
       root = loader.load();
       lieferantHinzufügenController = loader.getController();
       lieferantHinzufügenController.init(reference);
-      lieferantHinzufügenController.setCurrentLieferant(lieferant);
+      lieferantHinzufügenController.setUp(lieferant);
       Stage addStage = new Stage();
-      addStage.setScene(new Scene(root, 660, 350));
+      addStage.setScene(new Scene(root, 660, 450));
       addStage.setResizable(false);
       addStage.initModality(Modality.APPLICATION_MODAL);
       addStage.showAndWait();
