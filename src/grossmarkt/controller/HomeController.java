@@ -1,7 +1,9 @@
 package grossmarkt.controller;
 
+import static grossmarkt.controller.ControllerUtility.switchScene;
+
+import grossmarkt.controller.ControllerUtility.Views;
 import grossmarkt.maps.MapReference;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javafx.animation.Animation;
@@ -10,30 +12,16 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-public class HomeController implements Controller{
+public class HomeController implements Controller {
 
   private MapReference mapReference;
 
-  public enum Views {
-    LAGER("Lager.fxml"),
-    HOME("Home.fxml"),
-    LIEFERANT("Lieferant.fxml");
-
-    public final String filename;
-
-    Views(String filename) {
-      this.filename = filename;
-    }
-  }
 
   @FXML
   private Text timestamp;
@@ -57,24 +45,10 @@ public class HomeController implements Controller{
     nav_kunde.setOnAction(featureAlert);
     home_aufträge.setOnAction(featureAlert);
 
-    EventHandler<ActionEvent> switchScene = event -> switchScene(Views.LAGER);
-    nav_lager.setOnAction(switchScene);
-
-    nav_lieferant.setOnAction(event -> switchScene(Views.LIEFERANT));
-  }
-
-  private void switchScene(Views view) {
-    System.out.println("Switching to " + view.filename);
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("../"+view.filename));
-    Parent root = null;
-    try {
-      root = loader.load();
-      ((Controller) loader.getController()).init(mapReference);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    Scene currentScene = nav_kunde.getScene();
-    currentScene.setRoot(root);
+    nav_lager.setOnAction(
+        event -> switchScene(Views.LAGER, nav_kunde.getScene(), getClass(), mapReference));
+    nav_lieferant.setOnAction(
+        event -> switchScene(Views.LIEFERANT, nav_kunde.getScene(), getClass(), mapReference));
   }
 
 
@@ -94,7 +68,8 @@ public class HomeController implements Controller{
   public void featureAlert() {
     var alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("Funktion nicht verfügbar");
-    alert.setContentText("Die ausgewählte Funktion ist in dieser Version des Programms nocht nicht verfügbar.");
+    alert.setContentText(
+        "Die ausgewählte Funktion ist in dieser Version des Programms noch nicht verfügbar.");
     alert.setHeaderText(null);
 
     alert.showAndWait();

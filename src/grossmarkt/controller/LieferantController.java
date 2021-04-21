@@ -1,6 +1,9 @@
 package grossmarkt.controller;
 
+import static grossmarkt.controller.ControllerUtility.switchScene;
+
 import grossmarkt.application.Lieferant;
+import grossmarkt.controller.ControllerUtility.Views;
 import grossmarkt.maps.MapReference;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,6 +38,10 @@ public class LieferantController implements Controller{
   private TextField lieferantSearchTxtfield;
   @FXML
   private Button delBtn;
+  @FXML
+  private Button nav_lager;
+  @FXML
+  private Button nav_start;
 
   private MapReference reference;
 
@@ -42,6 +49,7 @@ public class LieferantController implements Controller{
 
   public void init(MapReference reference) {
     setMapReference(reference);
+    initEvents();
 
     TableColumn<Lieferant, String> lNummer = new TableColumn<>("Lieferantennummer"),
         lVorname = new TableColumn<>("Vorname"),
@@ -148,5 +156,12 @@ public class LieferantController implements Controller{
           .forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
       lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
     }
+  }
+
+  private void initEvents() {
+    nav_start.setOnAction(
+        event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
+    nav_lager.setOnAction(
+        event -> switchScene(Views.LAGER, nav_lager.getScene(), getClass(), reference));
   }
 }

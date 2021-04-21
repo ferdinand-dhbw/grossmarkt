@@ -15,8 +15,6 @@ public class Main extends Application {
 
   @Override
   public void start(Stage homeStage) throws Exception{
-    //Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-
     FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
     Parent root = loader.load();
 
