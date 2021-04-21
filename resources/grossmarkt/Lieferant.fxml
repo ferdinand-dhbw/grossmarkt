@@ -30,7 +30,7 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
       <children>
-        <ComboBox fx:id="nav_sprache" prefWidth="150.0" promptText="Sprache" styleClass="lang-selector" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+        <ComboBox fx:id="nav_sprache" prefWidth="150.0" promptText="Sprache" styleClass="lang-selector" stylesheets="@../style.css" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
           <GridPane.margin>
             <Insets left="10.0" right="10.0" />
           </GridPane.margin></ComboBox>
