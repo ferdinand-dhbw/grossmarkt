@@ -17,7 +17,7 @@
       <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieferantennummer: 000000" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieferantennummer: " GridPane.halignment="LEFT" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -51,7 +51,7 @@
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.rowIndex="3">
+            <TextField fx:id="lPopupVorname" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
@@ -74,7 +74,7 @@
                   <Insets left="15.0" />
                </GridPane.margin>
             </Text>
-            <TextField GridPane.rowIndex="1">
+            <TextField fx:id="lPopupStrasse" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
@@ -84,7 +84,7 @@
                   <Insets left="15.0" />
                </GridPane.margin>
             </Text>
-            <TextField GridPane.rowIndex="3">
+            <TextField fx:id="lPopupOrt" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
@@ -105,14 +105,14 @@
                   <Insets bottom="5.0" left="15.0" />
                </GridPane.margin>
             </Text>
-            <ComboBox prefWidth="150.0" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <TextField prefHeight="26.0" prefWidth="217.0" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="15.0" right="15.0" top="5.0" />
+                  <Insets left="15.0" right="15.0" />
                </GridPane.margin>
-            </ComboBox>
+            </TextField>
          </children>
       </GridPane>
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="ÄNDERN" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button fx:id="lPopupNextBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="ÄNDERN" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="15.0" right="15.0" />
          </GridPane.margin>
@@ -143,7 +143,7 @@
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.rowIndex="1">
+            <TextField fx:id="lPopupHNr" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
