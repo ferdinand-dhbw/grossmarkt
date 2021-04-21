@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 
 public class LagerController implements Controller {
 
@@ -20,6 +21,9 @@ public class LagerController implements Controller {
   private Button nav_lieferant;
   @FXML
   private Button nav_kunde;
+  @FXML
+  private ComboBox<String> nav_aufträge;
+
 
 
 
@@ -27,6 +31,9 @@ public class LagerController implements Controller {
   public void init(MapReference reference) {
     setReference(reference);
     initEvents();
+
+    nav_aufträge.getItems().addAll("VERKAUF", "EINKAUF");
+
   }
 
   private void initEvents() {

@@ -36,7 +36,7 @@ public class HomeController implements Controller {
   @FXML
   private Button home_lager;
   @FXML
-  private ComboBox nav_aufträge;
+  private ComboBox<String> nav_aufträge;
 
   public void init(MapReference reference) {
     setMapReference(reference);

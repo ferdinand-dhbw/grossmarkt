@@ -24,6 +24,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -47,6 +48,9 @@ public class LieferantController implements Controller{
   private Button nav_start;
   @FXML
   private Button nav_kunde;
+  @FXML
+  private ComboBox<String> nav_aufträge;
+
 
   private MapReference reference;
 
@@ -60,6 +64,8 @@ public class LieferantController implements Controller{
     delBtn.setOnAction(event ->
       deleteLieferanten(
           new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
+
+    nav_aufträge.getItems().addAll("VERKAUF", "EINKAUF");
   }
 
   public void showLieferant(Lieferant lieferant){
