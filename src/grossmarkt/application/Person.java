@@ -5,7 +5,7 @@ public abstract class Person {
   private String vorname, nachname, land, stadt, strasse, hausNr;
   private int plz;
 
-  public Person(String vorname, String nachname, String land, String stadt, String strasse,
+  public Person(int id, String vorname, String nachname, String land, String stadt, String strasse,
       String hausNr, int plz) {
     this.vorname = vorname;
     this.nachname = nachname;
@@ -14,7 +14,7 @@ public abstract class Person {
     this.strasse = strasse;
     this.hausNr = hausNr;
     this.plz = plz;
-    // TODO give ID
+    this.id = id;
   }
 
   public String getAdressString(){

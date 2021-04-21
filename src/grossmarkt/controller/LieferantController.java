@@ -1,22 +1,24 @@
 package grossmarkt.controller;
 
 import grossmarkt.application.Lieferant;
-import grossmarkt.maps.LieferantMap;
 import grossmarkt.maps.MapReference;
-import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Control;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -25,6 +27,10 @@ import javafx.stage.Stage;
 public class LieferantController implements Controller{
   @FXML
   private TableView<Lieferant> lieferantenTableView;
+  @FXML
+  private TextField lieferantSearchTxtfield;
+  @FXML
+  private Button delBtn;
 
   private MapReference reference;
 
@@ -38,7 +44,7 @@ public class LieferantController implements Controller{
         lNachname = new TableColumn<>("Nachname"),
         lAdresse = new TableColumn<>("Geschäftsadresse"),
         lProduzent = new TableColumn<>(
-            "Produzent"), //TODO implement this relationship (maybe as String)
+            "Produzent"),
         lPreisliste = new TableColumn<>("Preisliste");
     lNummer.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getId()));
     lVorname.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getVorname()));
@@ -46,16 +52,15 @@ public class LieferantController implements Controller{
         .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getNachname()));
     lAdresse
         .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
-    //lProduzent.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().get));
-    //lPreisliste.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getId())); // TODO implement that
-    lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse);
+    lProduzent.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduzenten()));
+    lPreisliste.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
 
-    ObservableList<Lieferant> observableLieferantenList = FXCollections.observableArrayList();
+    lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse, lProduzent, lPreisliste);
+    lieferantenTableView.getSelectionModel().setSelectionMode(
+        SelectionMode.MULTIPLE
+    );
 
-    //lieferantenTableView.getItems().add(new Lieferant("Ann", "Geber", "DE", "Stuttgart", "Schulstrasse", "3a", 70174));
-    //demo.populateWithDemodata();
-    //demo.getLieferantHashMap().forEach((key, lieferant) -> observableLieferantenList.add(lieferant));
-    reference.getLieferantMap().getLieferantHashMap().forEach((key, lieferant) -> lieferantenTableView.getItems().add(lieferant)); //TODO FIX BUG
+    lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
 
     lieferantenTableView.setRowFactory(tv -> {
       TableRow<Lieferant> row = new TableRow<>();
@@ -69,6 +74,10 @@ public class LieferantController implements Controller{
       });
       return row;
     });
+
+    delBtn.setOnAction(event ->
+      deleteLieferanten(
+          new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
   }
 
   public void showLieferant(Lieferant lieferant){
@@ -90,4 +99,50 @@ public class LieferantController implements Controller{
     }
   }
 
+  private FilteredList<Lieferant> filterLieferantenAndSetUpSearch() {
+    ObservableList<Lieferant> observableLieferantList = FXCollections.observableArrayList();
+    observableLieferantList.addAll(reference.getLieferantMap().getLieferantHashMap().values());
+    FilteredList<Lieferant> filteredLieferanten = new FilteredList<>(observableLieferantList, p -> true);
+
+    lieferantSearchTxtfield.textProperty()
+        .addListener((observable, oldValue, newValue) -> {
+          setPredicate(filteredLieferanten, newValue);
+          lieferantenTableView.setItems(filteredLieferanten);
+        });
+
+    return filteredLieferanten;
+  }
+
+  private void setPredicate(FilteredList<Lieferant> filteredLieferanten, String newValue) {
+    filteredLieferanten.setPredicate(lieferant -> {
+      if (newValue == null || newValue.isEmpty())
+        return true;
+      if (lieferant.getVorname().toLowerCase().contains(newValue.toLowerCase()) || lieferant.getNachname().toLowerCase().contains(newValue.toLowerCase()))
+        return true;
+      return Integer.toString(lieferant.getId()).contains(newValue);
+    });
+  }
+
+  private void deleteLieferanten(ArrayList<Lieferant> lieferants){
+    if(lieferants.size() == 0) return;
+
+    Alert alert = new Alert(AlertType.NONE);
+    alert.setTitle("Möchten Sie die Lieferanten unwiderruflich löschen?");
+    AtomicReference<String> content = new AtomicReference<>("Lieferantennummern");
+    lieferants.forEach(lieferant -> content
+        .set(content.get().concat("\n").concat(Integer.toString(lieferant.getId()))));
+    alert.setContentText(content.get());
+
+    alert.setHeaderText(null);
+    ButtonType buttonTypeCancel = new ButtonType("Nein", ButtonData.CANCEL_CLOSE);
+    ButtonType buttonTypeAgree = new ButtonType("Ja", ButtonData.NEXT_FORWARD);
+
+    alert.getButtonTypes().setAll(buttonTypeCancel, buttonTypeAgree);
+
+    if(alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
+      lieferants
+          .forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
+      lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
+    }
+  }
 }
