@@ -6,6 +6,8 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class ControllerUtility {
 
@@ -33,5 +35,15 @@ public class ControllerUtility {
       e.printStackTrace();
     }
     currentScene.setRoot(root);
+  }
+
+  public static void featureAlert() {
+    var alert = new Alert(AlertType.INFORMATION);
+    alert.setTitle("Funktion nicht verfügbar");
+    alert.setContentText(
+        "Die ausgewählte Funktion ist in dieser Version des Programms noch nicht verfügbar.");
+    alert.setHeaderText(null);
+
+    alert.showAndWait();
   }
 }
