@@ -35,16 +35,11 @@ public class HomeController implements Controller {
   private Button nav_lieferant;
   @FXML
   private Button home_lager;
-  @FXML
-  private ComboBox<String> nav_aufträge;
 
   public void init(MapReference reference) {
     setMapReference(reference);
     initClock();
     initEvents();
-
-    nav_aufträge.getItems().addAll("VERKAUF", "EINKAUF");
-
   }
 
   private void initEvents() {

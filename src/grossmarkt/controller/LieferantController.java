@@ -48,8 +48,6 @@ public class LieferantController implements Controller{
   private Button nav_start;
   @FXML
   private Button nav_kunde;
-  @FXML
-  private ComboBox<String> nav_aufträge;
 
 
   private MapReference reference;
@@ -64,8 +62,6 @@ public class LieferantController implements Controller{
     delBtn.setOnAction(event ->
       deleteLieferanten(
           new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
-
-    nav_aufträge.getItems().addAll("VERKAUF", "EINKAUF");
   }
 
   public void showLieferant(Lieferant lieferant){
