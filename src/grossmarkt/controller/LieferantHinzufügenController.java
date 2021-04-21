@@ -39,6 +39,7 @@ public class LieferantHinzufügenController implements Controller {
           lLiefernantennummerText.getText().concat(Integer.toString(currentLieferant.getId())));
     } else {
       lLiefernantennummerText.setText("Neuer Lieferant");
+      lPopupNextBtn.setText("ERSTELLEN"); // TODO auch anderst im GUI Dokument
     }
   }
 

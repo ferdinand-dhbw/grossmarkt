@@ -41,7 +41,7 @@ public class LieferantController implements Controller{
   @FXML
   private TextField lieferantSearchTxtfield;
   @FXML
-  private Button delBtn;
+  private Button delBtn, addBtn;
   @FXML
   private Button nav_lager;
   @FXML
@@ -62,10 +62,11 @@ public class LieferantController implements Controller{
     delBtn.setOnAction(event ->
       deleteLieferanten(
           new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
+    addBtn.setOnAction(event -> showLieferant(null));
   }
 
   public void showLieferant(Lieferant lieferant){
-    System.out.println("clicked " + lieferant.getNachname());
+    if(lieferant != null) System.out.println("clicked " + lieferant.getNachname());
     Parent root;
     LieferantHinzufügenController lieferantHinzufügenController;
     try {
