@@ -50,7 +50,33 @@ public class LieferantController implements Controller{
   public void init(MapReference reference) {
     setMapReference(reference);
     initEvents();
+    setUpTableView();
 
+    delBtn.setOnAction(event ->
+      deleteLieferanten(
+          new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
+  }
+
+  public void showLieferant(Lieferant lieferant){
+    System.out.println("clicked " + lieferant.getNachname());
+    Parent root;
+    LieferantHinzufügenController lieferantHinzufügenController;
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("../LieferantHinzufügen.fxml"));
+      root = loader.load();
+      lieferantHinzufügenController = loader.getController();
+      lieferantHinzufügenController.init(reference);
+      Stage addStage = new Stage();
+      addStage.setScene(new Scene(root, 660, 350));
+      addStage.setResizable(false);
+      addStage.initModality(Modality.APPLICATION_MODAL);
+      addStage.showAndWait();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void setUpTableView(){
     TableColumn<Lieferant, String> lNummer = new TableColumn<>("Lieferantennummer"),
         lVorname = new TableColumn<>("Vorname"),
         lNachname = new TableColumn<>("Nachname"),
@@ -86,29 +112,6 @@ public class LieferantController implements Controller{
       });
       return row;
     });
-
-    delBtn.setOnAction(event ->
-      deleteLieferanten(
-          new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
-  }
-
-  public void showLieferant(Lieferant lieferant){
-    System.out.println("clicked " + lieferant.getNachname());
-    Parent root;
-    LieferantHinzufügenController lieferantHinzufügenController;
-    try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("../LieferantHinzufügen.fxml"));
-      root = loader.load();
-      lieferantHinzufügenController = loader.getController();
-      lieferantHinzufügenController.init(reference);
-      Stage addStage = new Stage();
-      addStage.setScene(new Scene(root, 660, 350));
-      addStage.setResizable(false);
-      addStage.initModality(Modality.APPLICATION_MODAL);
-      addStage.showAndWait();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
 
   private FilteredList<Lieferant> filterLieferantenAndSetUpSearch() {
