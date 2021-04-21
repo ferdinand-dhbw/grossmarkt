@@ -35,6 +35,12 @@
     -fx-text-fill: white;
     -fx-text-base-color: white;
     -fx-body-color: black;
+    -fx-font-size: 14;
+}
+
+.order-selector {
+    -fx-background-color: white;
+    -fx-font-size: 14;
 }
 
 .search-bar {

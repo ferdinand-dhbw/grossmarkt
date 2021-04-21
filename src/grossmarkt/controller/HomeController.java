@@ -13,9 +13,8 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -36,11 +35,16 @@ public class HomeController implements Controller {
   private Button nav_lieferant;
   @FXML
   private Button home_lager;
+  @FXML
+  private ComboBox nav_aufträge;
 
   public void init(MapReference reference) {
     setMapReference(reference);
     initClock();
     initEvents();
+
+    nav_aufträge.getItems().addAll("VERKAUF", "EINKAUF");
+
   }
 
   private void initEvents() {
