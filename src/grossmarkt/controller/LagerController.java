@@ -20,8 +20,7 @@ public class LagerController implements Controller {
   private Button nav_lieferant;
   @FXML
   private Button nav_kunde;
-  @FXML
-  private Button home_aufträge;
+
 
 
   @Override
@@ -33,7 +32,6 @@ public class LagerController implements Controller {
   private void initEvents() {
     EventHandler<ActionEvent> featureAlert = event -> featureAlert();
     nav_kunde.setOnAction(featureAlert);
-    home_aufträge.setOnAction(featureAlert);
 
     nav_start.setOnAction(
         event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
