@@ -11,6 +11,19 @@ public class Lieferant extends Person{
     this.produzenten=produzenten;
   }
 
+  public void updateAll(String vorname, String nachname, String land, String stadt,
+      String strasse, String hausNr, int plz, String linkPreisliste, String produzenten){
+    this.setVorname(vorname);
+    this.setNachname(nachname);
+    this.setLand(land);
+    this.setStadt(stadt);
+    this.setStrasse(strasse);
+    this.setHausNr(hausNr);
+    this.setPlz(plz);
+    this.setLinkPreisliste(linkPreisliste);
+    this.setProduzenten(produzenten);
+  }
+
   public String getLinkPreisliste() {
     return linkPreisliste;
   }

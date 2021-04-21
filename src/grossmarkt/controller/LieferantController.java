@@ -66,11 +66,15 @@ public class LieferantController implements Controller{
       root = loader.load();
       lieferantHinzufügenController = loader.getController();
       lieferantHinzufügenController.init(reference);
+      lieferantHinzufügenController.setCurrentLieferant(lieferant);
       Stage addStage = new Stage();
       addStage.setScene(new Scene(root, 660, 350));
       addStage.setResizable(false);
       addStage.initModality(Modality.APPLICATION_MODAL);
       addStage.showAndWait();
+
+      lieferantenTableView.setItems(filterLieferanten());
+      lieferantenTableView.refresh();
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -115,9 +119,7 @@ public class LieferantController implements Controller{
   }
 
   private FilteredList<Lieferant> filterLieferantenAndSetUpSearch() {
-    ObservableList<Lieferant> observableLieferantList = FXCollections.observableArrayList();
-    observableLieferantList.addAll(reference.getLieferantMap().getLieferantHashMap().values());
-    FilteredList<Lieferant> filteredLieferanten = new FilteredList<>(observableLieferantList, p -> true);
+    FilteredList<Lieferant> filteredLieferanten = filterLieferanten();
 
     lieferantSearchTxtfield.textProperty()
         .addListener((observable, oldValue, newValue) -> {
@@ -126,6 +128,12 @@ public class LieferantController implements Controller{
         });
 
     return filteredLieferanten;
+  }
+
+  private FilteredList<Lieferant> filterLieferanten(){
+    ObservableList<Lieferant> observableLieferantList = FXCollections.observableArrayList();
+    observableLieferantList.addAll(reference.getLieferantMap().getLieferantHashMap().values());
+    return new FilteredList<>(observableLieferantList, p -> true);
   }
 
   private void setPredicate(FilteredList<Lieferant> filteredLieferanten, String newValue) {

@@ -28,4 +28,8 @@ public class LieferantMap {
   public void deleteLieferant(int key){
     lieferantHashMap.remove(key);
   }
+
+  public void updateLieferant(Lieferant lieferant){
+    lieferantHashMap.replace(lieferant.getId(), lieferant);
+  }
 }

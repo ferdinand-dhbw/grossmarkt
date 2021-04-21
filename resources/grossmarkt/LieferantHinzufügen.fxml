@@ -17,7 +17,7 @@
       <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieferantennummer: " GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+      <Text fx:id="lLiefernantennummerText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieferantennummer: " GridPane.halignment="LEFT" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -46,7 +46,7 @@
                   <Insets left="15.0" />
                </GridPane.margin>
             </Text>
-            <TextField GridPane.rowIndex="1">
+            <TextField fx:id="lPopupNachname" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
@@ -105,7 +105,7 @@
                   <Insets bottom="5.0" left="15.0" />
                </GridPane.margin>
             </Text>
-            <TextField prefHeight="26.0" prefWidth="217.0" GridPane.rowIndex="1">
+            <TextField fx:id="lPopupProduzent" prefHeight="26.0" prefWidth="217.0" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
@@ -138,7 +138,7 @@
                   <Insets left="15.0" />
                </GridPane.margin>
             </Text>
-            <TextField GridPane.rowIndex="3">
+            <TextField fx:id="lPopupPLZ" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
