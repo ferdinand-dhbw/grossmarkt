@@ -1,5 +1,6 @@
 package grossmarkt.controller;
 
+import static grossmarkt.controller.ControllerUtility.featureAlert;
 import static grossmarkt.controller.ControllerUtility.switchScene;
 
 import grossmarkt.controller.ControllerUtility.Views;
@@ -67,16 +68,6 @@ public class HomeController implements Controller {
 
   public void setMapReference(MapReference mapReference) {
     this.mapReference = mapReference;
-  }
-
-  public void featureAlert() {
-    var alert = new Alert(AlertType.INFORMATION);
-    alert.setTitle("Funktion nicht verfügbar");
-    alert.setContentText(
-        "Die ausgewählte Funktion ist in dieser Version des Programms noch nicht verfügbar.");
-    alert.setHeaderText(null);
-
-    alert.showAndWait();
   }
 
 }

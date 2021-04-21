@@ -1,5 +1,6 @@
 package grossmarkt.controller;
 
+import static grossmarkt.controller.ControllerUtility.featureAlert;
 import static grossmarkt.controller.ControllerUtility.switchScene;
 
 import grossmarkt.application.Lieferant;
@@ -12,6 +13,8 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,6 +45,10 @@ public class LieferantController implements Controller{
   private Button nav_lager;
   @FXML
   private Button nav_start;
+  @FXML
+  private Button nav_kunde;
+  @FXML
+  private Button home_aufträge;
 
   private MapReference reference;
 
@@ -162,6 +169,10 @@ public class LieferantController implements Controller{
   }
 
   private void initEvents() {
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert();
+    nav_kunde.setOnAction(featureAlert);
+    home_aufträge.setOnAction(featureAlert);
+
     nav_start.setOnAction(
         event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
     nav_lager.setOnAction(
