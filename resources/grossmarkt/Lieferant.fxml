@@ -36,11 +36,11 @@
           </GridPane.margin></ComboBox>
         <Button fx:id="nav_start" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css" text="STARTPAGE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
           <font>
-            <Font name="System Bold" size="14.0" />
+            <Font size="14.0" />
           </font></Button>
         <Button fx:id="nav_lieferant" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css" text="LIEFERANTEN" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
           <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="14.0" />
           </font></Button>
         <Button fx:id="nav_produzent" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css" text="PRODUZENTEN" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
           <font>
