@@ -33,6 +33,8 @@ public class HomeController implements Controller {
   private Button home_aufträge;
   @FXML
   private Button nav_lieferant;
+  @FXML
+  private Button home_lager;
 
   public void init(MapReference reference) {
     setMapReference(reference);
@@ -47,6 +49,8 @@ public class HomeController implements Controller {
 
     nav_lager.setOnAction(
         event -> switchScene(Views.LAGER, nav_kunde.getScene(), getClass(), mapReference));
+    home_lager.setOnAction(
+        event -> switchScene(Views.LAGER, home_lager.getScene(), getClass(), mapReference));
     nav_lieferant.setOnAction(
         event -> switchScene(Views.LIEFERANT, nav_kunde.getScene(), getClass(), mapReference));
   }
