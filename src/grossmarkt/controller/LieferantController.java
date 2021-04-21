@@ -24,7 +24,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -35,7 +34,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
-public class LieferantController implements Controller{
+public class LieferantController implements Controller {
+
   @FXML
   private TableView<Lieferant> lieferantenTableView;
   @FXML
@@ -52,7 +52,9 @@ public class LieferantController implements Controller{
 
   private MapReference reference;
 
-  public void setMapReference(MapReference reference){ this.reference = reference; }
+  public void setMapReference(MapReference reference) {
+    this.reference = reference;
+  }
 
   public void init(MapReference reference) {
     setMapReference(reference);
@@ -60,13 +62,15 @@ public class LieferantController implements Controller{
     setUpTableView();
 
     delBtn.setOnAction(event ->
-      deleteLieferanten(
-          new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
+        deleteLieferanten(
+            new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
     addBtn.setOnAction(event -> showLieferant(null));
   }
 
-  public void showLieferant(Lieferant lieferant){
-    if(lieferant != null) System.out.println("clicked " + lieferant.getNachname());
+  public void showLieferant(Lieferant lieferant) {
+    if (lieferant != null) {
+      System.out.println("clicked " + lieferant.getNachname());
+    }
     Parent root;
     LieferantHinzufügenController lieferantHinzufügenController;
     try {
@@ -88,7 +92,7 @@ public class LieferantController implements Controller{
     }
   }
 
-  private void setUpTableView(){
+  private void setUpTableView() {
     TableColumn<Lieferant, String> lNummer = new TableColumn<>("Lieferantennummer"),
         lVorname = new TableColumn<>("Vorname"),
         lNachname = new TableColumn<>("Nachname"),
@@ -102,10 +106,13 @@ public class LieferantController implements Controller{
         .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getNachname()));
     lAdresse
         .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
-    lProduzent.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduzenten()));
-    lPreisliste.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
+    lProduzent
+        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduzenten()));
+    lPreisliste.setCellValueFactory(
+        param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
 
-    lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse, lProduzent, lPreisliste);
+    lieferantenTableView.getColumns()
+        .addAll(lNummer, lVorname, lNachname, lAdresse, lProduzent, lPreisliste);
     lieferantenTableView.getSelectionModel().setSelectionMode(
         SelectionMode.MULTIPLE
     );
@@ -138,7 +145,7 @@ public class LieferantController implements Controller{
     return filteredLieferanten;
   }
 
-  private FilteredList<Lieferant> filterLieferanten(){
+  private FilteredList<Lieferant> filterLieferanten() {
     ObservableList<Lieferant> observableLieferantList = FXCollections.observableArrayList();
     observableLieferantList.addAll(reference.getLieferantMap().getLieferantHashMap().values());
     return new FilteredList<>(observableLieferantList, p -> true);
@@ -146,16 +153,21 @@ public class LieferantController implements Controller{
 
   private void setPredicate(FilteredList<Lieferant> filteredLieferanten, String newValue) {
     filteredLieferanten.setPredicate(lieferant -> {
-      if (newValue == null || newValue.isEmpty())
+      if (newValue == null || newValue.isEmpty()) {
         return true;
-      if (lieferant.getVorname().toLowerCase().contains(newValue.toLowerCase()) || lieferant.getNachname().toLowerCase().contains(newValue.toLowerCase()))
+      }
+      if (lieferant.getVorname().toLowerCase().contains(newValue.toLowerCase()) || lieferant
+          .getNachname().toLowerCase().contains(newValue.toLowerCase())) {
         return true;
+      }
       return Integer.toString(lieferant.getId()).contains(newValue);
     });
   }
 
-  private void deleteLieferanten(ArrayList<Lieferant> lieferants){
-    if(lieferants.size() == 0) return;
+  private void deleteLieferanten(ArrayList<Lieferant> lieferants) {
+    if (lieferants.size() == 0) {
+      return;
+    }
 
     Alert alert = new Alert(AlertType.NONE);
     alert.setTitle("Möchten Sie die Lieferanten unwiderruflich löschen?");
@@ -170,7 +182,7 @@ public class LieferantController implements Controller{
 
     alert.getButtonTypes().setAll(buttonTypeCancel, buttonTypeAgree);
 
-    if(alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
+    if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       lieferants
           .forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
       lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());

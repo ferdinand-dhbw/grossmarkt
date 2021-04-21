@@ -12,7 +12,6 @@
   <rowConstraints>
     <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="80.0" minHeight="33.0" prefHeight="38.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="1.7976931348623157E308" minHeight="150.0" prefHeight="407.0" vgrow="SOMETIMES" />
   </rowConstraints>
   <children>
@@ -62,35 +61,40 @@
     </GridPane>
       <GridPane GridPane.rowIndex="1">
         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="250.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="80.0" prefWidth="90.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="80.0" prefWidth="90.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" styleClass="main_btn" stylesheets="@../style.css" text="SUCHE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button mnemonicParsing="false" styleClass="main_btn" stylesheets="@../style.css" text="SUCHE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="lieferantSearchTxtfield" styleClass="search-bar" stylesheets="@../style.css" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <TextField fx:id="lieferantSearchTxtfield" styleClass="search-bar" stylesheets="@../style.css" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets left="15.0" right="20.0" />
                </GridPane.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-           <Button fx:id="addBtn" mnemonicParsing="false" styleClass="main_btn" stylesheets="@../style.css" text="+" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+           <Button fx:id="addBtn" mnemonicParsing="false" styleClass="main_btn" stylesheets="@../style.css" text="+" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
              <font>
                <Font size="14.0" />
              </font>
            </Button>
+            <Button fx:id="delBtn" mnemonicParsing="false" styleClass="main_btn" stylesheets="@../style.css" text="🗑" GridPane.halignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
-      <TableView fx:id="lieferantenTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
-      <Button fx:id="delBtn" mnemonicParsing="false" text="🗑" GridPane.rowIndex="2" />
+      <TableView fx:id="lieferantenTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
   </children>
 </GridPane>
