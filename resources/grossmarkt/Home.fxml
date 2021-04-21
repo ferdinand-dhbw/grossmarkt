@@ -92,7 +92,7 @@
                </GridPane.margin></Button>
          </children>
       </GridPane>
-      <Text fx:id="timestamp" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="10.03.2021 10:03" textAlignment="CENTER" wrappingWidth="120.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Text fx:id="timestamp" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00.0000 00:00:00" textAlignment="CENTER" wrappingWidth="120.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
