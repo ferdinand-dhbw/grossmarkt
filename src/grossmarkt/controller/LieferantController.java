@@ -48,6 +48,8 @@ public class LieferantController implements Controller {
   private Button nav_start;
   @FXML
   private Button nav_kunde;
+  @FXML
+  private Button nav_produzent;
 
 
   private MapReference reference;
@@ -202,5 +204,7 @@ public class LieferantController implements Controller {
         event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
     nav_lager.setOnAction(
         event -> switchScene(Views.LAGER, nav_lager.getScene(), getClass(), reference));
+    nav_produzent.setOnAction(
+        event -> switchScene(Views.PRODUZENT, nav_produzent.getScene(), getClass(), reference));
   }
 }
