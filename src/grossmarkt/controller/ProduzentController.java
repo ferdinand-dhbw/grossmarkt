@@ -88,7 +88,9 @@ public class ProduzentController implements Controller {
       addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
-      produzentenTableView.setItems(filterProduzenten());
+      FilteredList<Produzent> filteredProduzenten = filterProduzenten();
+      setPredicate(filteredProduzenten, produzentenSearchTxtfield.getText());
+      produzentenTableView.setItems(filteredProduzenten);
       produzentenTableView.refresh();
     } catch (IOException e) {
       e.printStackTrace();
@@ -190,6 +192,7 @@ public class ProduzentController implements Controller {
       produzents
           .forEach(produzent -> reference.getProduzentMap().deleteProduzent(produzent.getId()));
       produzentenTableView.setItems(filterProduzentenAndSetUpSearch());
+      //produzentenTableView.refresh(); //implement in others aswell
     }
   }
 

@@ -3,6 +3,7 @@ package grossmarkt.controller;
 import static grossmarkt.controller.ControllerUtility.featureAlert;
 import static grossmarkt.controller.ControllerUtility.switchScene;
 
+import grossmarkt.application.Lieferant;
 import grossmarkt.application.Produkt;
 import grossmarkt.controller.ControllerUtility.Views;
 import grossmarkt.maps.MapReference;
@@ -86,7 +87,9 @@ public class LagerController implements Controller {
       addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
-      lagerTableView.setItems(filterProdukte());
+      FilteredList<Produkt> filteredProdukte = filterProdukte();
+      setPredicate(filteredProdukte, lagerSearchTxtfield.getText());
+      lagerTableView.setItems(filteredProdukte);
       lagerTableView.refresh();
     } catch (IOException e) {
       e.printStackTrace();
