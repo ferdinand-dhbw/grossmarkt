@@ -95,6 +95,6 @@ public class LieferantHinzufügenController implements Controller {
   }
 
   private void invalidInput() {
-    lWarnung.setText("Kein valider Input");
+    lWarnung.setText("Kein valider Input!");
   }
 }

@@ -7,8 +7,9 @@
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="600.0" styleClass="body" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grossmarkt.controller.ProduktHinzufügenController">
   <columnConstraints>
+    <ColumnConstraints />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -19,7 +20,7 @@
       <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Text fx:id="produktNummer" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Produktnummer: " GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+      <Text fx:id="produktNummer" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Produktnummer: " GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -27,7 +28,7 @@
             <Insets left="15.0" />
          </GridPane.margin>
       </Text>
-      <GridPane GridPane.rowIndex="2">
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -60,7 +61,7 @@
             </TextField>
          </children>
       </GridPane>
-      <GridPane GridPane.rowIndex="4">
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -81,7 +82,7 @@
             </TextField>
          </children>
       </GridPane>
-      <Button fx:id="NextBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" styleClass="modal_btn" stylesheets="@../style.css" text="ÄNDERN" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+      <Button fx:id="NextBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" styleClass="modal_btn" stylesheets="@../style.css" text="ÄNDERN" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="15.0" right="15.0" />
          </GridPane.margin>
@@ -89,7 +90,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <GridPane GridPane.columnIndex="2" GridPane.rowIndex="4">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -110,32 +111,36 @@
             </DatePicker>
          </children>
       </GridPane>
-      <GridPane GridPane.rowIndex="5">
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
       </GridPane>
-      <Separator prefWidth="200.0" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets left="15.0" />
-         </GridPane.margin>
-      </Separator>
       <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
-            <Insets right="15.0" />
+            <Insets left="15.0" />
          </GridPane.margin>
       </Separator>
-      <Separator prefWidth="200.0" GridPane.rowIndex="1">
+      <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
-            <Insets left="15.0" />
+            <Insets right="15.0" />
          </GridPane.margin>
       </Separator>
       <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
+            <Insets left="15.0" />
+         </GridPane.margin>
+      </Separator>
+      <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Separator>
-      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <GridPane GridPane.columnIndex="2" GridPane.rowIndex="2">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -158,5 +163,12 @@
             </Spinner>
          </children>
       </GridPane>
+      <Text fx:id="pWarnung" fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets left="15.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
    </children>
 </GridPane>
