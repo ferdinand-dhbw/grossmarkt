@@ -41,16 +41,7 @@ public class LieferantController implements Controller {
   @FXML
   private TextField lieferantSearchTxtfield;
   @FXML
-  private Button delBtn, addBtn;
-  @FXML
-  private Button nav_lager;
-  @FXML
-  private Button nav_start;
-  @FXML
-  private Button nav_kunde;
-  @FXML
-  private Button nav_produzent;
-
+  private Button delBtn, addBtn, nav_lager, nav_start, nav_kunde, nav_produzent;
 
   private MapReference reference;
 

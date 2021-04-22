@@ -23,21 +23,9 @@ public class HomeController implements Controller {
 
 
   @FXML
-  private Text timestamp;
+  private Text timestamp,changeOrt;
   @FXML
-  private Button nav_kunde;
-  @FXML
-  private Button nav_lager;
-  @FXML
-  private Button home_aufträge;
-  @FXML
-  private Button nav_lieferant;
-  @FXML
-  private Button nav_produzent;
-  @FXML
-  private Button home_lager;
-  @FXML
-  private Text changeOrt;
+  private Button nav_kunde, nav_lager, home_aufträge, nav_lieferant, nav_produzent, home_lager;
 
   public void init(MapReference reference) {
     setMapReference(reference);
