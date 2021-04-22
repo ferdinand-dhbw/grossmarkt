@@ -14,6 +14,15 @@ public class Produkt {
     this.mhd = mhd;
   }
 
+  public void updateAll(int menge, String bezeichnung, String herkunftsregion,
+      String kategorie, String mhd){
+    this.menge = menge;
+    this.bezeichnung = bezeichnung;
+    this.herkunftsregion = herkunftsregion;
+    this.kategorie = kategorie;
+    this.mhd = mhd;
+  }
+
   public int getProduktNr() {
     return produktNr;
   }

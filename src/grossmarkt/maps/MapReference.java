@@ -4,6 +4,7 @@ public class MapReference {
 
   private final KundeMap kundeMap = new KundeMap();
   private final LieferantMap lieferantMap = new LieferantMap();
+  private final ProduktMap produktMap = new ProduktMap();
 
   public KundeMap getKundeMap() {
     return kundeMap;
@@ -11,5 +12,9 @@ public class MapReference {
 
   public LieferantMap getLieferantMap() {
     return lieferantMap;
+  }
+
+  public ProduktMap getProduktMap() {
+    return produktMap;
   }
 }
