@@ -42,16 +42,7 @@ public class ProduzentController implements Controller {
   @FXML
   private TextField produzentenSearchTxtfield;
   @FXML
-  private Button delBtn, addBtn;
-  @FXML
-  private Button nav_lager;
-  @FXML
-  private Button nav_start;
-  @FXML
-  private Button nav_kunde;
-  @FXML
-  private Button nav_lieferant;
-
+  private Button delBtn, addBtn, nav_lager, nav_start, nav_kunde, nav_lieferant;
 
   private MapReference reference;
 

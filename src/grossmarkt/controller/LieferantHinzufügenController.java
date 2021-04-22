@@ -16,9 +16,7 @@ public class LieferantHinzufügenController implements Controller {
   private TextField lPopupNachname, lPopupVorname, lPopupStrasse, lPopupOrt, lPopupHNr, lPopupPLZ,
       lPopupProduzent, lPopupPreisliste;
   @FXML
-  private Text lLiefernantennummerText;
-  @FXML
-  private Text lWarnung;
+  private Text lLiefernantennummerText, lWarnung;
 
   private MapReference reference;
   private Lieferant currentLieferant;

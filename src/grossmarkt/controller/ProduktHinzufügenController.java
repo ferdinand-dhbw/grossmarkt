@@ -20,13 +20,11 @@ public class ProduktHinzufügenController implements Controller {
   @FXML
   private TextField pBezeichnung, pKategorie, pHerkunft;
   @FXML
-  private Text produktNummer;
+  private Text produktNummer, pWarnung;
   @FXML
   private Spinner<Integer> pAnzahl;
   @FXML
   private DatePicker pMhd;
-  @FXML
-  private Text pWarnung;
 
   private MapReference reference;
   private Produkt currentProdukt;

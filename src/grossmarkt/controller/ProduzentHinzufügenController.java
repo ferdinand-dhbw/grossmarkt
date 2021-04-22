@@ -16,9 +16,7 @@ public class ProduzentHinzufügenController implements Controller {
   private TextField lPopupNachname, lPopupVorname, lPopupStrasse, lPopupOrt, lPopupHNr, lPopupPLZ,
       lPopupPreisliste;
   @FXML
-  private Text pProduzentennummerText;
-  @FXML
-  private Text lWarnung;
+  private Text pProduzentennummerText, lWarnung;
 
   private MapReference reference;
   private Produzent currentProduzent;

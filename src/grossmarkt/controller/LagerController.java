@@ -40,15 +40,7 @@ public class LagerController implements Controller {
   @FXML
   private TextField lagerSearchTxtfield;
   @FXML
-  private Button delBtn, addBtn;
-  @FXML
-  private Button nav_start;
-  @FXML
-  private Button nav_kunde;
-  @FXML
-  private Button nav_produzent;
-  @FXML
-  private Button nav_lieferant;
+  private Button delBtn, addBtn, nav_start, nav_kunde, nav_produzent, nav_lieferant;
 
 
   private MapReference reference;
