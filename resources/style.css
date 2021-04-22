@@ -43,6 +43,14 @@
     -fx-font-size: 14;
 }
 
+.weather {
+    -fx-font-weight: none;
+}
+
+.weather:hover, .weather:default:hover:pressed {
+    -fx-font-weight: bold;
+}
+
 .search-bar {
     -fx-background-color:  #282c34;
     -fx-text-fill: white;

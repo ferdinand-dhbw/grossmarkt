@@ -97,8 +97,7 @@ public class LieferantController implements Controller {
         lVorname = new TableColumn<>("Vorname"),
         lNachname = new TableColumn<>("Nachname"),
         lAdresse = new TableColumn<>("Geschäftsadresse"),
-        lProduzent = new TableColumn<>(
-            "Produzent"),
+        lProduzent = new TableColumn<>("Produzent"),
         lPreisliste = new TableColumn<>("Preisliste");
     lNummer.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getId()));
     lVorname.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getVorname()));

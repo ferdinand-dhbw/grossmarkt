@@ -35,6 +35,8 @@ public class HomeController implements Controller {
   private Button nav_lieferant;
   @FXML
   private Button home_lager;
+  @FXML
+  private Text changeOrt;
 
   public void init(MapReference reference) {
     setMapReference(reference);
@@ -53,6 +55,7 @@ public class HomeController implements Controller {
         event -> switchScene(Views.LAGER, home_lager.getScene(), getClass(), mapReference));
     nav_lieferant.setOnAction(
         event -> switchScene(Views.LIEFERANT, nav_kunde.getScene(), getClass(), mapReference));
+    changeOrt.setOnMouseClicked(mouseEvent -> featureAlert());
   }
 
 
