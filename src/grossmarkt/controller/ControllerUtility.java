@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Window;
 
 public class ControllerUtility {
 
@@ -37,12 +38,13 @@ public class ControllerUtility {
     currentScene.setRoot(root);
   }
 
-  public static void featureAlert() {
+  public static void featureAlert(Window parent) {
     var alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("Funktion nicht verfügbar");
     alert.setContentText(
         "Die ausgewählte Funktion ist in dieser Version des Programms noch nicht verfügbar.");
     alert.setHeaderText(null);
+    alert.initOwner(parent);
 
     alert.showAndWait();
   }

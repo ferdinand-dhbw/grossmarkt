@@ -14,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -45,7 +44,7 @@ public class HomeController implements Controller {
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert();
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(home_lager.getScene().getWindow());
     nav_kunde.setOnAction(featureAlert);
     home_aufträge.setOnAction(featureAlert);
 
@@ -55,7 +54,7 @@ public class HomeController implements Controller {
         event -> switchScene(Views.LAGER, home_lager.getScene(), getClass(), mapReference));
     nav_lieferant.setOnAction(
         event -> switchScene(Views.LIEFERANT, nav_kunde.getScene(), getClass(), mapReference));
-    changeOrt.setOnMouseClicked(mouseEvent -> featureAlert());
+    changeOrt.setOnMouseClicked(mouseEvent -> featureAlert(nav_kunde.getScene().getWindow()));
   }
 
 

@@ -83,6 +83,8 @@ public class LieferantController implements Controller {
       addStage.setScene(new Scene(root, 600, 470));
       addStage.setResizable(false);
       addStage.initModality(Modality.APPLICATION_MODAL);
+      addStage.initOwner(nav_kunde.getScene().getWindow());
+      addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
       lieferantenTableView.setItems(filterLieferanten());
@@ -91,6 +93,7 @@ public class LieferantController implements Controller {
       e.printStackTrace();
     }
   }
+
 
   private void setUpTableView() {
     TableColumn<Lieferant, String> lNummer = new TableColumn<>("Lieferantennummer"),
@@ -176,6 +179,7 @@ public class LieferantController implements Controller {
     lieferants.forEach(lieferant -> content
         .set(content.get().concat("\n").concat(Integer.toString(lieferant.getId()))));
     alert.setContentText(content.get());
+    alert.initOwner(delBtn.getScene().getWindow());
 
     alert.setHeaderText(null);
     ButtonType buttonTypeCancel = new ButtonType("Nein", ButtonData.CANCEL_CLOSE);
@@ -191,7 +195,7 @@ public class LieferantController implements Controller {
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert();
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(nav_start.getScene().getWindow());
     nav_kunde.setOnAction(featureAlert);
 
     nav_start.setOnAction(

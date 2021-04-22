@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 
 public class LagerController implements Controller {
 
@@ -32,7 +31,7 @@ public class LagerController implements Controller {
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert();
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(nav_kunde.getScene().getWindow());
     nav_kunde.setOnAction(featureAlert);
 
     nav_start.setOnAction(
