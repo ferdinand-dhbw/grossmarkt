@@ -25,6 +25,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -167,9 +168,8 @@ public class ProduzentController implements Controller {
 
     Alert alert = new Alert(AlertType.NONE);
     alert.setTitle("Möchten Sie die Produzenten unwiderruflich löschen?");
-    AtomicReference<String> content = new AtomicReference<>("Produzentennummern");
-    produzents.forEach(produzent -> content
-        .set(content.get().concat("\n").concat(Integer.toString(produzent.getId()))));
+    AtomicReference<String> content = new AtomicReference<>("Ausgewählte Produzenten:");
+    produzents.forEach(produzent -> content.set(content.get().concat(String.format("\n\t• %d  %s %s", produzent.getId(), produzent.getVorname(), produzent.getNachname()))));
     alert.setContentText(content.get());
     alert.initOwner(delBtn.getScene().getWindow());
 
@@ -178,6 +178,11 @@ public class ProduzentController implements Controller {
     ButtonType buttonTypeAgree = new ButtonType("Ja", ButtonData.NEXT_FORWARD);
 
     alert.getButtonTypes().setAll(buttonTypeCancel, buttonTypeAgree);
+
+    DialogPane dialogPane = alert.getDialogPane();
+    dialogPane.setStyle("-fx-background-color: #282c34;");
+    dialogPane.lookup(".content.label").setStyle("-fx-text-fill: white");
+
 
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       produzents

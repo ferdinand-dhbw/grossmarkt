@@ -107,7 +107,7 @@
 }
 
 .table-row-cell:odd{
-    -fx-background-color: -fx-table-cell-border-color, #222a34;
+    -fx-background-color: -fx-table-cell-border-color, #282c34;
     -fx-background-insets: 0;
 }
 

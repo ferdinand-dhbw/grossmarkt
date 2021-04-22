@@ -24,6 +24,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -168,9 +169,8 @@ public class LieferantController implements Controller {
 
     Alert alert = new Alert(AlertType.NONE);
     alert.setTitle("Möchten Sie die Lieferanten unwiderruflich löschen?");
-    AtomicReference<String> content = new AtomicReference<>("Lieferantennummern");
-    lieferants.forEach(lieferant -> content
-        .set(content.get().concat("\n").concat(Integer.toString(lieferant.getId()))));
+    AtomicReference<String> content = new AtomicReference<>("Ausgewählte Lieferanten:");
+    lieferants.forEach(lieferant -> content.set(content.get().concat(String.format("\n\t• %d  %s %s", lieferant.getId(), lieferant.getVorname(), lieferant.getNachname()))));
     alert.setContentText(content.get());
     alert.initOwner(delBtn.getScene().getWindow());
 
@@ -180,6 +180,10 @@ public class LieferantController implements Controller {
 
     alert.getButtonTypes().setAll(buttonTypeCancel, buttonTypeAgree);
 
+    DialogPane dialogPane = alert.getDialogPane();
+    dialogPane.setStyle("-fx-background-color: #282c34;");
+    dialogPane.lookup(".content.label").setStyle("-fx-text-fill: white");
+
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       lieferants
           .forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
@@ -188,7 +192,8 @@ public class LieferantController implements Controller {
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert(nav_start.getScene().getWindow());
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(
+        nav_start.getScene().getWindow());
     nav_kunde.setOnAction(featureAlert);
 
     nav_start.setOnAction(
