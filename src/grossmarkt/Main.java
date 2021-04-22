@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 
 public class Main extends Application {
   //TODO "Achten Sie darauf [...] den Source Code hinreichend [zu] kommentieren"
+  //TODO "Achten Sie darauf [...] Debugging print Statements [vor Abgabe] zu entfernen"
 
   private static final MapReference MAP_REFERENCE = new MapReference();
 
