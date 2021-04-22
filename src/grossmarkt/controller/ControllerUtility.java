@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.DialogPane;
 import javafx.stage.Window;
 
 public class ControllerUtility {
@@ -47,6 +48,9 @@ public class ControllerUtility {
     alert.setHeaderText(null);
     alert.initOwner(parent);
 
+    DialogPane dialogPane = alert.getDialogPane();
+    dialogPane.setStyle("-fx-background-color: #282c34;");
+    dialogPane.lookup(".content.label").setStyle("-fx-text-fill: white");
     alert.showAndWait();
   }
 }
