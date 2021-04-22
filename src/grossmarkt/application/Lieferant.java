@@ -2,7 +2,7 @@ package grossmarkt.application;
 
 public class Lieferant extends Person{
   private String linkPreisliste;
-  private String produzenten; //TODO check if sufficient
+  private String produzenten;
 
   public Lieferant(int id, String vorname, String nachname, String land, String stadt,
       String strasse, String hausNr, int plz, String linkPreisliste, String produzenten) {

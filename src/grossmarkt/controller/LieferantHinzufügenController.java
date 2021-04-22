@@ -17,6 +17,8 @@ public class LieferantHinzufügenController implements Controller {
       lPopupProduzent, lPopupPreisliste;
   @FXML
   private Text lLiefernantennummerText;
+  @FXML
+  private Text lWarnung;
 
   private MapReference reference;
   private Lieferant currentLieferant;
@@ -40,7 +42,7 @@ public class LieferantHinzufügenController implements Controller {
           lLiefernantennummerText.getText().concat(Integer.toString(currentLieferant.getId())));
     } else {
       lLiefernantennummerText.setText("Neuer Lieferant");
-      lPopupNextBtn.setText("ERSTELLEN"); // TODO auch anderst im GUI Dokument
+      lPopupNextBtn.setText("ERSTELLEN");
     }
   }
 
@@ -70,7 +72,7 @@ public class LieferantHinzufügenController implements Controller {
     if (currentLieferant != null) {
       currentLieferant
           .updateAll(vorname, nachname, currentLieferant.getLand(), stadt, strasse, hNr, plz,
-              preisliste, produzent); //TODO land
+              preisliste, produzent);
       reference.getLieferantMap().updateLieferant(currentLieferant);
     } else {
       reference.getLieferantMap()
@@ -90,10 +92,9 @@ public class LieferantHinzufügenController implements Controller {
     lPopupOrt.setText(currentLieferant.getStadt());
     lPopupProduzent.setText(currentLieferant.getProduzenten());
     lPopupPreisliste.setText(currentLieferant.getLinkPreisliste());
-    // TODO COUNTRY?
   }
 
   private void invalidInput() {
-    System.out.println("Nope");
+    lWarnung.setText("Kein valider Input");
   }
 }

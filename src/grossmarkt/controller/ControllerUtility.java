@@ -15,7 +15,8 @@ public class ControllerUtility {
   public enum Views {
     LAGER("Lager.fxml"),
     HOME("Home.fxml"),
-    LIEFERANT("Lieferant.fxml");
+    LIEFERANT("Lieferant.fxml"),
+    PRODUZENT("Produzent.fxml");
 
     public final String filename;
 
