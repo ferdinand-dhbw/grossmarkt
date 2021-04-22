@@ -87,10 +87,7 @@ public class LagerController implements Controller {
       addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
-      FilteredList<Produkt> filteredProdukte = filterProdukte();
-      setPredicate(filteredProdukte, lagerSearchTxtfield.getText());
-      lagerTableView.setItems(filteredProdukte);
-      lagerTableView.refresh();
+      safeTableViewRefresh();
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -189,7 +186,7 @@ public class LagerController implements Controller {
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       produkts
           .forEach(produkt -> reference.getProduktMap().deleteProdukt(produkt.getProduktNr()));
-      lagerTableView.setItems(filterProdukteAndSetUpSearch());
+      safeTableViewRefresh();
     }
   }
 
@@ -202,5 +199,12 @@ public class LagerController implements Controller {
         event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
     nav_lieferant.setOnAction(
         event -> switchScene(Views.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
+  }
+
+  private void safeTableViewRefresh(){
+    FilteredList<Produkt> filteredProdukte = filterProdukte();
+    setPredicate(filteredProdukte, lagerSearchTxtfield.getText());
+    lagerTableView.setItems(filteredProdukte);
+    lagerTableView.refresh();
   }
 }
