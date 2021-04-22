@@ -49,6 +49,8 @@ public class ProduzentController implements Controller {
   private Button nav_start;
   @FXML
   private Button nav_kunde;
+  @FXML
+  private Button nav_lieferant;
 
 
   private MapReference reference;
@@ -81,7 +83,7 @@ public class ProduzentController implements Controller {
       produzentHinzufügenController.init(reference);
       produzentHinzufügenController.setUp(produzent);
       Stage addStage = new Stage();
-      addStage.setScene(new Scene(root, 600, 470));
+      addStage.setScene(new Scene(root, 600, 420));
       addStage.setResizable(false);
       addStage.initModality(Modality.APPLICATION_MODAL);
       addStage.initOwner(nav_kunde.getScene().getWindow());
@@ -202,5 +204,7 @@ public class ProduzentController implements Controller {
         event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
     nav_lager.setOnAction(
         event -> switchScene(Views.LAGER, nav_lager.getScene(), getClass(), reference));
+    nav_lieferant.setOnAction(
+        event -> switchScene(Views.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
   }
 }

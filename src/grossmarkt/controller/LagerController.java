@@ -46,6 +46,8 @@ public class LagerController implements Controller {
   @FXML
   private Button nav_kunde;
   @FXML
+  private Button nav_produzent;
+  @FXML
   private Button nav_lieferant;
 
 
@@ -199,5 +201,7 @@ public class LagerController implements Controller {
         event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
     nav_lieferant.setOnAction(
         event -> switchScene(Views.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
+    nav_produzent.setOnAction(
+        event -> switchScene(Views.PRODUZENT, nav_produzent.getScene(), getClass(), reference));
   }
 }
