@@ -90,7 +90,7 @@ public class LagerController implements Controller {
 
   private void setUpTableView() {
     TableColumn<Produkt, String> pNummer = new TableColumn<>("Produktnummer"),
-        pBezeichnung = new TableColumn<>("Bezichnung"),
+        pBezeichnung = new TableColumn<>("Bezeichnung"),
         pAnzahl = new TableColumn<>("Anzahl"),
         pKategorie = new TableColumn<>("Kategorie"),
         pHerkunftsregion = new TableColumn<>("Herkunft"),
