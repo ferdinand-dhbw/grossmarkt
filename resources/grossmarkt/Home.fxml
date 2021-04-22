@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #282c34;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grossmarkt.controller.HomeController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" styleClass="body" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grossmarkt.controller.HomeController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -15,7 +15,8 @@
       <RowConstraints maxHeight="250.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="100.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="250.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <GridPane style="-fx-background-color: white;">
@@ -56,7 +57,7 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <ComboBox fx:id="nav_aufträge" layoutX="10.0" layoutY="32.0" prefWidth="150.0" promptText="AUFTRÄGE" style="-fx-background-color: white;" GridPane.columnIndex="6">
+            <ComboBox fx:id="nav_aufträge" layoutX="10.0" layoutY="32.0" prefWidth="150.0" promptText="AUFTRÄGE" styleClass="order-selector" stylesheets="@../style.css" visibleRowCount="2" GridPane.columnIndex="6">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin></ComboBox>
@@ -92,15 +93,23 @@
                </GridPane.margin></Button>
          </children>
       </GridPane>
-      <Text fx:id="timestamp" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="10.03.2021 10:03" textAlignment="CENTER" wrappingWidth="120.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Text fx:id="timestamp" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00.0000 00:00:00" textAlignment="CENTER" wrappingWidth="120.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <ImageView fitHeight="132.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <ImageView fitHeight="132.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <image>
             <Image url="@../weather.png" />
          </image>
+         <GridPane.margin>
+            <Insets bottom="10.0" />
+         </GridPane.margin>
       </ImageView>
+      <Text fx:id="changeOrt" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="weather" text="ORT ÄNDERN" underline="true" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+         <GridPane.margin>
+            <Insets left="125.0" />
+         </GridPane.margin>
+      </Text>
    </children>
 </GridPane>

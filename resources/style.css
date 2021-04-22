@@ -1,3 +1,7 @@
+.body {
+    -fx-background-color:  #282c34;
+}
+
 .nav_btn {
     -fx-background-color: white;
 }
@@ -7,7 +11,7 @@
 }
 
 .nav_btn:pressed, .nav_btn:default:hover:pressed {
-    -fx-background-color: red;
+    -fx-background-color: #a7a7a7;
 }
 
 .main_btn {
@@ -22,7 +26,7 @@
 }
 
 .main_btn:pressed, .main_btn:default:hover:pressed {
-    -fx-background-color: red;
+    -fx-background-color: #a7a7a7;
 }
 
 .lang-selector {
@@ -31,4 +35,84 @@
     -fx-text-fill: white;
     -fx-text-base-color: white;
     -fx-body-color: black;
+    -fx-font-size: 14;
+}
+
+.order-selector {
+    -fx-background-color: white;
+    -fx-font-size: 14;
+}
+
+.weather {
+    -fx-font-weight: none;
+}
+
+.weather:hover, .weather:default:hover:pressed {
+    -fx-font-weight: bold;
+}
+
+.search-bar {
+    -fx-background-color:  #282c34;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-style: hidden hidden solid hidden;
+}
+
+.modal_btn {
+    -fx-background-color:  white;
+    -fx-text-fill: #282c34;
+    -fx-border-color: white;
+    -fx-border-width: 0;
+}
+
+.modal_btn:hover {
+    -fx-background-color: #C4C4C4;
+}
+
+.modal_btn:pressed, .modal_btn:default:hover:pressed{
+    -fx-background-color: #a7a7a7;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color:  #282c34;
+}
+
+.table-view{
+    -fx-background-color: transparent;
+}
+
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: #282c34;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+    -fx-border-color: #6d737a;
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #333f50;
+    -fx-background-insets: 0;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #222a34;
+    -fx-background-insets: 0;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
 }

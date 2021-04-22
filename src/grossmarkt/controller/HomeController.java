@@ -1,5 +1,9 @@
 package grossmarkt.controller;
 
+import static grossmarkt.controller.ControllerUtility.featureAlert;
+import static grossmarkt.controller.ControllerUtility.switchScene;
+
+import grossmarkt.controller.ControllerUtility.Views;
 import grossmarkt.maps.MapReference;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,32 +13,48 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-public class HomeController {
+public class HomeController implements Controller {
 
   private MapReference mapReference;
+
 
   @FXML
   private Text timestamp;
   @FXML
   private Button nav_kunde;
   @FXML
+  private Button nav_lager;
+  @FXML
   private Button home_aufträge;
+  @FXML
+  private Button nav_lieferant;
+  @FXML
+  private Button home_lager;
+  @FXML
+  private Text changeOrt;
 
-  public void initializeUI() {
+  public void init(MapReference reference) {
+    setMapReference(reference);
     initClock();
     initEvents();
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert();
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(home_lager.getScene().getWindow());
     nav_kunde.setOnAction(featureAlert);
     home_aufträge.setOnAction(featureAlert);
+
+    nav_lager.setOnAction(
+        event -> switchScene(Views.LAGER, nav_kunde.getScene(), getClass(), mapReference));
+    home_lager.setOnAction(
+        event -> switchScene(Views.LAGER, home_lager.getScene(), getClass(), mapReference));
+    nav_lieferant.setOnAction(
+        event -> switchScene(Views.LIEFERANT, nav_kunde.getScene(), getClass(), mapReference));
+    changeOrt.setOnMouseClicked(mouseEvent -> featureAlert(nav_kunde.getScene().getWindow()));
   }
 
 
@@ -47,17 +67,8 @@ public class HomeController {
     clock.play();
   }
 
-  public void setListReference(MapReference mapReference) {
+  public void setMapReference(MapReference mapReference) {
     this.mapReference = mapReference;
-  }
-
-  public void featureAlert() {
-    var alert = new Alert(AlertType.INFORMATION);
-    alert.setTitle("Funktion nicht verfügbar");
-    alert.setContentText("Die ausgewählte Funktion ist in dieser Version des Programms nocht nicht verfügbar.");
-    alert.setHeaderText(null);
-
-    alert.showAndWait();
   }
 
 }

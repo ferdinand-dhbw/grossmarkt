@@ -1,11 +1,11 @@
 package grossmarkt.application;
 
 public abstract class Person {
-  private double id;
+  private int id;
   private String vorname, nachname, land, stadt, strasse, hausNr;
   private int plz;
 
-  public Person(String vorname, String nachname, String land, String stadt, String strasse,
+  public Person(int id, String vorname, String nachname, String land, String stadt, String strasse,
       String hausNr, int plz) {
     this.vorname = vorname;
     this.nachname = nachname;
@@ -14,9 +14,14 @@ public abstract class Person {
     this.strasse = strasse;
     this.hausNr = hausNr;
     this.plz = plz;
+    this.id = id;
   }
 
-  public double getId() {
+  public String getAdressString(){
+    return strasse.concat(" ").concat(hausNr).concat("\n").concat(Integer.toString(plz)).concat(" ").concat(stadt).concat("\n").concat(land);
+  }
+
+  public int getId() {
     return id;
   }
 
