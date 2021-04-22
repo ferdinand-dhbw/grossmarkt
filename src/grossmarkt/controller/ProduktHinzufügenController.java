@@ -25,6 +25,8 @@ public class ProduktHinzufügenController implements Controller {
   private Spinner<Integer> pAnzahl;
   @FXML
   private DatePicker pMhd;
+  @FXML
+  private Text pWarnung;
 
   private MapReference reference;
   private Produkt currentProdukt;
@@ -98,6 +100,6 @@ public class ProduktHinzufügenController implements Controller {
   }
 
   private void invalidInput() {
-    System.out.println("Nope"); // TODO yellow text add pls
+    pWarnung.setText("Kein valider Input");
   }
 }
