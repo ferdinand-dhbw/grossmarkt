@@ -3,6 +3,7 @@ package grossmarkt.controller;
 import static grossmarkt.controller.ControllerUtility.featureAlert;
 import static grossmarkt.controller.ControllerUtility.switchScene;
 
+import grossmarkt.application.Lieferant;
 import grossmarkt.application.Produkt;
 import grossmarkt.controller.ControllerUtility.Views;
 import grossmarkt.maps.MapReference;
@@ -81,8 +82,7 @@ public class LagerController implements Controller {
       addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
-      lagerTableView.setItems(filterProdukte());
-      lagerTableView.refresh();
+      safeTableViewRefresh();
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -184,7 +184,7 @@ public class LagerController implements Controller {
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       produkts
           .forEach(produkt -> reference.getProduktMap().deleteProdukt(produkt.getProduktNr()));
-      lagerTableView.setItems(filterProdukteAndSetUpSearch());
+      safeTableViewRefresh();
     }
   }
 
@@ -199,5 +199,12 @@ public class LagerController implements Controller {
         event -> switchScene(Views.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
     nav_produzent.setOnAction(
         event -> switchScene(Views.PRODUZENT, nav_produzent.getScene(), getClass(), reference));
+  }
+
+  private void safeTableViewRefresh(){
+    FilteredList<Produkt> filteredProdukte = filterProdukte();
+    setPredicate(filteredProdukte, lagerSearchTxtfield.getText());
+    lagerTableView.setItems(filteredProdukte);
+    lagerTableView.refresh();
   }
 }

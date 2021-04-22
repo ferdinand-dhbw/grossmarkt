@@ -4,11 +4,13 @@ import static grossmarkt.controller.ControllerUtility.featureAlert;
 import static grossmarkt.controller.ControllerUtility.switchScene;
 
 import grossmarkt.application.Lieferant;
+import grossmarkt.application.Produzent;
 import grossmarkt.controller.ControllerUtility.Views;
 import grossmarkt.maps.MapReference;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.logging.Filter;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -81,8 +83,7 @@ public class LieferantController implements Controller {
       addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
-      lieferantenTableView.setItems(filterLieferanten());
-      lieferantenTableView.refresh();
+      safeTableViewRefresh();
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -187,7 +188,7 @@ public class LieferantController implements Controller {
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       lieferants
           .forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
-      lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
+      safeTableViewRefresh();
     }
   }
 
@@ -202,5 +203,12 @@ public class LieferantController implements Controller {
         event -> switchScene(Views.LAGER, nav_lager.getScene(), getClass(), reference));
     nav_produzent.setOnAction(
         event -> switchScene(Views.PRODUZENT, nav_produzent.getScene(), getClass(), reference));
+  }
+
+  private void safeTableViewRefresh(){
+    FilteredList<Lieferant> filteredLieferanten = filterLieferanten();
+    setPredicate(filteredLieferanten, lieferantSearchTxtfield.getText());
+    lieferantenTableView.setItems(filteredLieferanten);
+    lieferantenTableView.refresh();
   }
 }

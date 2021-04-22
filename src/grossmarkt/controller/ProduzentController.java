@@ -82,8 +82,7 @@ public class ProduzentController implements Controller {
       addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
-      produzentenTableView.setItems(filterProduzenten());
-      produzentenTableView.refresh();
+      safeTableViewRefresh();
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -187,7 +186,7 @@ public class ProduzentController implements Controller {
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       produzents
           .forEach(produzent -> reference.getProduzentMap().deleteProduzent(produzent.getId()));
-      produzentenTableView.setItems(filterProduzentenAndSetUpSearch());
+      safeTableViewRefresh();
     }
   }
 
@@ -202,5 +201,12 @@ public class ProduzentController implements Controller {
         event -> switchScene(Views.LAGER, nav_lager.getScene(), getClass(), reference));
     nav_lieferant.setOnAction(
         event -> switchScene(Views.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
+  }
+
+  private void safeTableViewRefresh(){
+    FilteredList<Produzent> filteredProduzenten = filterProduzenten();
+    setPredicate(filteredProduzenten, produzentenSearchTxtfield.getText());
+    produzentenTableView.setItems(filteredProduzenten);
+    produzentenTableView.refresh();
   }
 }
