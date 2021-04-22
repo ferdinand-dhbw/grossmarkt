@@ -13,7 +13,8 @@ public class LieferantHinzufügenController implements Controller {
   @FXML
   private Button lPopupNextBtn;
   @FXML
-  private TextField lPopupNachname, lPopupVorname, lPopupStrasse, lPopupOrt, lPopupHNr, lPopupPLZ, lPopupProduzent, lPopupPreisliste;
+  private TextField lPopupNachname, lPopupVorname, lPopupStrasse, lPopupOrt, lPopupHNr, lPopupPLZ,
+      lPopupProduzent, lPopupPreisliste;
   @FXML
   private Text lLiefernantennummerText;
 

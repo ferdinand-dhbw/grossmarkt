@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
 public class Main extends Application {
+  //TODO "Achten Sie darauf [...] den Source Code hinreichend [zu] kommentieren"
 
   private static final MapReference MAP_REFERENCE = new MapReference();
 

@@ -155,8 +155,10 @@ public class LieferantController implements Controller {
       if (newValue == null || newValue.isEmpty()) {
         return true;
       }
-      if (lieferant.getVorname().toLowerCase().contains(newValue.toLowerCase()) || lieferant
-          .getNachname().toLowerCase().contains(newValue.toLowerCase())) {
+      if (lieferant.getVorname().toLowerCase().contains(newValue.toLowerCase()) ||
+          lieferant.getNachname().toLowerCase().contains(newValue.toLowerCase()) ||
+          lieferant.getVorname().concat(" ").concat(lieferant.getNachname()).toLowerCase()
+              .contains(newValue.toLowerCase())) {
         return true;
       }
       return Integer.toString(lieferant.getId()).contains(newValue);
