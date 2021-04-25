@@ -62,9 +62,6 @@ public class LieferantController implements Controller {
   }
 
   public void showLieferant(Lieferant lieferant) {
-    if (lieferant != null) {
-      System.out.println("clicked " + lieferant.getNachname());
-    }
     Parent root;
     LieferantHinzufügenController lieferantHinzufügenController;
     try {

@@ -28,7 +28,6 @@ public class ControllerUtility {
 
   public static void switchScene(Views view, Scene currentScene, Class currentClass,
       MapReference reference) {
-    System.out.println("Switching to " + view.filename);
     FXMLLoader loader = new FXMLLoader(currentClass.getResource("../" + view.filename));
     Parent root = null;
     try {

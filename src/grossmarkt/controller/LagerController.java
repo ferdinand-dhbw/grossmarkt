@@ -63,9 +63,6 @@ public class LagerController implements Controller {
   }
 
   public void showProdukt(Produkt produkt) {
-    if (produkt != null) {
-      System.out.println("clicked " + produkt.getBezeichnung());
-    }
     Parent root;
     ProduktHinzufügenController produktHinzufügenController;
     try {

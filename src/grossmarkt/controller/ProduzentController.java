@@ -63,9 +63,6 @@ public class ProduzentController implements Controller {
   }
 
   public void showProduzent(Produzent produzent) {
-    if (produzent != null) {
-      System.out.println("clicked " + produzent.getNachname());
-    }
     Parent root;
     ProduzentHinzufügenController produzentHinzufügenController;
     try {
