@@ -217,6 +217,13 @@ public class ProduzentController implements Controller {
   private void safeTableViewRefresh(){
     FilteredList<Produzent> filteredProduzenten = filterProduzenten();
     setPredicate(filteredProduzenten, produzentenSearchTxtfield.getText());
+
+    produzentenSearchTxtfield.textProperty()
+        .addListener((observable, oldValue, newValue) -> {
+          setPredicate(filteredProduzenten, newValue);
+          produzentenTableView.setItems(filteredProduzenten);
+        });
+
     produzentenTableView.setItems(filteredProduzenten);
     produzentenTableView.refresh();
   }

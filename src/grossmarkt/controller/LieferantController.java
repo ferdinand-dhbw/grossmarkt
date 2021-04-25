@@ -221,6 +221,13 @@ public class LieferantController implements Controller {
   private void safeTableViewRefresh() {
     FilteredList<Lieferant> filteredLieferanten = filterLieferanten();
     setPredicate(filteredLieferanten, lieferantSearchTxtfield.getText());
+
+    lieferantSearchTxtfield.textProperty()
+        .addListener((observable, oldValue, newValue) -> {
+          setPredicate(filteredLieferanten, newValue);
+          lieferantenTableView.setItems(filteredLieferanten);
+        });
+
     lieferantenTableView.setItems(filteredLieferanten);
     lieferantenTableView.refresh();
   }

@@ -216,6 +216,13 @@ public class LagerController implements Controller {
   private void safeTableViewRefresh(){
     FilteredList<Produkt> filteredProdukte = filterProdukte();
     setPredicate(filteredProdukte, lagerSearchTxtfield.getText());
+
+    lagerSearchTxtfield.textProperty()
+        .addListener((observable, oldValue, newValue) -> {
+          setPredicate(filteredProdukte, newValue);
+          lagerTableView.setItems(filteredProdukte);
+        });
+
     lagerTableView.setItems(filteredProdukte);
     lagerTableView.refresh();
   }
