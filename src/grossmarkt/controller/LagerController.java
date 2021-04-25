@@ -30,6 +30,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -63,6 +65,11 @@ public class LagerController implements Controller {
     delBtn.setOnAction(event ->
         deleteProdukte(
             new ArrayList<>(lagerTableView.getSelectionModel().getSelectedItems())));
+
+    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true, true);
+    ImageView imageView = new ImageView(image);
+    delBtn.setGraphic(imageView);
+
     addBtn.setOnAction(event -> showProdukt(null));
   }
 

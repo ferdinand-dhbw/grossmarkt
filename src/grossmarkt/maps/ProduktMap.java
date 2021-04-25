@@ -33,10 +33,9 @@ public class ProduktMap {
    * adds demo data
    */
   public void populateWithDemodata() {
-    addProdukt(1, "Bezeichnung", "Herkunftsregion", "Kategorie A", "22.04.2021");
-    addProdukt(15, "asdasdasdasda", "Herkunftsregion", "Kategorie A", "22.04.2021");
-    addProdukt(11, "Bezeicsdasdasdashnung", "asdasda sdasd ", "Kategorie B", "22.04.2021");
-    addProdukt(42, "Bezeicdasdasdasdhnung", "Herkunftsregion", "Kategorie B", "22.04.2021");
+    addProdukt(14, "Kiste Äpfel", "Bodenseeregion", "Obst", "25.05.2021");
+    addProdukt(3, "Kiste Bananen", "Costa Rica", "Obst", "13.05.2021");
+    addProdukt(8, "Kiste Gurken", "Stuttgart", "Gemüse", "08.05.2021");
 
   }
 

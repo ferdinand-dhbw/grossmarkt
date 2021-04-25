@@ -88,7 +88,7 @@
             <Font size="14.0" />
           </font>
         </Button>
-        <Button fx:id="delBtn" mnemonicParsing="false" styleClass="main_btn" stylesheets="@../style.css" text="🗑" GridPane.halignment="CENTER">
+        <Button fx:id="delBtn" mnemonicParsing="false" styleClass="main_btn" stylesheets="@../style.css" GridPane.halignment="CENTER">
           <font>
             <Font size="14.0" />
           </font>
