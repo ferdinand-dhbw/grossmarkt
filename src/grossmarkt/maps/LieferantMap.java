@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class LieferantMap {
-  private HashMap<Integer, Lieferant> lieferantHashMap = new HashMap<>();
+  private final HashMap<Integer, Lieferant> lieferantHashMap = new HashMap<>();
 
   public HashMap<Integer, Lieferant> getLieferantHashMap() {
     return lieferantHashMap;

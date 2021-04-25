@@ -1,7 +1,7 @@
 package grossmarkt.application;
 
 public abstract class Person {
-  private int id;
+  private final int id;
   private String vorname, nachname, land, stadt, strasse, hausNr;
   private int plz;
 

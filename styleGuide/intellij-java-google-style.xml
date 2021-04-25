@@ -250,7 +250,7 @@
                             <AND>
                                 <NAME>.*:id</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -284,7 +284,7 @@
                             <AND>
                                 <NAME>.*:.*Style</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                         <order>BY_NAME</order>
@@ -296,7 +296,7 @@
                             <AND>
                                 <NAME>.*:layout_width</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -307,7 +307,7 @@
                             <AND>
                                 <NAME>.*:layout_height</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -318,7 +318,7 @@
                             <AND>
                                 <NAME>.*:layout_weight</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -329,7 +329,7 @@
                             <AND>
                                 <NAME>.*:layout_margin</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -340,7 +340,7 @@
                             <AND>
                                 <NAME>.*:layout_marginTop</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -351,7 +351,7 @@
                             <AND>
                                 <NAME>.*:layout_marginBottom</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -362,7 +362,7 @@
                             <AND>
                                 <NAME>.*:layout_marginStart</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -373,7 +373,7 @@
                             <AND>
                                 <NAME>.*:layout_marginEnd</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -384,7 +384,7 @@
                             <AND>
                                 <NAME>.*:layout_marginLeft</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -395,7 +395,7 @@
                             <AND>
                                 <NAME>.*:layout_marginRight</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -406,7 +406,7 @@
                             <AND>
                                 <NAME>.*:layout_.*</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                         <order>BY_NAME</order>
@@ -418,7 +418,7 @@
                             <AND>
                                 <NAME>.*:padding</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -429,7 +429,7 @@
                             <AND>
                                 <NAME>.*:paddingTop</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -440,7 +440,7 @@
                             <AND>
                                 <NAME>.*:paddingBottom</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -451,7 +451,7 @@
                             <AND>
                                 <NAME>.*:paddingStart</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -462,7 +462,7 @@
                             <AND>
                                 <NAME>.*:paddingEnd</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -473,7 +473,7 @@
                             <AND>
                                 <NAME>.*:paddingLeft</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -484,7 +484,7 @@
                             <AND>
                                 <NAME>.*:paddingRight</NAME>
                                 <XML_ATTRIBUTE />
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                     </rule>
@@ -494,18 +494,7 @@
                         <match>
                             <AND>
                                 <NAME>.*</NAME>
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
-                            </AND>
-                        </match>
-                        <order>BY_NAME</order>
-                    </rule>
-                </section>
-                <section>
-                    <rule>
-                        <match>
-                            <AND>
-                                <NAME>.*</NAME>
-                                <XML_NAMESPACE>http://schemas.android.com/apk/res-auto</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res/android</XML_NAMESPACE>
                             </AND>
                         </match>
                         <order>BY_NAME</order>
@@ -516,7 +505,18 @@
                         <match>
                             <AND>
                                 <NAME>.*</NAME>
-                                <XML_NAMESPACE>http://schemas.android.com/tools</XML_NAMESPACE>
+                                <XML_NAMESPACE>https://schemas.android.com/apk/res-auto</XML_NAMESPACE>
+                            </AND>
+                        </match>
+                        <order>BY_NAME</order>
+                    </rule>
+                </section>
+                <section>
+                    <rule>
+                        <match>
+                            <AND>
+                                <NAME>.*</NAME>
+                                <XML_NAMESPACE>https://schemas.android.com/tools</XML_NAMESPACE>
                             </AND>
                         </match>
                         <order>BY_NAME</order>

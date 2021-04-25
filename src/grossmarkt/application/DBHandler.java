@@ -18,7 +18,6 @@ public class DBHandler {
   public void save(MapReference reference){
     //Preprocessing and saving to DB
     System.out.println("Saved on DB");
-    return;
   }
 
   /**

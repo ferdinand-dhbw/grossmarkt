@@ -8,7 +8,7 @@ public class Kunde extends Person{
   enum LieferscheinPreaferenz {
     MAIL,
     DRUCK,
-    MAIL_UND_DRUCK;
+    MAIL_UND_DRUCK
   }
 
   private String email;

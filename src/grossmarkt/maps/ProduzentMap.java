@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class ProduzentMap {
-  private HashMap<Integer, Produzent> produzentHashMap = new HashMap<>();
+  private final HashMap<Integer, Produzent> produzentHashMap = new HashMap<>();
 
   public HashMap<Integer, Produzent> getProduzentHashMap() {
     return produzentHashMap;
