@@ -23,13 +23,13 @@ public class HomeController implements Controller {
 
 
   @FXML
-  private Text timestamp,changeOrt;
+  private Text timestamp, changeOrt;
   @FXML
   private Button navKunde, navLager, homeAuftrag, navLieferant, navProduzent, homeLager;
 
   /**
-   * initializes HomeController
-   * sets MapReference, initializes clock, and initializes bar
+   * initializes HomeController sets MapReference, initializes clock, and initializes bar
+   *
    * @param reference global references to HashMaps
    */
   public void init(MapReference reference) {
@@ -39,7 +39,8 @@ public class HomeController implements Controller {
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert(homeLager.getScene().getWindow());
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(
+        homeLager.getScene().getWindow());
     navKunde.setOnAction(featureAlert);
     homeAuftrag.setOnAction(featureAlert);
 

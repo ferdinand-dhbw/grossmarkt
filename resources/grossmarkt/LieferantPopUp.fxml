@@ -1,219 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="600.0" styleClass="body" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grossmarkt.controller.LieferantPopUpController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+  minWidth="-Infinity" prefHeight="470.0" prefWidth="600.0" styleClass="body"
+  stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1"
+  fx:controller="grossmarkt.controller.LieferantPopUpController">
+  <children>
+    <Button GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="BOTTOM"
+      mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" styleClass="modal_btn"
+      stylesheets="@../style.css" text="ÄNDERN" fx:id="lPopupNextBtn">
+      <GridPane.margin>
+        <Insets bottom="15.0" right="15.0"/>
+      </GridPane.margin>
+      <font>
+        <Font name="System Bold" size="12.0"/>
+      </font>
+    </Button>
+    <GridPane GridPane.rowIndex="2">
+      <children>
+        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname">
+          <GridPane.margin>
+            <Insets left="15.0"/>
+          </GridPane.margin>
+        </Text>
+        <Text GridPane.rowIndex="2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Vorname">
+          <GridPane.margin>
+            <Insets left="15.0"/>
+          </GridPane.margin>
+        </Text>
+        <TextField GridPane.rowIndex="1" fx:id="lPopupNachname">
+          <GridPane.margin>
+            <Insets left="15.0" right="15.0"/>
+          </GridPane.margin>
+        </TextField>
+        <TextField GridPane.rowIndex="3" fx:id="lPopupVorname">
+          <GridPane.margin>
+            <Insets bottom="10.0" left="15.0" right="15.0"/>
+          </GridPane.margin>
+        </TextField>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+    </GridPane>
+    <GridPane GridPane.rowIndex="4">
+      <children>
+        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Straße">
+          <GridPane.margin>
+            <Insets left="15.0"/>
+          </GridPane.margin>
+        </Text>
+        <Text GridPane.rowIndex="2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ort">
+          <GridPane.margin>
+            <Insets left="15.0"/>
+          </GridPane.margin>
+        </Text>
+        <TextField GridPane.rowIndex="1" fx:id="lPopupStrasse">
+          <GridPane.margin>
+            <Insets left="15.0" right="15.0"/>
+          </GridPane.margin>
+        </TextField>
+        <TextField GridPane.rowIndex="3" fx:id="lPopupOrt">
+          <GridPane.margin>
+            <Insets bottom="10.0" left="15.0" right="15.0"/>
+          </GridPane.margin>
+        </TextField>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+    </GridPane>
+    <GridPane GridPane.rowIndex="6" prefHeight="74.0" prefWidth="300.0">
+      <children>
+        <Text GridPane.valignment="BOTTOM" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Produzent">
+          <GridPane.margin>
+            <Insets bottom="5.0" left="15.0"/>
+          </GridPane.margin>
+        </Text>
+        <Text GridPane.rowIndex="2" GridPane.valignment="BOTTOM" fill="WHITE" strokeType="OUTSIDE"
+          strokeWidth="0.0" text="Link zur Preisliste">
+          <GridPane.margin>
+            <Insets bottom="5.0" left="15.0"/>
+          </GridPane.margin>
+        </Text>
+        <TextField GridPane.rowIndex="1" prefHeight="26.0" prefWidth="217.0"
+          fx:id="lPopupProduzent">
+          <GridPane.margin>
+            <Insets left="15.0" right="15.0"/>
+          </GridPane.margin>
+        </TextField>
+        <TextField GridPane.rowIndex="3" prefHeight="26.0" prefWidth="217.0"
+          fx:id="lPopupPreisliste">
+          <GridPane.margin>
+            <Insets left="15.0" right="15.0"/>
+          </GridPane.margin>
+        </TextField>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+    </GridPane>
+    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <children>
+        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hausnummer">
+          <GridPane.margin>
+            <Insets left="15.0"/>
+          </GridPane.margin>
+        </Text>
+        <Text GridPane.rowIndex="2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Postleitzahl">
+          <GridPane.margin>
+            <Insets left="15.0"/>
+          </GridPane.margin>
+        </Text>
+        <TextField GridPane.rowIndex="3" fx:id="lPopupPLZ">
+          <GridPane.margin>
+            <Insets bottom="10.0" left="15.0" right="15.0"/>
+          </GridPane.margin>
+        </TextField>
+        <TextField GridPane.rowIndex="1" fx:id="lPopupHNr">
+          <GridPane.margin>
+            <Insets left="15.0" right="15.0"/>
+          </GridPane.margin>
+        </TextField>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+    </GridPane>
+    <GridPane GridPane.rowIndex="7">
+      <Text fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" fx:id="lWarnung">
+        <GridPane.margin>
+          <Insets left="15.0" top="10.0"/>
+        </GridPane.margin>
+        <font>
+          <Font name="System Bold" size="12.0"/>
+        </font>
+      </Text>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints/>
+      </rowConstraints>
+    </GridPane>
+    <Separator GridPane.rowIndex="3" prefWidth="200.0">
+      <GridPane.margin>
+        <Insets left="15.0"/>
+      </GridPane.margin>
+    </Separator>
+    <Separator GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="200.0">
+      <GridPane.margin>
+        <Insets right="15.0"/>
+      </GridPane.margin>
+    </Separator>
+    <Separator GridPane.rowIndex="1" prefWidth="200.0">
+      <GridPane.margin>
+        <Insets left="15.0"/>
+      </GridPane.margin>
+    </Separator>
+    <Separator GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="200.0">
+      <GridPane.margin>
+        <Insets right="15.0"/>
+      </GridPane.margin>
+    </Separator>
+    <Separator GridPane.rowIndex="5" prefWidth="200.0">
+      <padding>
+        <Insets left="15.0"/>
+      </padding>
+    </Separator>
+    <Separator GridPane.columnIndex="1" GridPane.rowIndex="5" prefWidth="200.0">
+      <padding>
+        <Insets right="15.0"/>
+      </padding>
+    </Separator>
+    <Text GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" fill="WHITE" strokeType="OUTSIDE"
+      strokeWidth="0.0" text="Lieferantennummer: " fx:id="lLiefernantennummerText">
+      <GridPane.margin>
+        <Insets left="15.0"/>
+      </GridPane.margin>
+      <font>
+        <Font name="System Bold" size="16.0"/>
+      </font>
+    </Text>
+  </children>
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
   </rowConstraints>
-   <children>
-      <Text fx:id="lLiefernantennummerText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieferantennummer: " GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="15.0" />
-         </GridPane.margin>
-      </Text>
-      <GridPane GridPane.rowIndex="2">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname">
-               <GridPane.margin>
-                  <Insets left="15.0" />
-               </GridPane.margin>
-            </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="15.0" />
-               </GridPane.margin>
-            </Text>
-            <TextField fx:id="lPopupNachname" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="15.0" right="15.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField fx:id="lPopupVorname" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="15.0" right="15.0" />
-               </GridPane.margin>
-            </TextField>
-         </children>
-      </GridPane>
-      <GridPane GridPane.rowIndex="4">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Straße">
-               <GridPane.margin>
-                  <Insets left="15.0" />
-               </GridPane.margin>
-            </Text>
-            <TextField fx:id="lPopupStrasse" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="15.0" right="15.0" />
-               </GridPane.margin>
-            </TextField>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ort" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="15.0" />
-               </GridPane.margin>
-            </Text>
-            <TextField fx:id="lPopupOrt" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="15.0" right="15.0" />
-               </GridPane.margin>
-            </TextField>
-         </children>
-      </GridPane>
-      <GridPane prefHeight="74.0" prefWidth="300.0" GridPane.rowIndex="6">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Produzent" GridPane.valignment="BOTTOM">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="15.0" />
-               </GridPane.margin>
-            </Text>
-            <TextField fx:id="lPopupProduzent" prefHeight="26.0" prefWidth="217.0" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="15.0" right="15.0" />
-               </GridPane.margin>
-            </TextField>
-           <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Link zur Preisliste" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
-             <GridPane.margin>
-               <Insets bottom="5.0" left="15.0" />
-             </GridPane.margin>
-           </Text>
-           <TextField fx:id="lPopupPreisliste" prefHeight="26.0" prefWidth="217.0" GridPane.rowIndex="3">
-             <GridPane.margin>
-               <Insets left="15.0" right="15.0" />
-             </GridPane.margin>
-           </TextField>
-         </children>
-      </GridPane>
-      <Button fx:id="lPopupNextBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" styleClass="modal_btn" stylesheets="@../style.css" text="ÄNDERN" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
-         <GridPane.margin>
-            <Insets bottom="15.0" right="15.0" />
-         </GridPane.margin>
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hausnummer">
-               <GridPane.margin>
-                  <Insets left="15.0" />
-               </GridPane.margin>
-            </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Postleitzahl" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="15.0" />
-               </GridPane.margin>
-            </Text>
-            <TextField fx:id="lPopupPLZ" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="15.0" right="15.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField fx:id="lPopupHNr" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="15.0" right="15.0" />
-               </GridPane.margin>
-            </TextField>
-         </children>
-      </GridPane>
-      <GridPane GridPane.rowIndex="7">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-          <Text fx:id="lWarnung" fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0">
-            <GridPane.margin>
-              <Insets left="15.0" top="10.0" />
-            </GridPane.margin>
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
-          </Text>
-         <rowConstraints>
-            <RowConstraints />
-         </rowConstraints>
-      </GridPane>
-      <Separator prefWidth="200.0" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets left="15.0" />
-         </GridPane.margin>
-      </Separator>
-      <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets right="15.0" />
-         </GridPane.margin>
-      </Separator>
-      <Separator prefWidth="200.0" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets left="15.0" />
-         </GridPane.margin>
-      </Separator>
-      <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets right="15.0" />
-         </GridPane.margin>
-      </Separator>
-      <Separator prefWidth="200.0" GridPane.rowIndex="5">
-         <padding>
-            <Insets left="15.0" />
-         </padding>
-      </Separator>
-      <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-         <padding>
-            <Insets right="15.0" />
-         </padding>
-      </Separator>
-   </children>
 </GridPane>

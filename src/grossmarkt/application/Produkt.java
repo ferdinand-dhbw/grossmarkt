@@ -1,6 +1,7 @@
 package grossmarkt.application;
 
 public class Produkt {
+
   private int produktNr, menge;
   private String bezeichnung, herkunftsregion, kategorie, mhd;
 
@@ -16,14 +17,15 @@ public class Produkt {
 
   /**
    * Updates every field of the Lieferant-object
-   * @param menge quantity
-   * @param bezeichnung description
+   *
+   * @param menge           quantity
+   * @param bezeichnung     description
    * @param herkunftsregion region of origin
-   * @param kategorie category
-   * @param mhd best-before-date
+   * @param kategorie       category
+   * @param mhd             best-before-date
    */
   public void updateAll(int menge, String bezeichnung, String herkunftsregion,
-      String kategorie, String mhd){
+      String kategorie, String mhd) {
     this.menge = menge;
     this.bezeichnung = bezeichnung;
     this.herkunftsregion = herkunftsregion;

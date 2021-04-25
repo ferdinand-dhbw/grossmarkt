@@ -22,8 +22,8 @@ public class LieferantPopUpController implements Controller {
   private Lieferant currentLieferant;
 
   /**
-   * initializes LieferantHinzufügenController
-   * sets MapReference, add handler to Button
+   * initializes LieferantHinzufügenController sets MapReference, add handler to Button
+   *
    * @param reference global references to HashMaps
    */
   @Override

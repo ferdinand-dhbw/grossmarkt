@@ -1,5 +1,5 @@
 .body {
-    -fx-background-color:  #282c34;
+    -fx-background-color: #282c34;
 }
 
 .nav_btn {
@@ -15,7 +15,7 @@
 }
 
 .main_btn {
-    -fx-background-color:  #282c34;
+    -fx-background-color: #282c34;
     -fx-text-fill: white;
     -fx-border-color: white;
     -fx-border-width: 2;
@@ -30,8 +30,8 @@
 }
 
 .lang-selector {
-    -fx-background-color:  black;
-    -fx-background-radius:  10;
+    -fx-background-color: black;
+    -fx-background-radius: 10;
     -fx-text-fill: white;
     -fx-text-base-color: white;
     -fx-body-color: black;
@@ -52,7 +52,7 @@
 }
 
 .search-bar {
-    -fx-background-color:  #282c34;
+    -fx-background-color: #282c34;
     -fx-text-fill: white;
     -fx-border-color: white;
     -fx-border-width: 2;
@@ -60,7 +60,7 @@
 }
 
 .modal_btn {
-    -fx-background-color:  white;
+    -fx-background-color: white;
     -fx-text-fill: #282c34;
     -fx-border-color: white;
     -fx-border-width: 0;
@@ -70,22 +70,22 @@
     -fx-background-color: #C4C4C4;
 }
 
-.modal_btn:pressed, .modal_btn:default:hover:pressed{
+.modal_btn:pressed, .modal_btn:default:hover:pressed {
     -fx-background-color: #a7a7a7;
 }
 
 /*noinspection ALL*/
 .table-view .column-header-background .filler {
-    -fx-background-color:  #282c34;
+    -fx-background-color: #282c34;
 }
 
 /*noinspection ALL*/
-.table-view{
+.table-view {
     -fx-background-color: transparent;
 }
 
 /*noinspection ALL*/
-.table-view:focused{
+.table-view:focused {
     -fx-background-color: transparent;
 }
 
@@ -96,25 +96,25 @@
 }
 
 /*noinspection ALL*/
-.table-view .column-header-background .label{
+.table-view .column-header-background .label {
     -fx-background-color: transparent;
     -fx-text-fill: white;
 }
 
 /*noinspection ALL*/
-.table-view .table-cell{
+.table-view .table-cell {
     -fx-text-fill: white;
     -fx-border-color: #6d737a;
 }
 
 /*noinspection ALL*/
-.table-row-cell{
+.table-row-cell {
     -fx-background-color: -fx-table-cell-border-color, #333f50;
     -fx-background-insets: 0;
 }
 
 /*noinspection ALL*/
-.table-row-cell:odd{
+.table-row-cell:odd {
     -fx-background-color: -fx-table-cell-border-color, #282c34;
     -fx-background-insets: 0;
 }

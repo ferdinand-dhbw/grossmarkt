@@ -54,8 +54,9 @@ public class ProduzentController implements Controller {
   }
 
   /**
-   * initializes ProduzentHinzufügenController
-   * sets MapReference, init bar, sets up TableView, and add listener to buttons
+   * initializes ProduzentHinzufügenController sets MapReference, init bar, sets up TableView, and
+   * add listener to buttons
+   *
    * @param reference global references to HashMaps
    */
   public void init(MapReference reference) {
@@ -67,7 +68,8 @@ public class ProduzentController implements Controller {
         deleteProduzenten(
             new ArrayList<>(produzentenTableView.getSelectionModel().getSelectedItems())));
 
-    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true, true);
+    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true,
+        true);
     ImageView imageView = new ImageView(image);
     delBtn.setGraphic(imageView);
 
@@ -76,6 +78,7 @@ public class ProduzentController implements Controller {
 
   /**
    * Function to call dialog to manipulate or add instance
+   *
    * @param produzent Current instance or null
    */
   public void showProduzent(Produzent produzent) {
@@ -181,7 +184,9 @@ public class ProduzentController implements Controller {
     Alert alert = new Alert(AlertType.NONE);
     alert.setTitle("Möchten Sie die Produzenten unwiderruflich löschen?");
     AtomicReference<String> content = new AtomicReference<>("Ausgewählte Produzenten:");
-    produzents.forEach(produzent -> content.set(content.get().concat(String.format("\n\t• %d  %s %s", produzent.getId(), produzent.getVorname(), produzent.getNachname()))));
+    produzents.forEach(produzent -> content.set(content.get().concat(String
+        .format("\n\t• %d  %s %s", produzent.getId(), produzent.getVorname(),
+            produzent.getNachname()))));
     alert.setContentText(content.get());
     alert.initOwner(delBtn.getScene().getWindow());
 
@@ -194,7 +199,6 @@ public class ProduzentController implements Controller {
     DialogPane dialogPane = alert.getDialogPane();
     dialogPane.setStyle("-fx-background-color: #282c34;");
     dialogPane.lookup(".content.label").setStyle("-fx-text-fill: white");
-
 
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       produzents
@@ -215,7 +219,7 @@ public class ProduzentController implements Controller {
         event -> switchScene(View.LIEFERANT, navLieferant.getScene(), getClass(), reference));
   }
 
-  private void safeTableViewRefresh(){
+  private void safeTableViewRefresh() {
     FilteredList<Produzent> filteredProduzenten = filterProduzenten();
     setPredicate(filteredProduzenten, produzentenSearchTxtfield.getText());
 

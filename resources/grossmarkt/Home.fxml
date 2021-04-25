@@ -1,115 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" styleClass="body" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grossmarkt.controller.HomeController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+  minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" styleClass="body"
+  stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1"
+  fx:controller="grossmarkt.controller.HomeController">
+  <children>
+    <GridPane style="-fx-background-color: white;">
+      <children>
+        <Button GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER"
+          mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css"
+          text="STARTPAGE" fx:id="navStart">
+          <font>
+            <Font name="System Bold" size="14.0"/>
+          </font>
+        </Button>
+        <Button GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER"
+          mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css"
+          text="LIEFERANTEN" fx:id="navLieferant">
+          <font>
+            <Font size="14.0"/>
+          </font>
+        </Button>
+        <Button GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER"
+          mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css"
+          text="PRODUZENTEN" fx:id="navProduzent">
+          <font>
+            <Font size="14.0"/>
+          </font>
+        </Button>
+        <Button GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.valignment="CENTER" layoutX="10.0"
+          layoutY="32.0" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css"
+          text="KUNDEN" fx:id="navKunde">
+          <font>
+            <Font size="14.0"/>
+          </font>
+        </Button>
+        <Button GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" layoutX="10.0"
+          layoutY="32.0" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css"
+          text="LAGER" fx:id="navLager">
+          <font>
+            <Font size="14.0"/>
+          </font>
+        </Button>
+        <ComboBox GridPane.halignment="CENTER" GridPane.valignment="CENTER" prefWidth="150.0"
+          promptText="Sprache" styleClass="lang-selector" stylesheets="@../style.css"
+          fx:id="navSprache">
+          <GridPane.margin>
+            <Insets left="10.0" right="10.0"/>
+          </GridPane.margin>
+        </ComboBox>
+        <ComboBox GridPane.columnIndex="6" layoutX="10.0" layoutY="32.0" prefWidth="150.0"
+          promptText="AUFTRÄGE" styleClass="order-selector" stylesheets="@../style.css"
+          visibleRowCount="2" fx:id="navAuftrag">
+          <GridPane.margin>
+            <Insets left="10.0" right="10.0"/>
+          </GridPane.margin>
+        </ComboBox>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+    </GridPane>
+    <GridPane GridPane.rowIndex="3">
+      <children>
+        <Button GridPane.halignment="RIGHT" maxHeight="43.0" maxWidth="115.0" minHeight="43.0"
+          minWidth="115.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="115.0"
+          styleClass="main_btn" stylesheets="@../style.css" text="LAGER"
+          fx:id="homeLager">
+          <GridPane.margin>
+            <Insets right="25.0"/>
+          </GridPane.margin>
+          <font>
+            <Font size="18.0"/>
+          </font>
+        </Button>
+        <Button GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER" maxHeight="43.0"
+          maxWidth="115.0" minHeight="43.0" minWidth="115.0" mnemonicParsing="false"
+          prefHeight="43.0" prefWidth="115.0" styleClass="main_btn" stylesheets="@../style.css"
+          text="AUFTRÄGE" fx:id="homeAuftrag">
+          <GridPane.margin>
+            <Insets left="25.0"/>
+          </GridPane.margin>
+          <font>
+            <Font size="18.0"/>
+          </font>
+        </Button>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+    </GridPane>
+    <ImageView GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" fitHeight="132.0"
+      fitWidth="258.0" pickOnBounds="true" preserveRatio="true">
+      <GridPane.margin>
+        <Insets bottom="10.0"/>
+      </GridPane.margin>
+      <image>
+        <Image url="@../weather.png"/>
+      </image>
+    </ImageView>
+    <Text GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" fill="WHITE"
+      strokeType="OUTSIDE" strokeWidth="0.0" text="00.00.0000 00:00:00"
+      textAlignment="CENTER" wrappingWidth="120.0" fx:id="timestamp">
+      <font>
+        <Font size="24.0"/>
+      </font>
+    </Text>
+    <Text GridPane.halignment="CENTER" GridPane.rowIndex="1" fill="WHITE"
+      strokeType="OUTSIDE" strokeWidth="0.0"
+      text="Obst &amp; Gemüse Meier oHG Verwaltung" textAlignment="CENTER" wrappingWidth="603.35595703125">
+      <font>
+        <Font name="System Bold" size="44.0"/>
+      </font>
+    </Text>
+    <Text GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="NEVER"
+      fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="weather"
+      text="ORT ÄNDERN" underline="true" fx:id="changeOrt">
+      <GridPane.margin>
+        <Insets left="125.0"/>
+      </GridPane.margin>
+    </Text>
+  </children>
   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="250.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="100.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="250.0" minHeight="160.0" prefHeight="160.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="100.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES"/>
   </rowConstraints>
-   <children>
-      <GridPane style="-fx-background-color: white;">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ComboBox fx:id="navSprache" prefWidth="150.0" promptText="Sprache" styleClass="lang-selector" stylesheets="@../style.css" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets left="10.0" right="10.0" />
-               </GridPane.margin></ComboBox>
-            <Button fx:id="navStart" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css" text="STARTPAGE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button fx:id="navLieferant" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css" text="LIEFERANTEN" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Button fx:id="navProduzent" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css" text="PRODUZENTEN" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Button fx:id="navKunde" layoutX="10.0" layoutY="32.0" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css" text="KUNDEN" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Button fx:id="navLager" layoutX="10.0" layoutY="32.0" mnemonicParsing="false" styleClass="nav_btn" stylesheets="@../style.css" text="LAGER" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <ComboBox fx:id="navAuftrag" layoutX="10.0" layoutY="32.0" prefWidth="150.0" promptText="AUFTRÄGE" styleClass="order-selector" stylesheets="@../style.css" visibleRowCount="2" GridPane.columnIndex="6">
-               <GridPane.margin>
-                  <Insets left="10.0" right="10.0" />
-               </GridPane.margin></ComboBox>
-         </children>
-      </GridPane>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Obst &amp; Gemüse Meier oHG Verwaltung" textAlignment="CENTER" wrappingWidth="603.35595703125" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-         <font>
-            <Font name="System Bold" size="44.0" />
-         </font>
-      </Text>
-      <GridPane GridPane.rowIndex="3">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="homeLager" maxHeight="43.0" maxWidth="115.0" minHeight="43.0" minWidth="115.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="115.0" styleClass="main_btn" stylesheets="@../style.css" text="LAGER" GridPane.halignment="RIGHT">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets right="25.0" />
-               </GridPane.margin></Button>
-            <Button fx:id="homeAuftrag" maxHeight="43.0" maxWidth="115.0" minHeight="43.0" minWidth="115.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="115.0" styleClass="main_btn" stylesheets="@../style.css" text="AUFTRÄGE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="25.0" />
-               </GridPane.margin></Button>
-         </children>
-      </GridPane>
-      <Text fx:id="timestamp" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00.0000 00:00:00" textAlignment="CENTER" wrappingWidth="120.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="132.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
-         <image>
-            <Image url="@../weather.png" />
-         </image>
-         <GridPane.margin>
-            <Insets bottom="10.0" />
-         </GridPane.margin>
-      </ImageView>
-      <Text fx:id="changeOrt" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="weather" text="ORT ÄNDERN" underline="true" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
-         <GridPane.margin>
-            <Insets left="125.0" />
-         </GridPane.margin>
-      </Text>
-   </children>
 </GridPane>

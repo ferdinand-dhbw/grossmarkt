@@ -7,14 +7,19 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 public class Main extends Application {
+
   private static MapReference MAP_REFERENCE;
 
+  public static void main(String[] args) {
+    launch(args);
+  }
+
   @Override
-  public void start(Stage homeStage) throws Exception{
+  public void start(Stage homeStage) throws Exception {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
     Parent root = loader.load();
 
@@ -33,10 +38,5 @@ public class Main extends Application {
     homeStage.setScene(new Scene(root, homeStage.getMinWidth(), homeStage.getMinHeight()));
     homeStage.getIcons().add(new Image("https://img.icons8.com/cotton/344/vegetables-box--v1.png"));
     homeStage.show();
-  }
-
-
-  public static void main(String[] args) {
-    launch(args);
   }
 }

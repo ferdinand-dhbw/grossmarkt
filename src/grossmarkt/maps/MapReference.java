@@ -12,13 +12,14 @@ public class MapReference {
 
   /**
    * new MapReference
+   *
    * @param db reference to db to safe data to
    */
-  public MapReference(DBHandler db){
+  public MapReference(DBHandler db) {
     setDBHandler(db);
   }
 
-  public void setDBHandler(DBHandler db){
+  public void setDBHandler(DBHandler db) {
     this.db = db;
   }
 
@@ -33,15 +34,15 @@ public class MapReference {
   public ProduktMap getProduktMap() {
     return produktMap;
   }
-  
+
   public ProduzentMap getProduzentMap() {
-    return produzentMap;       
+    return produzentMap;
   }
 
   /**
    * saves itself to linked db
    */
-  public void saveToDB(){
+  public void saveToDB() {
     db.save(this);
   }
 }
