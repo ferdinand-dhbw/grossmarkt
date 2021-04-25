@@ -36,6 +36,7 @@ import javafx.scene.input.MouseButton;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+@SuppressWarnings("DuplicatedCode")
 public class LagerController implements Controller {
 
   @FXML
@@ -79,13 +80,13 @@ public class LagerController implements Controller {
    */
   public void showProdukt(Produkt produkt) {
     Parent root;
-    ProduktHinzufügenController produktHinzufügenController;
+    ProduktPopUpController produktPopUpController;
     try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("../ProduktHinzufügen.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("../ProduktPopUp.fxml"));
       root = loader.load();
-      produktHinzufügenController = loader.getController();
-      produktHinzufügenController.init(reference);
-      produktHinzufügenController.setUp(produkt);
+      produktPopUpController = loader.getController();
+      produktPopUpController.init(reference);
+      produktPopUpController.setUp(produkt);
       Stage addStage = new Stage();
       addStage.setScene(new Scene(root, 600, 285));
       addStage.setResizable(false);

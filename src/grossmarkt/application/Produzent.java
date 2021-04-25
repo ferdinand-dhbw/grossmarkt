@@ -1,5 +1,6 @@
 package grossmarkt.application;
 
+@SuppressWarnings("DuplicatedCode")
 public class Produzent extends Person{
   private String linkPreisliste;
 
