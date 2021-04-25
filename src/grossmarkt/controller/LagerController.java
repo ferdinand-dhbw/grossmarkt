@@ -43,7 +43,7 @@ public class LagerController implements Controller {
   @FXML
   private TextField lagerSearchTxtfield;
   @FXML
-  private Button delBtn, addBtn, nav_start, nav_kunde, nav_produzent, nav_lieferant;
+  private Button delBtn, addBtn, navStart, navKunde, navProduzent, navLieferant;
 
 
   private MapReference reference;
@@ -90,8 +90,8 @@ public class LagerController implements Controller {
       addStage.setScene(new Scene(root, 600, 285));
       addStage.setResizable(false);
       addStage.initModality(Modality.APPLICATION_MODAL);
-      addStage.initOwner(nav_kunde.getScene().getWindow());
-      addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
+      addStage.initOwner(navKunde.getScene().getWindow());
+      addStage.getIcons().addAll(((Stage) navKunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
       safeTableViewRefresh();
@@ -202,15 +202,15 @@ public class LagerController implements Controller {
 
   private void initEvents() {
     EventHandler<ActionEvent> featureAlert = event -> featureAlert(
-        nav_start.getScene().getWindow());
-    nav_kunde.setOnAction(featureAlert);
+        navStart.getScene().getWindow());
+    navKunde.setOnAction(featureAlert);
 
-    nav_start.setOnAction(
-        event -> switchScene(View.HOME, nav_start.getScene(), getClass(), reference));
-    nav_lieferant.setOnAction(
-        event -> switchScene(View.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
-    nav_produzent.setOnAction(
-        event -> switchScene(View.PRODUZENT, nav_produzent.getScene(), getClass(), reference));
+    navStart.setOnAction(
+        event -> switchScene(View.HOME, navStart.getScene(), getClass(), reference));
+    navLieferant.setOnAction(
+        event -> switchScene(View.LIEFERANT, navLieferant.getScene(), getClass(), reference));
+    navProduzent.setOnAction(
+        event -> switchScene(View.PRODUZENT, navProduzent.getScene(), getClass(), reference));
   }
 
   private void safeTableViewRefresh(){

@@ -44,7 +44,7 @@ public class ProduzentController implements Controller {
   @FXML
   private TextField produzentenSearchTxtfield;
   @FXML
-  private Button delBtn, addBtn, nav_lager, nav_start, nav_kunde, nav_lieferant;
+  private Button delBtn, addBtn, navLager, navStart, navKunde, navLieferant;
 
   private MapReference reference;
 
@@ -90,8 +90,8 @@ public class ProduzentController implements Controller {
       addStage.setScene(new Scene(root, 600, 420));
       addStage.setResizable(false);
       addStage.initModality(Modality.APPLICATION_MODAL);
-      addStage.initOwner(nav_kunde.getScene().getWindow());
-      addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
+      addStage.initOwner(navKunde.getScene().getWindow());
+      addStage.getIcons().addAll(((Stage) navKunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
       safeTableViewRefresh();
@@ -203,15 +203,15 @@ public class ProduzentController implements Controller {
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert(nav_start.getScene().getWindow());
-    nav_kunde.setOnAction(featureAlert);
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(navStart.getScene().getWindow());
+    navKunde.setOnAction(featureAlert);
 
-    nav_start.setOnAction(
-        event -> switchScene(View.HOME, nav_start.getScene(), getClass(), reference));
-    nav_lager.setOnAction(
-        event -> switchScene(View.LAGER, nav_lager.getScene(), getClass(), reference));
-    nav_lieferant.setOnAction(
-        event -> switchScene(View.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
+    navStart.setOnAction(
+        event -> switchScene(View.HOME, navStart.getScene(), getClass(), reference));
+    navLager.setOnAction(
+        event -> switchScene(View.LAGER, navLager.getScene(), getClass(), reference));
+    navLieferant.setOnAction(
+        event -> switchScene(View.LIEFERANT, navLieferant.getScene(), getClass(), reference));
   }
 
   private void safeTableViewRefresh(){
