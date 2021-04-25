@@ -1,5 +1,6 @@
 package grossmarkt;
 
+import grossmarkt.application.DBHandler;
 import grossmarkt.controller.HomeController;
 import grossmarkt.maps.MapReference;
 import javafx.application.Application;
@@ -16,12 +17,15 @@ public class Main extends Application {
   //TODO "Achten Sie darauf [...] die Demodaten [für die Produkte] aufzuhübschen"
   //TODO "Achten Sie darauf [...] ein Interface für die Datenbank [zu] implementieren
 
-  private static final MapReference MAP_REFERENCE = new MapReference();
+  private static MapReference MAP_REFERENCE;
 
   @Override
   public void start(Stage homeStage) throws Exception{
     FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
     Parent root = loader.load();
+
+    DBHandler dbHandler = new DBHandler();
+    MAP_REFERENCE = dbHandler.read();
 
     HomeController homeController = loader.getController();
     homeController.init(MAP_REFERENCE);
