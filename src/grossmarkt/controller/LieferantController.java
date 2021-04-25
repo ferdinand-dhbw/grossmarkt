@@ -4,13 +4,11 @@ import static grossmarkt.controller.ControllerUtility.featureAlert;
 import static grossmarkt.controller.ControllerUtility.switchScene;
 
 import grossmarkt.application.Lieferant;
-import grossmarkt.application.Produzent;
 import grossmarkt.controller.ControllerUtility.Views;
 import grossmarkt.maps.MapReference;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.logging.Filter;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -171,7 +169,9 @@ public class LieferantController implements Controller {
     Alert alert = new Alert(AlertType.NONE);
     alert.setTitle("Möchten Sie die Lieferanten unwiderruflich löschen?");
     AtomicReference<String> content = new AtomicReference<>("Ausgewählte Lieferanten:");
-    lieferants.forEach(lieferant -> content.set(content.get().concat(String.format("\n\t• %d  %s %s", lieferant.getId(), lieferant.getVorname(), lieferant.getNachname()))));
+    lieferants.forEach(lieferant -> content.set(content.get().concat(String
+        .format("\n\t• %d  %s %s", lieferant.getId(), lieferant.getVorname(),
+            lieferant.getNachname()))));
     alert.setContentText(content.get());
     alert.initOwner(delBtn.getScene().getWindow());
 
@@ -205,7 +205,7 @@ public class LieferantController implements Controller {
         event -> switchScene(Views.PRODUZENT, nav_produzent.getScene(), getClass(), reference));
   }
 
-  private void safeTableViewRefresh(){
+  private void safeTableViewRefresh() {
     FilteredList<Lieferant> filteredLieferanten = filterLieferanten();
     setPredicate(filteredLieferanten, lieferantSearchTxtfield.getText());
     lieferantenTableView.setItems(filteredLieferanten);
