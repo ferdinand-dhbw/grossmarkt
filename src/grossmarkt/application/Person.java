@@ -1,7 +1,8 @@
 package grossmarkt.application;
 
 public abstract class Person {
-  private int id;
+
+  private final int id;
   private String vorname, nachname, land, stadt, strasse, hausNr;
   private int plz;
 
@@ -19,10 +20,12 @@ public abstract class Person {
 
   /**
    * Formats String for address.
+   *
    * @return adress of Person
    */
-  public String getAdressString(){
-    return strasse.concat(" ").concat(hausNr).concat("\n").concat(Integer.toString(plz)).concat(" ").concat(stadt).concat("\n").concat(land);
+  public String getAdressString() {
+    return strasse.concat(" ").concat(hausNr).concat("\n").concat(Integer.toString(plz)).concat(" ")
+        .concat(stadt).concat("\n").concat(land);
   }
 
   public int getId() {

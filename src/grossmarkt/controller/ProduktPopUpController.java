@@ -29,9 +29,15 @@ public class ProduktPopUpController implements Controller {
   private MapReference reference;
   private Produkt currentProdukt;
 
+  public static LocalDate localDate(String dateString) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    return LocalDate.parse(dateString, formatter);
+  }
+
   /**
-   * initializes ProduktHinzufügenController
-   * sets MapReference, add handler to Button, and init Spinner
+   * initializes ProduktHinzufügenController sets MapReference, add handler to Button, and init
+   * Spinner
+   *
    * @param reference global references to HashMaps
    */
   @Override
@@ -99,11 +105,6 @@ public class ProduktPopUpController implements Controller {
     pHerkunft.setText(currentProdukt.getHerkunftsregion());
     pAnzahl.getValueFactory().setValue(currentProdukt.getMenge());
     pMhd.setValue(localDate(currentProdukt.getMhd()));
-  }
-
-  public static LocalDate localDate(String dateString) {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-    return LocalDate.parse(dateString, formatter);
   }
 
   private void invalidInput() {

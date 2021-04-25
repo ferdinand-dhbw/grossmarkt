@@ -14,27 +14,12 @@ import javafx.stage.Window;
 public class ControllerUtility {
 
   /**
-   * enumeration for different possible views
-   */
-  public enum View {
-    LAGER("Lager.fxml"),
-    HOME("Home.fxml"),
-    LIEFERANT("Lieferant.fxml"),
-    PRODUZENT("Produzent.fxml");
-
-    public final String filename;
-
-    View(String filename) {
-      this.filename = filename;
-    }
-  }
-
-  /**
    * switches the GUI JavaFX-Scenes
-   * @param view FXML file to switch to
+   *
+   * @param view         FXML file to switch to
    * @param currentScene reference to current scene
    * @param currentClass reference to current class
-   * @param reference reference to maps
+   * @param reference    reference to maps
    */
   public static void switchScene(View view, Scene currentScene, Class currentClass,
       MapReference reference) {
@@ -51,6 +36,7 @@ public class ControllerUtility {
 
   /**
    * Alert for missing functionality due to demo version
+   *
    * @param parent parent window
    */
   public static void featureAlert(Window parent) {
@@ -65,5 +51,21 @@ public class ControllerUtility {
     dialogPane.setStyle("-fx-background-color: #282c34;");
     dialogPane.lookup(".content.label").setStyle("-fx-text-fill: white");
     alert.showAndWait();
+  }
+
+  /**
+   * enumeration for different possible views
+   */
+  public enum View {
+    LAGER("Lager.fxml"),
+    HOME("Home.fxml"),
+    LIEFERANT("Lieferant.fxml"),
+    PRODUZENT("Produzent.fxml");
+
+    public final String filename;
+
+    View(String filename) {
+      this.filename = filename;
+    }
   }
 }

@@ -36,7 +36,7 @@ import javafx.scene.input.MouseButton;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-@SuppressWarnings("DuplicatedCode")
+@SuppressWarnings({"DuplicatedCode", "unchecked"})
 public class LagerController implements Controller {
 
   @FXML
@@ -54,8 +54,9 @@ public class LagerController implements Controller {
   }
 
   /**
-   * initializes HomeController
-   * sets MapReference, initializes bar, and sets up TableView as well as buttons
+   * initializes HomeController sets MapReference, initializes bar, and sets up TableView as well as
+   * buttons
+   *
    * @param reference global references to HashMaps
    */
   public void init(MapReference reference) {
@@ -67,7 +68,8 @@ public class LagerController implements Controller {
         deleteProdukte(
             new ArrayList<>(lagerTableView.getSelectionModel().getSelectedItems())));
 
-    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true, true);
+    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true,
+        true);
     ImageView imageView = new ImageView(image);
     delBtn.setGraphic(imageView);
 
@@ -76,6 +78,7 @@ public class LagerController implements Controller {
 
   /**
    * Function to call dialog to manipulate or add instance
+   *
    * @param produkt Current instance or null
    */
   public void showProdukt(Produkt produkt) {
@@ -180,7 +183,9 @@ public class LagerController implements Controller {
     Alert alert = new Alert(AlertType.NONE);
     alert.setTitle("Möchten Sie die Produkte unwiderruflich löschen?");
     AtomicReference<String> content = new AtomicReference<>("Ausgewählte Produkte:");
-    produkts.forEach(produkt -> content.set(content.get().concat(String.format("\n\t• %d  %s (%s)", produkt.getProduktNr(), produkt.getBezeichnung(), produkt.getKategorie()))));
+    produkts.forEach(produkt -> content.set(content.get().concat(String
+        .format("\n\t• %d  %s (%s)", produkt.getProduktNr(), produkt.getBezeichnung(),
+            produkt.getKategorie()))));
     alert.setContentText(content.get());
     alert.initOwner(delBtn.getScene().getWindow());
 
@@ -214,7 +219,7 @@ public class LagerController implements Controller {
         event -> switchScene(View.PRODUZENT, navProduzent.getScene(), getClass(), reference));
   }
 
-  private void safeTableViewRefresh(){
+  private void safeTableViewRefresh() {
     FilteredList<Produkt> filteredProdukte = filterProdukte();
     setPredicate(filteredProdukte, lagerSearchTxtfield.getText());
 

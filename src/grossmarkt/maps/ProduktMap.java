@@ -15,11 +15,12 @@ public class ProduktMap {
 
   /**
    * Adds produkt
-   * @param menge quantity
-   * @param bezeichnung description
+   *
+   * @param menge           quantity
+   * @param bezeichnung     description
    * @param herkunfstregion region of origin
-   * @param kategorie category
-   * @param mhd best-before-date
+   * @param kategorie       category
+   * @param mhd             best-before-date
    */
   public void addProdukt(int menge, String bezeichnung, String herkunfstregion, String kategorie,
       String mhd) {
@@ -41,6 +42,7 @@ public class ProduktMap {
 
   /**
    * deletes produkt by key
+   *
    * @param key id of produkt
    */
   public void deleteProdukt(int key) {
@@ -49,6 +51,7 @@ public class ProduktMap {
 
   /**
    * updates produkt
+   *
    * @param produkt replacement / updated version
    */
   public void updateProdukt(Produkt produkt) {

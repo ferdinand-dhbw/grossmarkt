@@ -37,7 +37,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
-@SuppressWarnings("DuplicatedCode")
+@SuppressWarnings({"DuplicatedCode", "unchecked"})
 public class LieferantController implements Controller {
 
   @FXML
@@ -54,8 +54,9 @@ public class LieferantController implements Controller {
   }
 
   /**
-   * initializes LieferantController
-   * sets MapReference, initializes bar, and sets up TableView as well as buttons
+   * initializes LieferantController sets MapReference, initializes bar, and sets up TableView as
+   * well as buttons
+   *
    * @param reference global references to HashMaps
    */
   public void init(MapReference reference) {
@@ -67,7 +68,8 @@ public class LieferantController implements Controller {
         deleteLieferanten(
             new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
 
-    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true, true);
+    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true,
+        true);
     ImageView imageView = new ImageView(image);
     delBtn.setGraphic(imageView);
 
@@ -76,6 +78,7 @@ public class LieferantController implements Controller {
 
   /**
    * Function to call dialog to manipulate or add instance
+   *
    * @param lieferant Current instance or null
    */
   public void showLieferant(Lieferant lieferant) {
