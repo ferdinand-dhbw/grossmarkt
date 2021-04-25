@@ -10,6 +10,11 @@ public class MapReference {
   private final ProduzentMap produzentMap = new ProduzentMap();
   private DBHandler db;
 
+
+  public MapReference(DBHandler db){
+    setDBHandler(db);
+  }
+
   public void setDBHandler(DBHandler db){
     this.db = db;
   }

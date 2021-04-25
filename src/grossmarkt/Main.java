@@ -26,7 +26,6 @@ public class Main extends Application {
 
     DBHandler dbHandler = new DBHandler();
     MAP_REFERENCE = dbHandler.read();
-    MAP_REFERENCE.setDBHandler(dbHandler);
 
     HomeController homeController = loader.getController();
     homeController.init(MAP_REFERENCE);

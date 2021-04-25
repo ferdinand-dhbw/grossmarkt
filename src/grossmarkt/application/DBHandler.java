@@ -15,6 +15,6 @@ public class DBHandler {
 
   public MapReference read(){
     System.out.println("Read from DB");
-    return new MapReference();
+    return new MapReference(this);
   }
 }
