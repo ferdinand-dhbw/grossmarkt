@@ -46,7 +46,7 @@ public class ProduktHinzufügenController implements Controller {
           produktNummer.getText().concat(Integer.toString(currentProdukt.getProduktNr())));
     } else {
       produktNummer.setText("Neues Produkt");
-      NextBtn.setText("ERSTELLEN"); // TODO auch anderst im GUI Dokument
+      NextBtn.setText("ERSTELLEN");
     }
   }
 

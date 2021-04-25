@@ -188,7 +188,6 @@ public class ProduzentController implements Controller {
   }
 
   private void initEvents() {
-    //TODO set all initEvents to new Btns
     EventHandler<ActionEvent> featureAlert = event -> featureAlert(nav_start.getScene().getWindow());
     nav_kunde.setOnAction(featureAlert);
 
