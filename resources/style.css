@@ -116,3 +116,8 @@
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }
+
+.table-view .placeholder .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
