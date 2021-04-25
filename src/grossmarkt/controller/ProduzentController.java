@@ -37,6 +37,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
+@SuppressWarnings("DuplicatedCode")
 public class ProduzentController implements Controller {
 
   @FXML
@@ -79,13 +80,13 @@ public class ProduzentController implements Controller {
    */
   public void showProduzent(Produzent produzent) {
     Parent root;
-    ProduzentHinzufügenController produzentHinzufügenController;
+    ProduzentPopUpController produzentPopUpController;
     try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("../ProduzentHinzufügen.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("../ProduzentPopUp.fxml"));
       root = loader.load();
-      produzentHinzufügenController = loader.getController();
-      produzentHinzufügenController.init(reference);
-      produzentHinzufügenController.setUp(produzent);
+      produzentPopUpController = loader.getController();
+      produzentPopUpController.init(reference);
+      produzentPopUpController.setUp(produzent);
       Stage addStage = new Stage();
       addStage.setScene(new Scene(root, 600, 420));
       addStage.setResizable(false);

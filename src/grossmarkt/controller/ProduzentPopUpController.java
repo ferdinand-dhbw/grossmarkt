@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class ProduzentHinzufügenController implements Controller {
+public class ProduzentPopUpController implements Controller {
 
   @FXML
   private Button lPopupNextBtn;
