@@ -4,7 +4,7 @@ import static grossmarkt.controller.ControllerUtility.featureAlert;
 import static grossmarkt.controller.ControllerUtility.switchScene;
 
 import grossmarkt.application.Lieferant;
-import grossmarkt.controller.ControllerUtility.Views;
+import grossmarkt.controller.ControllerUtility.View;
 import grossmarkt.maps.MapReference;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,6 +50,11 @@ public class LieferantController implements Controller {
     this.reference = reference;
   }
 
+  /**
+   * initializes LieferantController
+   * sets MapReference, initializes bar, and sets up TableView as well as buttons
+   * @param reference global references to HashMaps
+   */
   public void init(MapReference reference) {
     setMapReference(reference);
     initEvents();
@@ -61,6 +66,10 @@ public class LieferantController implements Controller {
     addBtn.setOnAction(event -> showLieferant(null));
   }
 
+  /**
+   * Function to call dialog to manipulate or add instance
+   * @param lieferant Current instance or null
+   */
   public void showLieferant(Lieferant lieferant) {
     Parent root;
     LieferantHinzufügenController lieferantHinzufügenController;
@@ -195,11 +204,11 @@ public class LieferantController implements Controller {
     nav_kunde.setOnAction(featureAlert);
 
     nav_start.setOnAction(
-        event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
+        event -> switchScene(View.HOME, nav_start.getScene(), getClass(), reference));
     nav_lager.setOnAction(
-        event -> switchScene(Views.LAGER, nav_lager.getScene(), getClass(), reference));
+        event -> switchScene(View.LAGER, nav_lager.getScene(), getClass(), reference));
     nav_produzent.setOnAction(
-        event -> switchScene(Views.PRODUZENT, nav_produzent.getScene(), getClass(), reference));
+        event -> switchScene(View.PRODUZENT, nav_produzent.getScene(), getClass(), reference));
   }
 
   private void safeTableViewRefresh() {

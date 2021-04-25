@@ -13,6 +13,14 @@ public class ProduktMap {
     return produktHashMap;
   }
 
+  /**
+   * Adds produkt
+   * @param menge quantity
+   * @param bezeichnung description
+   * @param herkunfstregion region of origin
+   * @param kategorie category
+   * @param mhd best-before-date
+   */
   public void addProdukt(int menge, String bezeichnung, String herkunfstregion, String kategorie,
       String mhd) {
     int nextFreeKey = produktHashMap.isEmpty() ? 1 : Collections.max(produktHashMap.keySet()) + 1;
@@ -21,6 +29,9 @@ public class ProduktMap {
         new Produkt(nextFreeKey, menge, bezeichnung, herkunfstregion, kategorie, mhd));
   }
 
+  /**
+   * adds demo data
+   */
   public void populateWithDemodata() {
     addProdukt(1, "Bezeichnung", "Herkunftsregion", "Kategorie A", "22.04.2021");
     addProdukt(15, "asdasdasdasda", "Herkunftsregion", "Kategorie A", "22.04.2021");
@@ -29,10 +40,18 @@ public class ProduktMap {
 
   }
 
+  /**
+   * deletes produkt by key
+   * @param key id of produkt
+   */
   public void deleteProdukt(int key) {
     produktHashMap.remove(key);
   }
 
+  /**
+   * updates produkt
+   * @param produkt replacement / updated version
+   */
   public void updateProdukt(Produkt produkt) {
     produktHashMap.replace(produkt.getProduktNr(), produkt);
   }

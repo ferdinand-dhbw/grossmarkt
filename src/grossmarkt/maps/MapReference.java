@@ -10,7 +10,10 @@ public class MapReference {
   private final ProduzentMap produzentMap = new ProduzentMap();
   private DBHandler db;
 
-
+  /**
+   * new MapReference
+   * @param db reference to db to safe data to
+   */
   public MapReference(DBHandler db){
     setDBHandler(db);
   }
@@ -35,6 +38,9 @@ public class MapReference {
     return produzentMap;       
   }
 
+  /**
+   * saves itself to linked db
+   */
   public void saveToDB(){
     db.save(this);
   }

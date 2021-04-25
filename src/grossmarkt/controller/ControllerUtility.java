@@ -13,7 +13,10 @@ import javafx.stage.Window;
 
 public class ControllerUtility {
 
-  public enum Views {
+  /**
+   * enumeration for different possible views
+   */
+  public enum View {
     LAGER("Lager.fxml"),
     HOME("Home.fxml"),
     LIEFERANT("Lieferant.fxml"),
@@ -21,12 +24,19 @@ public class ControllerUtility {
 
     public final String filename;
 
-    Views(String filename) {
+    View(String filename) {
       this.filename = filename;
     }
   }
 
-  public static void switchScene(Views view, Scene currentScene, Class currentClass,
+  /**
+   * switches the GUI JavaFX-Scenes
+   * @param view FXML file to switch to
+   * @param currentScene reference to current scene
+   * @param currentClass reference to current class
+   * @param reference reference to maps
+   */
+  public static void switchScene(View view, Scene currentScene, Class currentClass,
       MapReference reference) {
     FXMLLoader loader = new FXMLLoader(currentClass.getResource("../" + view.filename));
     Parent root = null;
@@ -39,6 +49,10 @@ public class ControllerUtility {
     currentScene.setRoot(root);
   }
 
+  /**
+   * Alert for missing functionality due to demo version
+   * @param parent parent window
+   */
   public static void featureAlert(Window parent) {
     var alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("Funktion nicht verfügbar");

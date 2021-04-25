@@ -17,6 +17,10 @@ public abstract class Person {
     this.id = id;
   }
 
+  /**
+   * Formats String for address.
+   * @return adress of Person
+   */
   public String getAdressString(){
     return strasse.concat(" ").concat(hausNr).concat("\n").concat(Integer.toString(plz)).concat(" ").concat(stadt).concat("\n").concat(land);
   }

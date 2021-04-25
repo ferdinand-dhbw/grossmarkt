@@ -3,9 +3,8 @@ package grossmarkt.controller;
 import static grossmarkt.controller.ControllerUtility.featureAlert;
 import static grossmarkt.controller.ControllerUtility.switchScene;
 
-import grossmarkt.application.Lieferant;
 import grossmarkt.application.Produzent;
-import grossmarkt.controller.ControllerUtility.Views;
+import grossmarkt.controller.ControllerUtility.View;
 import grossmarkt.maps.MapReference;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +50,11 @@ public class ProduzentController implements Controller {
     this.reference = reference;
   }
 
+  /**
+   * initializes ProduzentHinzufügenController
+   * sets MapReference, init bar, sets up TableView, and add listener to buttons
+   * @param reference global references to HashMaps
+   */
   public void init(MapReference reference) {
     setMapReference(reference);
     initEvents();
@@ -62,6 +66,10 @@ public class ProduzentController implements Controller {
     addBtn.setOnAction(event -> showProduzent(null));
   }
 
+  /**
+   * Function to call dialog to manipulate or add instance
+   * @param produzent Current instance or null
+   */
   public void showProduzent(Produzent produzent) {
     Parent root;
     ProduzentHinzufügenController produzentHinzufügenController;
@@ -192,11 +200,11 @@ public class ProduzentController implements Controller {
     nav_kunde.setOnAction(featureAlert);
 
     nav_start.setOnAction(
-        event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
+        event -> switchScene(View.HOME, nav_start.getScene(), getClass(), reference));
     nav_lager.setOnAction(
-        event -> switchScene(Views.LAGER, nav_lager.getScene(), getClass(), reference));
+        event -> switchScene(View.LAGER, nav_lager.getScene(), getClass(), reference));
     nav_lieferant.setOnAction(
-        event -> switchScene(Views.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
+        event -> switchScene(View.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
   }
 
   private void safeTableViewRefresh(){

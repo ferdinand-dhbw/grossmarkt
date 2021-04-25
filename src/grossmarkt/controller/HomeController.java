@@ -3,7 +3,7 @@ package grossmarkt.controller;
 import static grossmarkt.controller.ControllerUtility.featureAlert;
 import static grossmarkt.controller.ControllerUtility.switchScene;
 
-import grossmarkt.controller.ControllerUtility.Views;
+import grossmarkt.controller.ControllerUtility.View;
 import grossmarkt.maps.MapReference;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -27,6 +27,11 @@ public class HomeController implements Controller {
   @FXML
   private Button nav_kunde, nav_lager, home_aufträge, nav_lieferant, nav_produzent, home_lager;
 
+  /**
+   * initializes HomeController
+   * sets MapReference, initializes clock, and initializes bar
+   * @param reference global references to HashMaps
+   */
   public void init(MapReference reference) {
     setMapReference(reference);
     initClock();
@@ -39,14 +44,14 @@ public class HomeController implements Controller {
     home_aufträge.setOnAction(featureAlert);
 
     nav_produzent.setOnAction(
-        event -> switchScene(Views.PRODUZENT, nav_kunde.getScene(), getClass(), mapReference)
+        event -> switchScene(View.PRODUZENT, nav_kunde.getScene(), getClass(), mapReference)
     );
     nav_lager.setOnAction(
-        event -> switchScene(Views.LAGER, nav_kunde.getScene(), getClass(), mapReference));
+        event -> switchScene(View.LAGER, nav_kunde.getScene(), getClass(), mapReference));
     home_lager.setOnAction(
-        event -> switchScene(Views.LAGER, home_lager.getScene(), getClass(), mapReference));
+        event -> switchScene(View.LAGER, home_lager.getScene(), getClass(), mapReference));
     nav_lieferant.setOnAction(
-        event -> switchScene(Views.LIEFERANT, nav_kunde.getScene(), getClass(), mapReference));
+        event -> switchScene(View.LIEFERANT, nav_kunde.getScene(), getClass(), mapReference));
     changeOrt.setOnMouseClicked(mouseEvent -> featureAlert(nav_kunde.getScene().getWindow()));
   }
 

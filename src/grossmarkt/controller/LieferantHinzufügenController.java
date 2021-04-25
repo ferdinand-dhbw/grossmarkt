@@ -21,6 +21,11 @@ public class LieferantHinzufügenController implements Controller {
   private MapReference reference;
   private Lieferant currentLieferant;
 
+  /**
+   * initializes LieferantHinzufügenController
+   * sets MapReference, add handler to Button
+   * @param reference global references to HashMaps
+   */
   @Override
   public void init(MapReference reference) {
     this.reference = reference;

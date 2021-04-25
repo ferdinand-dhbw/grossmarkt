@@ -1,6 +1,10 @@
 package grossmarkt.application;
 
 public class Kunde extends Person{
+
+  /**
+   * enum for delivery note preference
+   */
   enum LieferscheinPreaferenz {
     MAIL,
     DRUCK,

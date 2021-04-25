@@ -29,6 +29,11 @@ public class ProduktHinzufügenController implements Controller {
   private MapReference reference;
   private Produkt currentProdukt;
 
+  /**
+   * initializes ProduktHinzufügenController
+   * sets MapReference, add handler to Button, and init Spinner
+   * @param reference global references to HashMaps
+   */
   @Override
   public void init(MapReference reference) {
     this.reference = reference;
@@ -37,7 +42,11 @@ public class ProduktHinzufügenController implements Controller {
     pAnzahl.setValueFactory(new IntegerSpinnerValueFactory(1, 999, 1, 1));
   }
 
-
+  /**
+   * To be called right after init
+   *
+   * @param currentProdukt Can be null for new Produkt
+   */
   public void setUp(Produkt currentProdukt) {
     this.currentProdukt = currentProdukt;
     if (currentProdukt != null) {

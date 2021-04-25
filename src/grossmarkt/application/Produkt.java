@@ -14,6 +14,14 @@ public class Produkt {
     this.mhd = mhd;
   }
 
+  /**
+   * Updates every field of the Lieferant-object
+   * @param menge quantity
+   * @param bezeichnung description
+   * @param herkunftsregion region of origin
+   * @param kategorie category
+   * @param mhd best-before-date
+   */
   public void updateAll(int menge, String bezeichnung, String herkunftsregion,
       String kategorie, String mhd){
     this.menge = menge;

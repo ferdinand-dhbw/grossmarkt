@@ -9,6 +9,17 @@ public class Produzent extends Person{
     this.linkPreisliste = linkPreisliste;
   }
 
+  /**
+   * Updates every field of the Produzent-object
+   * @param vorname first name
+   * @param nachname last name
+   * @param land country
+   * @param stadt city
+   * @param strasse street
+   * @param hausNr house number
+   * @param plz post code
+   * @param linkPreisliste link (String) to pricing
+   */
   public void updateAll(String vorname, String nachname, String land, String stadt,
       String strasse, String hausNr, int plz, String linkPreisliste){
     this.setVorname(vorname);
