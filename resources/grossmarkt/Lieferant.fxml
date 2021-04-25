@@ -75,7 +75,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="lieferantSearchTxtfield" styleClass="search-bar" stylesheets="@../style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <TextField fx:id="lieferantSearchTxtfield" promptText="Suche" styleClass="search-bar" stylesheets="@../style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="15.0" right="20.0" />
                </GridPane.margin>
