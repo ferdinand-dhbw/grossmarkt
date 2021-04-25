@@ -44,7 +44,7 @@ public class LieferantController implements Controller {
   @FXML
   private TextField lieferantSearchTxtfield;
   @FXML
-  private Button delBtn, addBtn, nav_lager, nav_start, nav_kunde, nav_produzent;
+  private Button delBtn, addBtn, navLager, navStart, navKunde, navProduzent;
 
   private MapReference reference;
 
@@ -90,8 +90,8 @@ public class LieferantController implements Controller {
       addStage.setScene(new Scene(root, 600, 470));
       addStage.setResizable(false);
       addStage.initModality(Modality.APPLICATION_MODAL);
-      addStage.initOwner(nav_kunde.getScene().getWindow());
-      addStage.getIcons().addAll(((Stage) nav_kunde.getScene().getWindow()).getIcons());
+      addStage.initOwner(navKunde.getScene().getWindow());
+      addStage.getIcons().addAll(((Stage) navKunde.getScene().getWindow()).getIcons());
       addStage.showAndWait();
 
       safeTableViewRefresh();
@@ -207,15 +207,15 @@ public class LieferantController implements Controller {
 
   private void initEvents() {
     EventHandler<ActionEvent> featureAlert = event -> featureAlert(
-        nav_start.getScene().getWindow());
-    nav_kunde.setOnAction(featureAlert);
+        navStart.getScene().getWindow());
+    navKunde.setOnAction(featureAlert);
 
-    nav_start.setOnAction(
-        event -> switchScene(View.HOME, nav_start.getScene(), getClass(), reference));
-    nav_lager.setOnAction(
-        event -> switchScene(View.LAGER, nav_lager.getScene(), getClass(), reference));
-    nav_produzent.setOnAction(
-        event -> switchScene(View.PRODUZENT, nav_produzent.getScene(), getClass(), reference));
+    navStart.setOnAction(
+        event -> switchScene(View.HOME, navStart.getScene(), getClass(), reference));
+    navLager.setOnAction(
+        event -> switchScene(View.LAGER, navLager.getScene(), getClass(), reference));
+    navProduzent.setOnAction(
+        event -> switchScene(View.PRODUZENT, navProduzent.getScene(), getClass(), reference));
   }
 
   private void safeTableViewRefresh() {

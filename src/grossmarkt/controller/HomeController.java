@@ -25,7 +25,7 @@ public class HomeController implements Controller {
   @FXML
   private Text timestamp,changeOrt;
   @FXML
-  private Button nav_kunde, nav_lager, home_aufträge, nav_lieferant, nav_produzent, home_lager;
+  private Button navKunde, navLager, homeAuftrag, navLieferant, navProduzent, homeLager;
 
   /**
    * initializes HomeController
@@ -39,20 +39,20 @@ public class HomeController implements Controller {
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert(home_lager.getScene().getWindow());
-    nav_kunde.setOnAction(featureAlert);
-    home_aufträge.setOnAction(featureAlert);
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(homeLager.getScene().getWindow());
+    navKunde.setOnAction(featureAlert);
+    homeAuftrag.setOnAction(featureAlert);
 
-    nav_produzent.setOnAction(
-        event -> switchScene(View.PRODUZENT, nav_kunde.getScene(), getClass(), mapReference)
+    navProduzent.setOnAction(
+        event -> switchScene(View.PRODUZENT, navKunde.getScene(), getClass(), mapReference)
     );
-    nav_lager.setOnAction(
-        event -> switchScene(View.LAGER, nav_kunde.getScene(), getClass(), mapReference));
-    home_lager.setOnAction(
-        event -> switchScene(View.LAGER, home_lager.getScene(), getClass(), mapReference));
-    nav_lieferant.setOnAction(
-        event -> switchScene(View.LIEFERANT, nav_kunde.getScene(), getClass(), mapReference));
-    changeOrt.setOnMouseClicked(mouseEvent -> featureAlert(nav_kunde.getScene().getWindow()));
+    navLager.setOnAction(
+        event -> switchScene(View.LAGER, navKunde.getScene(), getClass(), mapReference));
+    homeLager.setOnAction(
+        event -> switchScene(View.LAGER, homeLager.getScene(), getClass(), mapReference));
+    navLieferant.setOnAction(
+        event -> switchScene(View.LIEFERANT, navKunde.getScene(), getClass(), mapReference));
+    changeOrt.setOnMouseClicked(mouseEvent -> featureAlert(navKunde.getScene().getWindow()));
   }
 
 
