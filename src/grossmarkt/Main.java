@@ -9,13 +9,30 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
+/**
+ * Main.java: Main Class
+ *
+ * @author Gruppe2
+ * @version 1.0
+ * @since 20.04.2021
+ *
+ */
+
 public class Main extends Application {
   //TODO "Achten Sie darauf [...] den Source Code hinreichend [zu] kommentieren"
 
   private static final MapReference MAP_REFERENCE = new MapReference();
 
+  /**
+   * bechreibung
+   *
+   * @param  homeStage
+   * @return
+   * @exception
+   */
+
   @Override
-  public void start(Stage homeStage) throws Exception{
+  public void start(Stage homeStage) throws Exception {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
     Parent root = loader.load();
 
@@ -31,6 +48,11 @@ public class Main extends Application {
     homeStage.show();
   }
 
+  /**
+   * Function explanation
+   *
+   * @param  args
+   */
 
   public static void main(String[] args) {
     launch(args);

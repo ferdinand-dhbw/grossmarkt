@@ -8,6 +8,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * LieferantHinzufügenController.java: LieferantHinzufügenController Class
+ *
+ * @author Gruppe2
+ * @version 1.0
+ * @since 20.04.2021
+ *
+ */
+
 public class LieferantHinzufügenController implements Controller {
 
   @FXML
@@ -21,6 +30,12 @@ public class LieferantHinzufügenController implements Controller {
   private MapReference reference;
   private Lieferant currentLieferant;
 
+  /**
+   * description
+   *
+   * @param reference
+   */
+
   @Override
   public void init(MapReference reference) {
     this.reference = reference;
@@ -32,17 +47,24 @@ public class LieferantHinzufügenController implements Controller {
    *
    * @param currentLieferant Can be null for new Lieferant
    */
+
   public void setUp(Lieferant currentLieferant) {
     this.currentLieferant = currentLieferant;
     if (currentLieferant != null) {
       populateFields();
-      lLiefernantennummerText.setText(
-          lLiefernantennummerText.getText().concat(Integer.toString(currentLieferant.getId())));
+      lLiefernantennummerText.setText(lLiefernantennummerText.getText().concat(Integer.toString(currentLieferant
+              .getId())));
     } else {
       lLiefernantennummerText.setText("Neuer Lieferant");
       lPopupNextBtn.setText("ERSTELLEN"); // TODO auch anderst im GUI Dokument
     }
   }
+
+  /**
+   * description
+   *
+   * try catch wirft exception -> soll funtion die werfen?
+   */
 
   private void updateOrCreateLieferant() {
     String vorname = lPopupVorname.getText(),
@@ -60,6 +82,7 @@ public class LieferantHinzufügenController implements Controller {
       invalidInput();
       return;
     }
+
     try {
       plz = Integer.parseInt(plzStr);
     } catch (Exception e) {
@@ -68,18 +91,20 @@ public class LieferantHinzufügenController implements Controller {
     }
 
     if (currentLieferant != null) {
-      currentLieferant
-          .updateAll(vorname, nachname, currentLieferant.getLand(), stadt, strasse, hNr, plz,
-              preisliste, produzent); //TODO land
+      currentLieferant.updateAll(vorname, nachname, currentLieferant
+              .getLand(), stadt, strasse, hNr, plz, preisliste, produzent); //TODO land
       reference.getLieferantMap().updateLieferant(currentLieferant);
     } else {
       reference.getLieferantMap()
-          .addLieferant(vorname, nachname, "DE", stadt, strasse, hNr, plz, preisliste,
-              produzent);
+              .addLieferant(vorname, nachname, "DE", stadt, strasse, hNr, plz, preisliste, produzent);
     }
     Stage stage = (Stage) lPopupNextBtn.getScene().getWindow();
     stage.close();
   }
+
+  /**
+   * description
+   */
 
   private void populateFields() {
     lPopupNachname.setText(currentLieferant.getNachname());
@@ -92,6 +117,10 @@ public class LieferantHinzufügenController implements Controller {
     lPopupPreisliste.setText(currentLieferant.getLinkPreisliste());
     // TODO COUNTRY?
   }
+
+  /**
+   * description
+   */
 
   private void invalidInput() {
     System.out.println("Nope");

@@ -17,10 +17,18 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+/**
+ * HomeController.java: HomeController Class
+ *
+ * @author Gruppe2
+ * @version 1.0
+ * @since 20.04.2021
+ *
+ */
+
 public class HomeController implements Controller {
 
   private MapReference mapReference;
-
 
   @FXML
   private Text timestamp;
@@ -37,11 +45,21 @@ public class HomeController implements Controller {
   @FXML
   private Text changeOrt;
 
+  /**
+   * description
+   *
+   * @param reference
+   */
+
   public void init(MapReference reference) {
     setMapReference(reference);
     initClock();
     initEvents();
   }
+
+  /**
+   * description
+   */
 
   private void initEvents() {
     EventHandler<ActionEvent> featureAlert = event -> featureAlert(home_lager.getScene().getWindow());
@@ -57,6 +75,9 @@ public class HomeController implements Controller {
     changeOrt.setOnMouseClicked(mouseEvent -> featureAlert(nav_kunde.getScene().getWindow()));
   }
 
+  /**
+   * description
+   */
 
   private void initClock() {
     Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
@@ -66,6 +87,12 @@ public class HomeController implements Controller {
     clock.setCycleCount(Animation.INDEFINITE);
     clock.play();
   }
+
+  /**
+   * description
+   *
+   * @param mapReference
+   */
 
   public void setMapReference(MapReference mapReference) {
     this.mapReference = mapReference;

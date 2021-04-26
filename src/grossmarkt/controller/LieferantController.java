@@ -33,6 +33,14 @@ import javafx.scene.input.MouseButton;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * LieferantController.java: LieferantController Class
+ *
+ * @author Gruppe2
+ * @version 1.0
+ * @since 20.04.2021
+ *
+ */
 
 public class LieferantController implements Controller {
 
@@ -52,20 +60,38 @@ public class LieferantController implements Controller {
 
   private MapReference reference;
 
+  /**
+   * description
+   *
+   * @param reference
+   */
+
   public void setMapReference(MapReference reference) {
     this.reference = reference;
   }
+
+  /**
+   * description
+   *
+   * @param reference
+   */
 
   public void init(MapReference reference) {
     setMapReference(reference);
     initEvents();
     setUpTableView();
 
-    delBtn.setOnAction(event ->
-        deleteLieferanten(
-            new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
+    delBtn.setOnAction(event -> deleteLieferanten(
+            new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())
+    ));
     addBtn.setOnAction(event -> showLieferant(null));
   }
+
+  /**
+   * description
+   *
+   * @param lieferant
+   */
 
   public void showLieferant(Lieferant lieferant) {
     if (lieferant != null) {
@@ -94,6 +120,10 @@ public class LieferantController implements Controller {
     }
   }
 
+  /**
+   * description
+   *
+   */
 
   private void setUpTableView() {
     TableColumn<Lieferant, String> lNummer = new TableColumn<>("Lieferantennummer"),
@@ -104,29 +134,20 @@ public class LieferantController implements Controller {
         lPreisliste = new TableColumn<>("Preisliste");
     lNummer.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getId()));
     lVorname.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getVorname()));
-    lNachname
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getNachname()));
-    lAdresse
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
-    lProduzent
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduzenten()));
-    lPreisliste.setCellValueFactory(
-        param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
+    lNachname.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getNachname()));
+    lAdresse.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
+    lProduzent.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduzenten()));
+    lPreisliste.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
 
-    lieferantenTableView.getColumns()
-        .addAll(lNummer, lVorname, lNachname, lAdresse, lProduzent, lPreisliste);
-    lieferantenTableView.getSelectionModel().setSelectionMode(
-        SelectionMode.MULTIPLE
-    );
+    lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse, lProduzent, lPreisliste);
+    lieferantenTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
     lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
 
     lieferantenTableView.setRowFactory(tv -> {
       TableRow<Lieferant> row = new TableRow<>();
       row.setOnMouseClicked(event -> {
-        if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-            && event.getClickCount() == 2) {
-
+        if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
           Lieferant clickedLieferant = row.getItem();
           showLieferant(clickedLieferant);
         }
@@ -135,11 +156,16 @@ public class LieferantController implements Controller {
     });
   }
 
+  /**
+   * description
+   *
+   * @return
+   */
+
   private FilteredList<Lieferant> filterLieferantenAndSetUpSearch() {
     FilteredList<Lieferant> filteredLieferanten = filterLieferanten();
 
-    lieferantSearchTxtfield.textProperty()
-        .addListener((observable, oldValue, newValue) -> {
+    lieferantSearchTxtfield.textProperty().addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredLieferanten, newValue);
           lieferantenTableView.setItems(filteredLieferanten);
         });
@@ -147,11 +173,24 @@ public class LieferantController implements Controller {
     return filteredLieferanten;
   }
 
+  /**
+   * description
+   *
+   * @return
+   */
+
   private FilteredList<Lieferant> filterLieferanten() {
     ObservableList<Lieferant> observableLieferantList = FXCollections.observableArrayList();
     observableLieferantList.addAll(reference.getLieferantMap().getLieferantHashMap().values());
     return new FilteredList<>(observableLieferantList, p -> true);
   }
+
+  /**
+   * description
+   *
+   * @param filteredLieferanten
+   * @param newValue
+   */
 
   private void setPredicate(FilteredList<Lieferant> filteredLieferanten, String newValue) {
     filteredLieferanten.setPredicate(lieferant -> {
@@ -161,12 +200,18 @@ public class LieferantController implements Controller {
       if (lieferant.getVorname().toLowerCase().contains(newValue.toLowerCase()) ||
           lieferant.getNachname().toLowerCase().contains(newValue.toLowerCase()) ||
           lieferant.getVorname().concat(" ").concat(lieferant.getNachname()).toLowerCase()
-              .contains(newValue.toLowerCase())) {
+                  .contains(newValue.toLowerCase())) {
         return true;
       }
       return Integer.toString(lieferant.getId()).contains(newValue);
     });
   }
+
+  /**
+   * description
+   *
+   * @param lieferants
+   */
 
   private void deleteLieferanten(ArrayList<Lieferant> lieferants) {
     if (lieferants.size() == 0) {
@@ -176,8 +221,8 @@ public class LieferantController implements Controller {
     Alert alert = new Alert(AlertType.NONE);
     alert.setTitle("Möchten Sie die Lieferanten unwiderruflich löschen?");
     AtomicReference<String> content = new AtomicReference<>("Lieferantennummern");
-    lieferants.forEach(lieferant -> content
-        .set(content.get().concat("\n").concat(Integer.toString(lieferant.getId()))));
+    lieferants.forEach(lieferant -> content.set(content.get().concat("\n").concat(Integer.toString(lieferant
+            .getId()))));
     alert.setContentText(content.get());
     alert.initOwner(delBtn.getScene().getWindow());
 
@@ -188,19 +233,20 @@ public class LieferantController implements Controller {
     alert.getButtonTypes().setAll(buttonTypeCancel, buttonTypeAgree);
 
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
-      lieferants
-          .forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
+      lieferants.forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
       lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
     }
   }
+
+  /**
+   * description
+   */
 
   private void initEvents() {
     EventHandler<ActionEvent> featureAlert = event -> featureAlert(nav_start.getScene().getWindow());
     nav_kunde.setOnAction(featureAlert);
 
-    nav_start.setOnAction(
-        event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
-    nav_lager.setOnAction(
-        event -> switchScene(Views.LAGER, nav_lager.getScene(), getClass(), reference));
+    nav_start.setOnAction(event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
+    nav_lager.setOnAction(event -> switchScene(Views.LAGER, nav_lager.getScene(), getClass(), reference));
   }
 }

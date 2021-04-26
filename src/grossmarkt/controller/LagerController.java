@@ -10,6 +10,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * LagerController.java: LagerController Class
+ *
+ * @author Gruppe2
+ * @version 1.0
+ * @since 20.04.2021
+ *
+ */
+
 public class LagerController implements Controller {
 
   private MapReference reference;
@@ -21,8 +30,11 @@ public class LagerController implements Controller {
   @FXML
   private Button nav_kunde;
 
-
-
+  /**
+   * description
+   *
+   * @param reference
+   */
 
   @Override
   public void init(MapReference reference) {
@@ -30,15 +42,22 @@ public class LagerController implements Controller {
     initEvents();
   }
 
+  /**
+   * description
+   */
+
   private void initEvents() {
     EventHandler<ActionEvent> featureAlert = event -> featureAlert(nav_kunde.getScene().getWindow());
     nav_kunde.setOnAction(featureAlert);
-
-    nav_start.setOnAction(
-        event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
-    nav_lieferant.setOnAction(
-        event -> switchScene(Views.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
+    nav_start.setOnAction(event -> switchScene(Views.HOME, nav_start.getScene(), getClass(), reference));
+    nav_lieferant.setOnAction(event -> switchScene(Views.LIEFERANT, nav_lieferant.getScene(), getClass(), reference));
   }
+
+  /**
+   * description
+   *
+   * @param reference
+   */
 
   public void setReference(MapReference reference) {
     this.reference = reference;
