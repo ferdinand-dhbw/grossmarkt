@@ -1,5 +1,11 @@
 package grossmarkt.application;
 
+/**
+ * Class to manage products
+ * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
+ * @version 1.0
+ * @since 27.04.2021
+ */
 public class Produkt {
 
   private int produktNr, anzahl;

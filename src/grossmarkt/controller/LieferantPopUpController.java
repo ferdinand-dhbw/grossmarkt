@@ -8,6 +8,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Controller for Lieferant (Supplier) PopUp
+ * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
+ * @version 1.0
+ * @since 27.04.2021
+ */
 public class LieferantPopUpController implements Controller {
 
   @FXML

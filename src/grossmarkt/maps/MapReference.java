@@ -2,6 +2,13 @@ package grossmarkt.maps;
 
 import grossmarkt.application.DBHandler;
 
+/**
+ * Data structure to manage all Maps
+ * Global variables of this project
+ * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
+ * @version 1.0
+ * @since 27.04.2021
+ */
 public class MapReference {
 
   private final KundeMap kundeMap = new KundeMap();

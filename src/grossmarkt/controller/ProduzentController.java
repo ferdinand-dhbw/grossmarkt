@@ -38,6 +38,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
+/**
+ * Controller for Produzent (Producer) View
+ * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
+ * @version 1.0
+ * @since 27.04.2021
+ */
 @SuppressWarnings({"DuplicatedCode", "unchecked"})
 public class ProduzentController implements Controller {
 

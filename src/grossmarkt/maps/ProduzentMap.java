@@ -4,6 +4,12 @@ import grossmarkt.application.Produzent;
 import java.util.Collections;
 import java.util.HashMap;
 
+/**
+ * Data structure to manage Produzent (producer)
+ * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
+ * @version 1.0
+ * @since 27.04.2021
+ */
 public class ProduzentMap {
 
   private final HashMap<Integer, Produzent> produzentHashMap = new HashMap<>();

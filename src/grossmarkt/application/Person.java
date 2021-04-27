@@ -1,5 +1,11 @@
 package grossmarkt.application;
 
+/**
+ * Abstract class for common properties of a person
+ * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
+ * @version 1.0
+ * @since 27.04.2021
+ */
 public abstract class Person {
 
   private final int id;

@@ -4,6 +4,12 @@ import grossmarkt.application.Produkt;
 import java.util.Collections;
 import java.util.HashMap;
 
+/**
+ * Data structure to manage Produkt (product)
+ * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
+ * @version 1.0
+ * @since 27.04.2021
+ */
 public class ProduktMap {
 
   private final HashMap<Integer, Produkt> produktHashMap = new HashMap<>();

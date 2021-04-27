@@ -17,6 +17,12 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+/**
+ * Controller for Home View
+ * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
+ * @version 1.0
+ * @since 27.04.2021
+ */
 public class HomeController implements Controller {
 
   private MapReference mapReference;
