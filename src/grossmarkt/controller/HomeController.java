@@ -19,6 +19,7 @@ import javafx.util.Duration;
 
 /**
  * Controller for Home View
+ *
  * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
  * @version 1.0
  * @since 27.04.2021

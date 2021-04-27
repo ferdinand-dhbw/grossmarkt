@@ -14,6 +14,7 @@ import javafx.stage.Window;
 
 /**
  * Different controller utilities used by several controller
+ *
  * @author Gruppe 2: Clara, Ferdinand, Florian, Jonas
  * @version 1.0
  * @since 27.04.2021
