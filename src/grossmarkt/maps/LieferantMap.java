@@ -32,13 +32,11 @@ public class LieferantMap {
    * @param linkPreisliste link (String) to pricing
    * @param produzenten    link (String) to produzenten
    */
-  public void addLieferant(String vorname, String nachname, String land, String stadt,
-      String strasse, String hausNr, int plz, String linkPreisliste, String produzenten) {
-    int nextFreeKey =
-        lieferantHashMap.isEmpty() ? 1 : Collections.max(lieferantHashMap.keySet()) + 1;
+  public void addLieferant(String vorname, String nachname, String land, String stadt, String strasse, String hausNr,
+                           int plz, String linkPreisliste, String produzenten) {
+    int nextFreeKey = lieferantHashMap.isEmpty() ? 1 : Collections.max(lieferantHashMap.keySet()) + 1;
 
-    lieferantHashMap.put(nextFreeKey,
-        new Lieferant(nextFreeKey, vorname, nachname, land, stadt, strasse, hausNr, plz,
+    lieferantHashMap.put(nextFreeKey, new Lieferant(nextFreeKey, vorname, nachname, land, stadt, strasse, hausNr, plz,
             linkPreisliste, produzenten));
   }
 
@@ -46,12 +44,9 @@ public class LieferantMap {
    * adds demo data
    */
   public void populateWithDemodata() {
-    addLieferant("Ann", "Geber", "DE", "Stuttgart",
-        "Schulstrasse", "3a", 70174, "https://www.example.com", "Bauer Mueller");
-    addLieferant("Jo", "Ghurt", "GB", "London", "Mainstreet", "420", 424242,
-        "https://www.example.com", "Bauer Mueller");
-    addLieferant("Knut", "Schfleck", "DE", "Muenchen", "Wilde Maus", "0", 80331,
-        "https://www.example.com", "Bauer Mueller");
+    addLieferant("Ann", "Geber", "DE", "Stuttgart", "Schulstrasse", "3a", 70174, "https://www.example.com", "Bauer Mueller");
+    addLieferant("Jo", "Ghurt", "GB", "London", "Mainstreet", "420", 424242, "https://www.example.com", "Bauer Mueller");
+    addLieferant("Knut", "Schfleck", "DE", "Muenchen", "Wilde Maus", "0", 80331, "https://www.example.com", "Bauer Mueller");
   }
 
   /**

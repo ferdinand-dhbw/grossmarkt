@@ -31,13 +31,11 @@ public class ProduzentMap {
    * @param plz            post code
    * @param linkPreisliste link (String) to pricing
    */
-  public void addProduzent(String vorname, String nachname, String land, String stadt,
-      String strasse, String hausNr, int plz, String linkPreisliste) {
-    int nextFreeKey =
-        produzentHashMap.isEmpty() ? 1 : Collections.max(produzentHashMap.keySet()) + 1;
+  public void addProduzent(String vorname, String nachname, String land, String stadt, String strasse, String hausNr,
+                           int plz, String linkPreisliste) {
+    int nextFreeKey = produzentHashMap.isEmpty() ? 1 : Collections.max(produzentHashMap.keySet()) + 1;
 
-    produzentHashMap.put(nextFreeKey,
-        new Produzent(nextFreeKey, vorname, nachname, land, stadt, strasse, hausNr, plz,
+    produzentHashMap.put(nextFreeKey, new Produzent(nextFreeKey, vorname, nachname, land, stadt, strasse, hausNr, plz,
             linkPreisliste));
   }
 
@@ -45,10 +43,8 @@ public class ProduzentMap {
    * adds demo data
    */
   public void populateWithDemodata() {
-    addProduzent("Bauer", "Müller", "DE", "Stuttgart", "Schulstrasse", "3a", 70174,
-        "https://www.example.com");
-    addProduzent("Jo", "Ker", "GB", "London", "Mainstreet", "420", 424242,
-        "https://www.example.com");
+    addProduzent("Bauer", "Müller", "DE", "Stuttgart", "Schulstrasse", "3a", 70174, "https://www.example.com");
+    addProduzent("Jo", "Ker", "GB", "London", "Mainstreet", "420", 424242, "https://www.example.com");
   }
 
   /**

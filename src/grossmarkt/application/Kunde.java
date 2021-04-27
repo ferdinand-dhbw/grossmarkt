@@ -12,8 +12,8 @@ public class Kunde extends Person {
   private final String email;
   private final LieferscheinPreaferenz preaferenz;
 
-  public Kunde(int id, String vorname, String nachname, String land, String stadt, String strasse,
-      String hausNr, int plz, String email, LieferscheinPreaferenz preaferenz) {
+  public Kunde(int id, String vorname, String nachname, String land, String stadt, String strasse, String hausNr,
+               int plz, String email, LieferscheinPreaferenz preaferenz) {
     super(id, vorname, nachname, land, stadt, strasse, hausNr, plz);
     this.email = email;
     this.preaferenz = preaferenz;

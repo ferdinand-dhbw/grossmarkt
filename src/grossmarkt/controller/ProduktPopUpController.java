@@ -106,8 +106,7 @@ public class ProduktPopUpController implements Controller {
       currentProdukt.updateAll(anzahl, bezeichnung, herkunft, kategorie, einkaufsdatum, preis, mhd);
       reference.getProduktMap().updateProdukt(currentProdukt);
     } else {
-      reference.getProduktMap()
-          .addProdukt(anzahl, bezeichnung, herkunft, kategorie, einkaufsdatum, preis, mhd);
+      reference.getProduktMap().addProdukt(anzahl, bezeichnung, herkunft, kategorie, einkaufsdatum, preis, mhd);
     }
     Stage stage = (Stage) NextBtn.getScene().getWindow();
     stage.close();

@@ -13,8 +13,8 @@ public class Produkt {
   private double preis;
   private String bezeichnung, herkunftsregion, kategorie, einkaufsdatum, mhd;
 
-  public Produkt(int produktNr, int anzahl, String bezeichnung, String herkunftsregion,
-      String kategorie, String einkaufsdatum, double preis, String mhd) {
+  public Produkt(int produktNr, int anzahl, String bezeichnung, String herkunftsregion, String kategorie,
+                 String einkaufsdatum, double preis, String mhd) {
     this.produktNr = produktNr;
     this.anzahl = anzahl;
     this.bezeichnung = bezeichnung;
@@ -36,8 +36,8 @@ public class Produkt {
    * @param preis           purchase price
    * @param mhd             best-before-date
    */
-  public void updateAll(int anzahl, String bezeichnung, String herkunftsregion,
-      String kategorie, String einkaufsdatum, double preis, String mhd) {
+  public void updateAll(int anzahl, String bezeichnung, String herkunftsregion, String kategorie, String einkaufsdatum,
+                        double preis, String mhd) {
     this.anzahl = anzahl;
     this.bezeichnung = bezeichnung;
     this.herkunftsregion = herkunftsregion;

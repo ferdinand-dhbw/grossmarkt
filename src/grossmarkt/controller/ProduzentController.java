@@ -72,12 +72,10 @@ public class ProduzentController implements Controller {
     initEvents();
     setUpTableView();
 
-    delBtn.setOnAction(event ->
-        deleteProduzenten(
+    delBtn.setOnAction(event -> deleteProduzenten(
             new ArrayList<>(produzentenTableView.getSelectionModel().getSelectedItems())));
 
-    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true,
-        true);
+    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true, true);
     ImageView imageView = new ImageView(image);
     delBtn.setGraphic(imageView);
 
@@ -121,22 +119,15 @@ public class ProduzentController implements Controller {
         lPreisliste = new TableColumn<>("Preisliste");
     lNummer.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getId()));
     lVorname.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getVorname()));
-    lNachname
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getNachname()));
-    lAdresse
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
+    lNachname.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getNachname()));
+    lAdresse.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
 
-    lPreisliste.setCellValueFactory(
-        param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
+    lPreisliste.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
 
-    produzentenTableView.getColumns()
-        .addAll(lNummer, lVorname, lNachname, lAdresse, lPreisliste);
-    produzentenTableView.getSelectionModel().setSelectionMode(
-        SelectionMode.MULTIPLE
-    );
+    produzentenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse, lPreisliste);
+    produzentenTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-    filterProduzentenAndSetUpSearch()
-        .forEach(produzent -> produzentenTableView.getItems().add(produzent));
+    filterProduzentenAndSetUpSearch().forEach(produzent -> produzentenTableView.getItems().add(produzent));
 
     produzentenTableView.setRowFactory(tv -> {
       TableRow<Produzent> row = new TableRow<>();
@@ -159,8 +150,7 @@ public class ProduzentController implements Controller {
   private FilteredList<Produzent> filterProduzentenAndSetUpSearch() {
     FilteredList<Produzent> filteredProduzenten = filterProduzenten();
 
-    produzentenSearchTxtfield.textProperty()
-        .addListener((observable, oldValue, newValue) -> {
+    produzentenSearchTxtfield.textProperty().addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredProduzenten, newValue);
           produzentenTableView.getItems().clear();
           filteredProduzenten.forEach(produzent -> produzentenTableView.getItems().add(produzent));
@@ -199,10 +189,9 @@ public class ProduzentController implements Controller {
     alert.setTitle("Möchten Sie die Produzenten unwiderruflich löschen?");
     AtomicReference<String> content = new AtomicReference<>("Ausgewählte Produzenten:");
     produzents.forEach(produzent -> content.set(content.get().concat(String
-        .format("\n\t• %d  %s %s", produzent.getId(), produzent.getVorname(),
-            produzent.getNachname()))));
+            .format("\n\t• %d  %s %s", produzent.getId(), produzent.getVorname(), produzent.getNachname()))));
     alert.setContentText(content.get()
-        .concat("\n\nTipp: Es können auch mehrere Produzenten mit STRG + Klick ausgewählt."));
+            .concat("\n\nTipp: Es können auch mehrere Produzenten mit STRG + Klick ausgewählt."));
     alert.initOwner(delBtn.getScene().getWindow());
 
     alert.setHeaderText(null);
@@ -217,8 +206,7 @@ public class ProduzentController implements Controller {
     dialogPane.setMinWidth(500);
 
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
-      produzents
-          .forEach(produzent -> reference.getProduzentMap().deleteProduzent(produzent.getId()));
+      produzents.forEach(produzent -> reference.getProduzentMap().deleteProduzent(produzent.getId()));
       safeTableViewRefresh();
     }
   }
@@ -227,20 +215,16 @@ public class ProduzentController implements Controller {
     EventHandler<ActionEvent> featureAlert = event -> featureAlert(navStart.getScene().getWindow());
     navKunde.setOnAction(featureAlert);
 
-    navStart.setOnAction(
-        event -> switchScene(View.HOME, navStart.getScene(), getClass(), reference));
-    navLager.setOnAction(
-        event -> switchScene(View.LAGER, navLager.getScene(), getClass(), reference));
-    navLieferant.setOnAction(
-        event -> switchScene(View.LIEFERANT, navLieferant.getScene(), getClass(), reference));
+    navStart.setOnAction(event -> switchScene(View.HOME, navStart.getScene(), getClass(), reference));
+    navLager.setOnAction(event -> switchScene(View.LAGER, navLager.getScene(), getClass(), reference));
+    navLieferant.setOnAction(event -> switchScene(View.LIEFERANT, navLieferant.getScene(), getClass(), reference));
   }
 
   private void safeTableViewRefresh() {
     FilteredList<Produzent> filteredProduzenten = filterProduzenten();
     setPredicate(filteredProduzenten, produzentenSearchTxtfield.getText());
 
-    produzentenSearchTxtfield.textProperty()
-        .addListener((observable, oldValue, newValue) -> {
+    produzentenSearchTxtfield.textProperty().addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredProduzenten, newValue);
           produzentenTableView.getItems().clear();
           filteredProduzenten.forEach(produzent -> produzentenTableView.getItems().add(produzent));

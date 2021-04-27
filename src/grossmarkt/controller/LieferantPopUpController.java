@@ -49,7 +49,7 @@ public class LieferantPopUpController implements Controller {
     if (currentLieferant != null) {
       populateFields();
       lLiefernantennummerText.setText(
-          lLiefernantennummerText.getText().concat(Integer.toString(currentLieferant.getId())));
+              lLiefernantennummerText.getText().concat(Integer.toString(currentLieferant.getId())));
     } else {
       lLiefernantennummerText.setText("Neuer Lieferant");
       lPopupNextBtn.setText("ERSTELLEN");
@@ -80,13 +80,11 @@ public class LieferantPopUpController implements Controller {
     }
 
     if (currentLieferant != null) {
-      currentLieferant
-          .updateAll(vorname, nachname, currentLieferant.getLand(), stadt, strasse, hNr, plz,
-              preisliste, produzent);
+      currentLieferant.updateAll(vorname, nachname, currentLieferant.getLand(), stadt, strasse, hNr, plz, preisliste,
+              produzent);
       reference.getLieferantMap().updateLieferant(currentLieferant);
     } else {
-      reference.getLieferantMap()
-          .addLieferant(vorname, nachname, "DE", stadt, strasse, hNr, plz, preisliste,
+      reference.getLieferantMap().addLieferant(vorname, nachname, "DE", stadt, strasse, hNr, plz, preisliste,
               produzent);
     }
     Stage stage = (Stage) lPopupNextBtn.getScene().getWindow();

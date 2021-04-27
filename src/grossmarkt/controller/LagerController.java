@@ -72,11 +72,9 @@ public class LagerController implements Controller {
     initEvents();
     setUpTableView();
 
-    delBtn.setOnAction(event ->
-        deleteProdukte(new ArrayList<>(lagerTableView.getSelectionModel().getSelectedItems())));
+    delBtn.setOnAction(event -> deleteProdukte(new ArrayList<>(lagerTableView.getSelectionModel().getSelectedItems())));
 
-    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16,
-        true, true);
+    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true, true);
     ImageView imageView = new ImageView(image);
     delBtn.setGraphic(imageView);
 
@@ -119,41 +117,27 @@ public class LagerController implements Controller {
         pPreis = new TableColumn<>("Preis"),
         pMhd = new TableColumn<>("MHD");
 
-    TableColumn<Produkt, Integer> pNummer = new TableColumn<>("Produktnummer"),
-        pAnzahl = new TableColumn<>("Anzahl");
+    TableColumn<Produkt, Integer> pNummer = new TableColumn<>("Produktnummer"), pAnzahl = new TableColumn<>("Anzahl");
 
-    pNummer
-        .setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getProduktNr()));
-    pBezeichnung
-        .setCellValueFactory(
-            param -> new SimpleObjectProperty<>(param.getValue().getBezeichnung()));
+    pNummer.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getProduktNr()));
+    pBezeichnung.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getBezeichnung()));
     pAnzahl.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getAnzahl()));
-    pKategorie
-        .setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getKategorie()));
-    pHerkunftsregion.setCellValueFactory(
-        param -> new SimpleObjectProperty<>(param.getValue().getHerkunftsregion()));
-    pEinkaufsdatum.setCellValueFactory(
-        param -> new SimpleObjectProperty<>(param.getValue().getEinkaufsdatum()));
+    pKategorie.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getKategorie()));
+    pHerkunftsregion.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getHerkunftsregion()));
+    pEinkaufsdatum.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getEinkaufsdatum()));
     pMhd.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getMhd()));
-    pPreis
-        .setCellValueFactory(
-            param -> new SimpleObjectProperty<>(param.getValue().getPreis() + " €"));
+    pPreis.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getPreis() + " €"));
 
-    lagerTableView.getColumns()
-        .addAll(pNummer, pBezeichnung, pAnzahl, pKategorie, pHerkunftsregion, pEinkaufsdatum, pMhd,
-            pPreis);
-    lagerTableView.getSelectionModel().setSelectionMode(
-        SelectionMode.MULTIPLE
-    );
+    lagerTableView.getColumns().addAll(pNummer, pBezeichnung, pAnzahl, pKategorie, pHerkunftsregion, pEinkaufsdatum,
+            pMhd, pPreis);
+    lagerTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
     filterProdukteAndSetUpSearch().forEach(produkt -> lagerTableView.getItems().add(produkt));
 
     lagerTableView.setRowFactory(tv -> {
       TableRow<Produkt> row = new TableRow<>();
       row.setOnMouseClicked(event -> {
-        if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-            && event.getClickCount() == 2) {
-
+        if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
           Produkt clickedProdukt = row.getItem();
           showProdukt(clickedProdukt);
         }
@@ -169,8 +153,7 @@ public class LagerController implements Controller {
   private FilteredList<Produkt> filterProdukteAndSetUpSearch() {
     FilteredList<Produkt> filteredProdukte = filterProdukte();
 
-    lagerSearchTxtfield.textProperty()
-        .addListener((observable, oldValue, newValue) -> {
+    lagerSearchTxtfield.textProperty().addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredProdukte, newValue);
           lagerTableView.getItems().clear();
           filteredProdukte.forEach(produkt -> lagerTableView.getItems().add(produkt));
@@ -208,10 +191,9 @@ public class LagerController implements Controller {
     alert.setTitle("Möchten Sie die Produkte unwiderruflich löschen?");
     AtomicReference<String> content = new AtomicReference<>("Ausgewählte Produkte:");
     produkts.forEach(produkt -> content.set(content.get().concat(String
-        .format("\n\t• Id %d, %s (%s)", produkt.getProduktNr(), produkt.getBezeichnung(),
-            produkt.getKategorie()))));
+        .format("\n\t• Id %d, %s (%s)", produkt.getProduktNr(), produkt.getBezeichnung(), produkt.getKategorie()))));
     alert.setContentText(content.get()
-        .concat("\n\nTipp: Es können auch mehrere Produkte mit STRG + Klick ausgewählt."));
+            .concat("\n\nTipp: Es können auch mehrere Produkte mit STRG + Klick ausgewählt."));
     alert.initOwner(delBtn.getScene().getWindow());
 
     alert.setHeaderText(null);
@@ -226,31 +208,25 @@ public class LagerController implements Controller {
     dialogPane.setMinWidth(500);
 
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
-      produkts
-          .forEach(produkt -> reference.getProduktMap().deleteProdukt(produkt.getProduktNr()));
+      produkts.forEach(produkt -> reference.getProduktMap().deleteProdukt(produkt.getProduktNr()));
       safeTableViewRefresh();
     }
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert(
-        navStart.getScene().getWindow());
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(navStart.getScene().getWindow());
     navKunde.setOnAction(featureAlert);
 
-    navStart.setOnAction(
-        event -> switchScene(View.HOME, navStart.getScene(), getClass(), reference));
-    navLieferant.setOnAction(
-        event -> switchScene(View.LIEFERANT, navLieferant.getScene(), getClass(), reference));
-    navProduzent.setOnAction(
-        event -> switchScene(View.PRODUZENT, navProduzent.getScene(), getClass(), reference));
+    navStart.setOnAction(event -> switchScene(View.HOME, navStart.getScene(), getClass(), reference));
+    navLieferant.setOnAction(event -> switchScene(View.LIEFERANT, navLieferant.getScene(), getClass(), reference));
+    navProduzent.setOnAction(event -> switchScene(View.PRODUZENT, navProduzent.getScene(), getClass(), reference));
   }
 
   private void safeTableViewRefresh() {
     FilteredList<Produkt> filteredProdukte = filterProdukte();
     setPredicate(filteredProdukte, lagerSearchTxtfield.getText());
 
-    lagerSearchTxtfield.textProperty()
-        .addListener((observable, oldValue, newValue) -> {
+    lagerSearchTxtfield.textProperty().addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredProdukte, newValue);
           lagerTableView.getItems().clear();
           filteredProdukte.forEach(produkt -> lagerTableView.getItems().add(produkt));

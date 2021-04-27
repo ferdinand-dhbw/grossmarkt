@@ -12,8 +12,8 @@ public class Produzent extends Person {
 
   private String linkPreisliste;
 
-  public Produzent(int id, String vorname, String nachname, String land, String stadt,
-      String strasse, String hausNr, int plz, String linkPreisliste) {
+  public Produzent(int id, String vorname, String nachname, String land, String stadt, String strasse, String hausNr,
+                   int plz, String linkPreisliste) {
     super(id, vorname, nachname, land, stadt, strasse, hausNr, plz);
     this.linkPreisliste = linkPreisliste;
   }
@@ -30,8 +30,8 @@ public class Produzent extends Person {
    * @param plz            post code
    * @param linkPreisliste link (String) to pricing
    */
-  public void updateAll(String vorname, String nachname, String land, String stadt,
-      String strasse, String hausNr, int plz, String linkPreisliste) {
+  public void updateAll(String vorname, String nachname, String land, String stadt, String strasse, String hausNr,
+                        int plz, String linkPreisliste) {
     this.setVorname(vorname);
     this.setNachname(nachname);
     this.setLand(land);

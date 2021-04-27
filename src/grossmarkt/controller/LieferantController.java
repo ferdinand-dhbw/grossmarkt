@@ -73,15 +73,12 @@ public class LieferantController implements Controller {
     initEvents();
     setUpTableView();
 
-    delBtn.setOnAction(event ->
-        deleteLieferanten(
+    delBtn.setOnAction(event -> deleteLieferanten(
             new ArrayList<>(lieferantenTableView.getSelectionModel().getSelectedItems())));
 
-    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true,
-        true);
+    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true, true);
     ImageView imageView = new ImageView(image);
     delBtn.setGraphic(imageView);
-
     addBtn.setOnAction(event -> showLieferant(null));
   }
 
@@ -123,23 +120,15 @@ public class LieferantController implements Controller {
         lPreisliste = new TableColumn<>("Preisliste");
     lNummer.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getId()));
     lVorname.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getVorname()));
-    lNachname
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getNachname()));
-    lAdresse
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
-    lProduzent
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduzenten()));
-    lPreisliste.setCellValueFactory(
-        param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
+    lNachname.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getNachname()));
+    lAdresse.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAdressString()));
+    lProduzent.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduzenten()));
+    lPreisliste.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getLinkPreisliste()));
 
-    lieferantenTableView.getColumns()
-        .addAll(lNummer, lVorname, lNachname, lAdresse, lProduzent, lPreisliste);
-    lieferantenTableView.getSelectionModel().setSelectionMode(
-        SelectionMode.MULTIPLE
-    );
+    lieferantenTableView.getColumns().addAll(lNummer, lVorname, lNachname, lAdresse, lProduzent, lPreisliste);
+    lieferantenTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-    filterLieferantenAndSetUpSearch()
-        .forEach(lieferant -> lieferantenTableView.getItems().add(lieferant));
+    filterLieferantenAndSetUpSearch().forEach(lieferant -> lieferantenTableView.getItems().add(lieferant));
 
     lieferantenTableView.setRowFactory(tv -> {
       TableRow<Lieferant> row = new TableRow<>();
@@ -186,7 +175,7 @@ public class LieferantController implements Controller {
       if (lieferant.getVorname().toLowerCase().contains(newValue.toLowerCase()) ||
           lieferant.getNachname().toLowerCase().contains(newValue.toLowerCase()) ||
           lieferant.getVorname().concat(" ").concat(lieferant.getNachname()).toLowerCase()
-              .contains(newValue.toLowerCase())) {
+                  .contains(newValue.toLowerCase())) {
         return true;
       }
       return Integer.toString(lieferant.getId()).contains(newValue);
@@ -202,8 +191,7 @@ public class LieferantController implements Controller {
     alert.setTitle("Möchten Sie die Lieferanten unwiderruflich löschen?");
     AtomicReference<String> content = new AtomicReference<>("Ausgewählte Lieferanten:");
     lieferants.forEach(lieferant -> content.set(content.get().concat(String
-        .format("\n\t• %d  %s %s", lieferant.getId(), lieferant.getVorname(),
-            lieferant.getNachname()))));
+            .format("\n\t• %d  %s %s", lieferant.getId(), lieferant.getVorname(), lieferant.getNachname()))));
     alert.setContentText(content.get()
         .concat("\n\nTipp: Es können auch mehrere Lieferanten mit STRG + Klick ausgewählt."));
     alert.initOwner(delBtn.getScene().getWindow());
@@ -220,8 +208,7 @@ public class LieferantController implements Controller {
     dialogPane.setMinWidth(500);
 
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
-      lieferants
-          .forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
+      lieferants.forEach(lieferant -> reference.getLieferantMap().deleteLieferant(lieferant.getId()));
       safeTableViewRefresh();
     }
   }
@@ -231,20 +218,16 @@ public class LieferantController implements Controller {
         navStart.getScene().getWindow());
     navKunde.setOnAction(featureAlert);
 
-    navStart.setOnAction(
-        event -> switchScene(View.HOME, navStart.getScene(), getClass(), reference));
-    navLager.setOnAction(
-        event -> switchScene(View.LAGER, navLager.getScene(), getClass(), reference));
-    navProduzent.setOnAction(
-        event -> switchScene(View.PRODUZENT, navProduzent.getScene(), getClass(), reference));
+    navStart.setOnAction(event -> switchScene(View.HOME, navStart.getScene(), getClass(), reference));
+    navLager.setOnAction(event -> switchScene(View.LAGER, navLager.getScene(), getClass(), reference));
+    navProduzent.setOnAction(event -> switchScene(View.PRODUZENT, navProduzent.getScene(), getClass(), reference));
   }
 
   private void safeTableViewRefresh() {
     FilteredList<Lieferant> filteredLieferanten = filterLieferanten();
     setPredicate(filteredLieferanten, lieferantSearchTxtfield.getText());
 
-    lieferantSearchTxtfield.textProperty()
-        .addListener((observable, oldValue, newValue) -> {
+    lieferantSearchTxtfield.textProperty().addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredLieferanten, newValue);
           lieferantenTableView.getItems().clear();
           filteredLieferanten.forEach(lieferant -> lieferantenTableView.getItems().add(lieferant));

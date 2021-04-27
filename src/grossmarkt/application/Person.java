@@ -13,8 +13,8 @@ public abstract class Person {
   private String vorname, nachname, land, stadt, strasse, hausNr;
   private int plz;
 
-  public Person(int id, String vorname, String nachname, String land, String stadt, String strasse,
-      String hausNr, int plz) {
+  public Person(int id, String vorname, String nachname, String land, String stadt, String strasse, String hausNr,
+                int plz) {
     this.vorname = vorname;
     this.nachname = nachname;
     this.land = land;
@@ -31,8 +31,8 @@ public abstract class Person {
    * @return adress of Person
    */
   public String getAdressString() {
-    return strasse.concat(" ").concat(hausNr).concat("\n").concat(Integer.toString(plz)).concat(" ")
-        .concat(stadt).concat("\n").concat(land);
+    return strasse.concat(" ").concat(hausNr).concat("\n").concat(Integer.toString(plz)).concat(" ").concat(stadt)
+            .concat("\n").concat(land);
   }
 
   public int getId() {

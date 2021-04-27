@@ -31,13 +31,12 @@ public class ProduktMap {
    * @param preis           purchase price
    * @param mhd             best-before-date
    */
-  public void addProdukt(int menge, String bezeichnung, String herkunftsregion, String kategorie,
-      String einkaufsdatum, double preis, String mhd) {
+  public void addProdukt(int menge, String bezeichnung, String herkunftsregion, String kategorie, String einkaufsdatum,
+                         double preis, String mhd) {
     int nextFreeKey = produktHashMap.isEmpty() ? 1 : Collections.max(produktHashMap.keySet()) + 1;
 
-    produktHashMap.put(nextFreeKey,
-        new Produkt(nextFreeKey, menge, bezeichnung, herkunftsregion, kategorie, einkaufsdatum,
-            preis, mhd));
+    produktHashMap.put(nextFreeKey, new Produkt(nextFreeKey, menge, bezeichnung, herkunftsregion, kategorie,
+            einkaufsdatum, preis, mhd));
   }
 
   /**

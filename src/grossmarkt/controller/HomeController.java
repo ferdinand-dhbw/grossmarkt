@@ -28,7 +28,6 @@ public class HomeController implements Controller {
 
   private MapReference mapReference;
 
-
   @FXML
   private Text timestamp, changeOrt;
   @FXML
@@ -46,20 +45,14 @@ public class HomeController implements Controller {
   }
 
   private void initEvents() {
-    EventHandler<ActionEvent> featureAlert = event -> featureAlert(
-        homeLager.getScene().getWindow());
+    EventHandler<ActionEvent> featureAlert = event -> featureAlert(homeLager.getScene().getWindow());
     navKunde.setOnAction(featureAlert);
     homeAuftrag.setOnAction(featureAlert);
 
-    navProduzent.setOnAction(
-        event -> switchScene(View.PRODUZENT, navKunde.getScene(), getClass(), mapReference)
-    );
-    navLager.setOnAction(
-        event -> switchScene(View.LAGER, navKunde.getScene(), getClass(), mapReference));
-    homeLager.setOnAction(
-        event -> switchScene(View.LAGER, homeLager.getScene(), getClass(), mapReference));
-    navLieferant.setOnAction(
-        event -> switchScene(View.LIEFERANT, navKunde.getScene(), getClass(), mapReference));
+    navProduzent.setOnAction(event -> switchScene(View.PRODUZENT, navKunde.getScene(), getClass(), mapReference));
+    navLager.setOnAction(event -> switchScene(View.LAGER, navKunde.getScene(), getClass(), mapReference));
+    homeLager.setOnAction(event -> switchScene(View.LAGER, homeLager.getScene(), getClass(), mapReference));
+    navLieferant.setOnAction(event -> switchScene(View.LIEFERANT, navKunde.getScene(), getClass(), mapReference));
     changeOrt.setOnMouseClicked(mouseEvent -> featureAlert(navKunde.getScene().getWindow()));
   }
 

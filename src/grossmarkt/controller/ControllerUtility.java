@@ -29,8 +29,7 @@ public class ControllerUtility {
    * @param currentClass reference to current class
    * @param reference    reference to maps
    */
-  public static void switchScene(View view, Scene currentScene, Class currentClass,
-      MapReference reference) {
+  public static void switchScene(View view, Scene currentScene, Class currentClass, MapReference reference) {
     FXMLLoader loader = new FXMLLoader(currentClass.getResource("../" + view.filename));
     Parent root = null;
     try {
@@ -50,8 +49,7 @@ public class ControllerUtility {
   public static void featureAlert(Window parent) {
     var alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("Funktion nicht verfügbar");
-    alert.setContentText(
-        "Die ausgewählte Funktion ist in dieser Version des Programms noch nicht verfügbar.");
+    alert.setContentText("Die ausgewählte Funktion ist in dieser Version des Programms noch nicht verfügbar.");
     alert.setHeaderText(null);
     alert.initOwner(parent);
 
