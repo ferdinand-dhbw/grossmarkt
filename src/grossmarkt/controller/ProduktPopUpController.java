@@ -122,10 +122,10 @@ public class ProduktPopUpController implements Controller {
 
   private void initSpinners() {
     pAnzahl.setValueFactory(new IntegerSpinnerValueFactory(1, 999, 1, 1));
-    pPreis.setValueFactory(new DoubleSpinnerValueFactory(0.01, 9999.99, 0.00, 0.01));
+    pPreis.setValueFactory(new DoubleSpinnerValueFactory(0.00, 9999.99, 0.00, 0.01));
 
     pAnzahl.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
-      if (!newValue.matches("\\d{0,3}")) {
+      if (!newValue.matches("\\d{1,3}")) {
         pAnzahl.getEditor().setText(oldValue);
       }
     });

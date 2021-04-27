@@ -27,6 +27,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -65,11 +66,10 @@ public class LagerController implements Controller {
     setUpTableView();
 
     delBtn.setOnAction(event ->
-        deleteProdukte(
-            new ArrayList<>(lagerTableView.getSelectionModel().getSelectedItems())));
+        deleteProdukte(new ArrayList<>(lagerTableView.getSelectionModel().getSelectedItems())));
 
-    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16, true,
-        true);
+    Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16,
+        true,true);
     ImageView imageView = new ImageView(image);
     delBtn.setGraphic(imageView);
 
@@ -105,27 +105,29 @@ public class LagerController implements Controller {
   }
 
   private void setUpTableView() {
-    TableColumn<Produkt, String> pNummer = new TableColumn<>("Produktnummer"),
-        pBezeichnung = new TableColumn<>("Bezeichnung"),
-        pAnzahl = new TableColumn<>("Anzahl"),
+    TableColumn<Produkt, String> pBezeichnung = new TableColumn<>("Bezeichnung"),
         pKategorie = new TableColumn<>("Kategorie"),
         pHerkunftsregion = new TableColumn<>("Herkunft"),
         pEinkaufsdatum = new TableColumn<>("Einkaufsdatum"),
-        pMhd = new TableColumn<>("MHD"),
-        pPreis = new TableColumn<>("Preis");
-    pNummer.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduktNr()));
+        pPreis = new TableColumn<>("Preis"),
+        pMhd = new TableColumn<>("MHD");
+
+    TableColumn<Produkt, Integer> pNummer = new TableColumn<>("Produktnummer"),
+        pAnzahl = new TableColumn<>("Anzahl");
+
+    pNummer.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getProduktNr()));
     pBezeichnung
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getBezeichnung()));
-    pAnzahl.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAnzahl()));
+        .setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getBezeichnung()));
+    pAnzahl.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getAnzahl()));
     pKategorie
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getKategorie()));
+        .setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getKategorie()));
     pHerkunftsregion.setCellValueFactory(
-        param -> new SimpleObjectProperty(param.getValue().getHerkunftsregion()));
+        param -> new SimpleObjectProperty<>(param.getValue().getHerkunftsregion()));
     pEinkaufsdatum.setCellValueFactory(
-        param -> new SimpleObjectProperty(param.getValue().getEinkaufsdatum()));
-    pMhd.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getMhd()));
+        param -> new SimpleObjectProperty<>(param.getValue().getEinkaufsdatum()));
+    pMhd.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getMhd()));
     pPreis
-        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getPreis() + " €"));
+        .setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getPreis() + " €"));
 
     lagerTableView.getColumns()
         .addAll(pNummer, pBezeichnung, pAnzahl, pKategorie, pHerkunftsregion, pEinkaufsdatum, pMhd,
@@ -134,7 +136,7 @@ public class LagerController implements Controller {
         SelectionMode.MULTIPLE
     );
 
-    lagerTableView.setItems(filterProdukteAndSetUpSearch());
+    filterProdukteAndSetUpSearch().forEach(produkt -> lagerTableView.getItems().add(produkt));
 
     lagerTableView.setRowFactory(tv -> {
       TableRow<Produkt> row = new TableRow<>();
@@ -148,6 +150,10 @@ public class LagerController implements Controller {
       });
       return row;
     });
+
+    pBezeichnung.setSortType(SortType.ASCENDING);
+    lagerTableView.getSortOrder().add(pBezeichnung);
+    lagerTableView.sort();
   }
 
   private FilteredList<Produkt> filterProdukteAndSetUpSearch() {
@@ -156,7 +162,8 @@ public class LagerController implements Controller {
     lagerSearchTxtfield.textProperty()
         .addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredProdukte, newValue);
-          lagerTableView.setItems(filteredProdukte);
+          lagerTableView.getItems().clear();
+          filteredProdukte.forEach(produkt -> lagerTableView.getItems().add(produkt));
         });
 
     return filteredProdukte;
@@ -191,7 +198,7 @@ public class LagerController implements Controller {
     alert.setTitle("Möchten Sie die Produkte unwiderruflich löschen?");
     AtomicReference<String> content = new AtomicReference<>("Ausgewählte Produkte:");
     produkts.forEach(produkt -> content.set(content.get().concat(String
-        .format("\n\t• %d  %s (%s)", produkt.getProduktNr(), produkt.getBezeichnung(),
+        .format("\n\t• Id %d, %s (%s)", produkt.getProduktNr(), produkt.getBezeichnung(),
             produkt.getKategorie()))));
     alert.setContentText(content.get());
     alert.initOwner(delBtn.getScene().getWindow());
@@ -233,10 +240,12 @@ public class LagerController implements Controller {
     lagerSearchTxtfield.textProperty()
         .addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredProdukte, newValue);
-          lagerTableView.setItems(filteredProdukte);
+          lagerTableView.getItems().clear();
+          filteredProdukte.forEach(produkt -> lagerTableView.getItems().add(produkt));
         });
 
-    lagerTableView.setItems(filteredProdukte);
-    lagerTableView.refresh();
+    lagerTableView.getItems().clear();
+    filteredProdukte.forEach(produkt -> lagerTableView.getItems().add(produkt));
+    lagerTableView.sort();
   }
 }
