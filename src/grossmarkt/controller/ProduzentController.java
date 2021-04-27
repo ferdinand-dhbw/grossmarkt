@@ -27,6 +27,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -127,7 +128,8 @@ public class ProduzentController implements Controller {
         SelectionMode.MULTIPLE
     );
 
-    produzentenTableView.setItems(filterProduzentenAndSetUpSearch());
+    filterProduzentenAndSetUpSearch()
+        .forEach(produzent -> produzentenTableView.getItems().add(produzent));
 
     produzentenTableView.setRowFactory(tv -> {
       TableRow<Produzent> row = new TableRow<>();
@@ -141,6 +143,10 @@ public class ProduzentController implements Controller {
       });
       return row;
     });
+
+    lNachname.setSortType(SortType.ASCENDING);
+    produzentenTableView.getSortOrder().add(lNachname);
+    produzentenTableView.sort();
   }
 
   private FilteredList<Produzent> filterProduzentenAndSetUpSearch() {
@@ -149,7 +155,8 @@ public class ProduzentController implements Controller {
     produzentenSearchTxtfield.textProperty()
         .addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredProduzenten, newValue);
-          produzentenTableView.setItems(filteredProduzenten);
+          produzentenTableView.getItems().clear();
+          filteredProduzenten.forEach(produzent -> produzentenTableView.getItems().add(produzent));
         });
 
     return filteredProduzenten;
@@ -226,10 +233,11 @@ public class ProduzentController implements Controller {
     produzentenSearchTxtfield.textProperty()
         .addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredProduzenten, newValue);
-          produzentenTableView.setItems(filteredProduzenten);
+          produzentenTableView.getItems().clear();
+          filteredProduzenten.forEach(produzent -> produzentenTableView.getItems().add(produzent));
         });
-
-    produzentenTableView.setItems(filteredProduzenten);
-    produzentenTableView.refresh();
+    produzentenTableView.getItems().clear();
+    filteredProduzenten.forEach(produzent -> produzentenTableView.getItems().add(produzent));
+    produzentenTableView.sort();
   }
 }

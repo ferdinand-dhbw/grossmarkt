@@ -27,6 +27,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -129,7 +130,8 @@ public class LieferantController implements Controller {
         SelectionMode.MULTIPLE
     );
 
-    lieferantenTableView.setItems(filterLieferantenAndSetUpSearch());
+    filterLieferantenAndSetUpSearch()
+        .forEach(lieferant -> lieferantenTableView.getItems().add(lieferant));
 
     lieferantenTableView.setRowFactory(tv -> {
       TableRow<Lieferant> row = new TableRow<>();
@@ -143,6 +145,10 @@ public class LieferantController implements Controller {
       });
       return row;
     });
+
+    lNachname.setSortType(SortType.ASCENDING);
+    lieferantenTableView.getSortOrder().add(lNachname);
+    lieferantenTableView.sort();
   }
 
   private FilteredList<Lieferant> filterLieferantenAndSetUpSearch() {
@@ -151,7 +157,8 @@ public class LieferantController implements Controller {
     lieferantSearchTxtfield.textProperty()
         .addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredLieferanten, newValue);
-          lieferantenTableView.setItems(filteredLieferanten);
+          lieferantenTableView.getItems().clear();
+          filteredLieferanten.forEach(lieferant -> lieferantenTableView.getItems().add(lieferant));
         });
 
     return filteredLieferanten;
@@ -229,10 +236,11 @@ public class LieferantController implements Controller {
     lieferantSearchTxtfield.textProperty()
         .addListener((observable, oldValue, newValue) -> {
           setPredicate(filteredLieferanten, newValue);
-          lieferantenTableView.setItems(filteredLieferanten);
+          lieferantenTableView.getItems().clear();
+          filteredLieferanten.forEach(lieferant -> lieferantenTableView.getItems().add(lieferant));
         });
-
-    lieferantenTableView.setItems(filteredLieferanten);
-    lieferantenTableView.refresh();
+    lieferantenTableView.getItems().clear();
+    filteredLieferanten.forEach(lieferant -> lieferantenTableView.getItems().add(lieferant));
+    lieferantenTableView.sort();
   }
 }
