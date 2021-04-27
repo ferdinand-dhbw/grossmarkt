@@ -2,34 +2,41 @@ package grossmarkt.application;
 
 public class Produkt {
 
-  private int produktNr, menge;
-  private String bezeichnung, herkunftsregion, kategorie, mhd;
+  private int produktNr, anzahl;
+  private double preis;
+  private String bezeichnung, herkunftsregion, kategorie, einkaufsdatum, mhd;
 
-  public Produkt(int produktNr, int menge, String bezeichnung, String herkunftsregion,
-      String kategorie, String mhd) {
+  public Produkt(int produktNr, int anzahl, String bezeichnung, String herkunftsregion,
+      String kategorie, String einkaufsdatum, double preis, String mhd) {
     this.produktNr = produktNr;
-    this.menge = menge;
+    this.anzahl = anzahl;
     this.bezeichnung = bezeichnung;
     this.herkunftsregion = herkunftsregion;
     this.kategorie = kategorie;
+    this.einkaufsdatum = einkaufsdatum;
+    this.preis = preis;
     this.mhd = mhd;
   }
 
   /**
    * Updates every field of the Lieferant-object
    *
-   * @param menge           quantity
+   * @param anzahl          quantity
    * @param bezeichnung     description
    * @param herkunftsregion region of origin
    * @param kategorie       category
+   * @param einkaufsdatum   buy date
+   * @param preis           purchase price
    * @param mhd             best-before-date
    */
-  public void updateAll(int menge, String bezeichnung, String herkunftsregion,
-      String kategorie, String mhd) {
-    this.menge = menge;
+  public void updateAll(int anzahl, String bezeichnung, String herkunftsregion,
+      String kategorie, String einkaufsdatum, double preis, String mhd) {
+    this.anzahl = anzahl;
     this.bezeichnung = bezeichnung;
     this.herkunftsregion = herkunftsregion;
     this.kategorie = kategorie;
+    this.einkaufsdatum = einkaufsdatum;
+    this.preis = preis;
     this.mhd = mhd;
   }
 
@@ -41,12 +48,12 @@ public class Produkt {
     this.produktNr = produktNr;
   }
 
-  public int getMenge() {
-    return menge;
+  public int getAnzahl() {
+    return anzahl;
   }
 
-  public void setMenge(int menge) {
-    this.menge = menge;
+  public void setAnzahl(int anzahl) {
+    this.anzahl = anzahl;
   }
 
   public String getBezeichnung() {
@@ -79,5 +86,21 @@ public class Produkt {
 
   public void setMhd(String mhd) {
     this.mhd = mhd;
+  }
+
+  public String getEinkaufsdatum() {
+    return einkaufsdatum;
+  }
+
+  public void setEinkaufsdatum(String einkaufsdatum) {
+    this.einkaufsdatum = einkaufsdatum;
+  }
+
+  public double getPreis() {
+    return preis;
+  }
+
+  public void setPreis(double preis) {
+    this.preis = preis;
   }
 }

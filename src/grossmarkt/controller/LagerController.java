@@ -91,7 +91,7 @@ public class LagerController implements Controller {
       produktPopUpController.init(reference);
       produktPopUpController.setUp(produkt);
       Stage addStage = new Stage();
-      addStage.setScene(new Scene(root, 600, 285));
+      addStage.setScene(new Scene(root, 600, 340));
       addStage.setResizable(false);
       addStage.initModality(Modality.APPLICATION_MODAL);
       addStage.initOwner(navKunde.getScene().getWindow());
@@ -110,19 +110,26 @@ public class LagerController implements Controller {
         pAnzahl = new TableColumn<>("Anzahl"),
         pKategorie = new TableColumn<>("Kategorie"),
         pHerkunftsregion = new TableColumn<>("Herkunft"),
-        pMhd = new TableColumn<>("MHD");
+        pEinkaufsdatum = new TableColumn<>("Einkaufsdatum"),
+        pMhd = new TableColumn<>("MHD"),
+        pPreis = new TableColumn<>("Preis");
     pNummer.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getProduktNr()));
     pBezeichnung
         .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getBezeichnung()));
-    pAnzahl.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getMenge()));
+    pAnzahl.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getAnzahl()));
     pKategorie
         .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getKategorie()));
     pHerkunftsregion.setCellValueFactory(
         param -> new SimpleObjectProperty(param.getValue().getHerkunftsregion()));
+    pEinkaufsdatum.setCellValueFactory(
+        param -> new SimpleObjectProperty(param.getValue().getEinkaufsdatum()));
     pMhd.setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getMhd()));
+    pPreis
+        .setCellValueFactory(param -> new SimpleObjectProperty(param.getValue().getPreis() + " €"));
 
     lagerTableView.getColumns()
-        .addAll(pNummer, pBezeichnung, pAnzahl, pKategorie, pHerkunftsregion, pMhd);
+        .addAll(pNummer, pBezeichnung, pAnzahl, pKategorie, pHerkunftsregion, pEinkaufsdatum, pMhd,
+            pPreis);
     lagerTableView.getSelectionModel().setSelectionMode(
         SelectionMode.MULTIPLE
     );
