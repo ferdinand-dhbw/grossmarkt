@@ -111,7 +111,7 @@
             <Insets left="15.0" />
           </GridPane.margin>
         </Text>
-            <Text fill="WHITE" layoutX="25.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Einkaufspreis" GridPane.rowIndex="2">
+            <Text fill="WHITE" layoutX="25.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Einkaufspreis (€)" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="15.0" />
                </GridPane.margin>
