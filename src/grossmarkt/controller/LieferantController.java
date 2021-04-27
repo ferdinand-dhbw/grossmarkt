@@ -34,6 +34,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
+import javafx.scene.layout.Region;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -216,6 +217,7 @@ public class LieferantController implements Controller {
     DialogPane dialogPane = alert.getDialogPane();
     dialogPane.setStyle("-fx-background-color: #282c34;");
     dialogPane.lookup(".content.label").setStyle("-fx-text-fill: white");
+    dialogPane.setMinWidth(500);
 
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       lieferants

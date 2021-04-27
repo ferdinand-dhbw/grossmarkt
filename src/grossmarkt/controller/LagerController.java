@@ -223,6 +223,7 @@ public class LagerController implements Controller {
     DialogPane dialogPane = alert.getDialogPane();
     dialogPane.setStyle("-fx-background-color: #282c34;");
     dialogPane.lookup(".content.label").setStyle("-fx-text-fill: white");
+    dialogPane.setMinWidth(500);
 
     if (alert.showAndWait().get().getButtonData() == ButtonData.NEXT_FORWARD) {
       produkts
