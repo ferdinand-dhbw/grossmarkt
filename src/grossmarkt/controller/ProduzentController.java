@@ -200,7 +200,8 @@ public class ProduzentController implements Controller {
     produzents.forEach(produzent -> content.set(content.get().concat(String
         .format("\n\t• %d  %s %s", produzent.getId(), produzent.getVorname(),
             produzent.getNachname()))));
-    alert.setContentText(content.get());
+    alert.setContentText(content.get()
+        .concat("\n\nTipp: Es können auch mehrere Produzenten mit STRG + Klick ausgewählt."));
     alert.initOwner(delBtn.getScene().getWindow());
 
     alert.setHeaderText(null);

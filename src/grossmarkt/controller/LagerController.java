@@ -75,7 +75,7 @@ public class LagerController implements Controller {
         deleteProdukte(new ArrayList<>(lagerTableView.getSelectionModel().getSelectedItems())));
 
     Image image = new Image("https://img.icons8.com/metro/344/ffffff/delete.png", 16, 16,
-        true,true);
+        true, true);
     ImageView imageView = new ImageView(image);
     delBtn.setGraphic(imageView);
 
@@ -121,9 +121,11 @@ public class LagerController implements Controller {
     TableColumn<Produkt, Integer> pNummer = new TableColumn<>("Produktnummer"),
         pAnzahl = new TableColumn<>("Anzahl");
 
-    pNummer.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getProduktNr()));
+    pNummer
+        .setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getProduktNr()));
     pBezeichnung
-        .setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getBezeichnung()));
+        .setCellValueFactory(
+            param -> new SimpleObjectProperty<>(param.getValue().getBezeichnung()));
     pAnzahl.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getAnzahl()));
     pKategorie
         .setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getKategorie()));
@@ -133,7 +135,8 @@ public class LagerController implements Controller {
         param -> new SimpleObjectProperty<>(param.getValue().getEinkaufsdatum()));
     pMhd.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getMhd()));
     pPreis
-        .setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getPreis() + " €"));
+        .setCellValueFactory(
+            param -> new SimpleObjectProperty<>(param.getValue().getPreis() + " €"));
 
     lagerTableView.getColumns()
         .addAll(pNummer, pBezeichnung, pAnzahl, pKategorie, pHerkunftsregion, pEinkaufsdatum, pMhd,
@@ -206,7 +209,8 @@ public class LagerController implements Controller {
     produkts.forEach(produkt -> content.set(content.get().concat(String
         .format("\n\t• Id %d, %s (%s)", produkt.getProduktNr(), produkt.getBezeichnung(),
             produkt.getKategorie()))));
-    alert.setContentText(content.get());
+    alert.setContentText(content.get()
+        .concat("\n\nTipp: Es können auch mehrere Produkte mit STRG + Klick ausgewählt."));
     alert.initOwner(delBtn.getScene().getWindow());
 
     alert.setHeaderText(null);
