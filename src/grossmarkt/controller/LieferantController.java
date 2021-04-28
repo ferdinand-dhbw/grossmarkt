@@ -193,7 +193,7 @@ public class LieferantController implements Controller {
     lieferants.forEach(lieferant -> content.set(content.get().concat(String
             .format("\n\t• %d  %s %s", lieferant.getId(), lieferant.getVorname(), lieferant.getNachname()))));
     alert.setContentText(content.get()
-        .concat("\n\nTipp: Es können auch mehrere Lieferanten mit STRG + Klick ausgewählt."));
+        .concat("\n\nTipp: Es können auch mehrere Lieferanten mit STRG + Klick ausgewählt werden."));
     alert.initOwner(delBtn.getScene().getWindow());
 
     alert.setHeaderText(null);

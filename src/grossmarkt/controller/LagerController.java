@@ -193,7 +193,7 @@ public class LagerController implements Controller {
     produkts.forEach(produkt -> content.set(content.get().concat(String
         .format("\n\t• Id %d, %s (%s)", produkt.getProduktNr(), produkt.getBezeichnung(), produkt.getKategorie()))));
     alert.setContentText(content.get()
-            .concat("\n\nTipp: Es können auch mehrere Produkte mit STRG + Klick ausgewählt."));
+            .concat("\n\nTipp: Es können auch mehrere Produkte mit STRG + Klick ausgewählt werden."));
     alert.initOwner(delBtn.getScene().getWindow());
 
     alert.setHeaderText(null);
